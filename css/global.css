@@ -1,0 +1,26 @@
+:root {
+
+/* Font family */
+    --font-main: 'Raleway';
+    --font-thai: 'Anuphan';
+
+    --font-weight-sma:300;
+    --font-weight-mid:500;
+    --font-weight-big:700;
+
+/* Color */
+    --color-bg : #151515;
+    --color-darkgray : #1d1d1d;
+    --color-midgray : #252525;
+    --color-lightgray : #2f2f2f;
+    --color-darkwhite : #3c3c3c;
+    --color-gray17 : #686868;
+    --color-blue : #5D60F5;
+    --color-red : #FF4054;
+    --color-lightblue : #3c97b6;
+    --color-green : #34FA96;
+
+    --color-text : #e4e4e4;
+    --color-textgray : #aaaaaa;
+    --color-textblack : #141414;
+}

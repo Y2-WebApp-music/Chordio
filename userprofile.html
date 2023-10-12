@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel='stylesheet' href='./css/userprofile.css'>
+    <link rel='stylesheet' href='./css/global.css'>
+    <script defer src="js/global.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400;500;600;700&family=Raleway:ital,wght@0,300;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <title>username</title>
+</head>
+<body>
+    <header>
+        <div class="headin">
+            <div class="appname">
+                <img src="img/circletest.png" id="appicon">
+                <p> -App Name- </p>
+            </div>
+            <nav>
+                <div class="home-bg" id="home-page-btn">
+                    <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" height="1.6em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#4d4d4d}</style><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+                </div>
+                <div class="song-bg" id="song-page-btn">
+                    <svg class="song-icon" xmlns="http://www.w3.org/2000/svg" height="1.6em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg>
+                </div>
+            </nav>
+            <div class="user-head">
+                <img src="img/circletest.png" class="user-icon" id="usericon">
+                <div class="user-popup" id="userPopup">
+                    <div class="user-profile-popup">
+                        <img src="img/circletest.png" alt="">
+                        <div>
+                            <p>User name</p>
+                            <p>#id name</p>
+                        </div>
+                    </div>
+                    <div class="user-popup-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="popup-icon" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 32a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm-96-32a96 96 0 1 0 192 0 96 96 0 1 0 -192 0zM96 240c0-35 17.5-71.1 45.2-98.8S205 96 240 96c8.8 0 16-7.2 16-16s-7.2-16-16-16c-45.4 0-89.2 22.3-121.5 54.5S64 194.6 64 240c0 8.8 7.2 16 16 16s16-7.2 16-16z"/></svg>
+                        <p>Your chord</p>
+                    </div>
+                    <div class="user-popup-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="popup-icon" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                        <p>chord like</p>
+                    </div>
+                    <div class="user-popup-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="popup-icon" height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/></svg>
+                        <p>post save</p>
+                    </div>
+                    <div class="user-popup-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="popup-icon" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17v80c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V448h40c13.3 0 24-10.7 24-24V384h40c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zM376 96a40 40 0 1 1 0 80 40 40 0 1 1 0-80z"/></svg>
+                        <p>Change password</p>
+                    </div>
+                    <div class="user-popup-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="popup-icon" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg>
+                        <p>Log out</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="left-container">
+            <div class="userprofile">
+                <img src="img/circletest.png" class="user-img" alt="">
+                <div class="user-information">
+                    <a> Username</a>
+                    <p> #id-of-user</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================
+============== Mid Zone ===============
+======================================  -->
+
+        <div class="mid-container">
+            <div class="make-post">
+                <div class="input-content">
+                    <div class="top-create-post">
+                        <img src="img/circletest.png" class="user-img" alt="">
+                        <div class="post-text-input">
+                            <input type="text" class="cr-post-title" placeholder="Title...">
+                            <input type="text" class="cr-post-content" contenteditable="true" placeholder="Content...">
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-create-post">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="camera" height="1.4em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M160 32c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H160zM396 138.7l96 144c4.9 7.4 5.4 16.8 1.2 24.6S480.9 320 472 320H328 280 200c-9.2 0-17.6-5.3-21.6-13.6s-2.9-18.2 2.9-25.4l64-80c4.6-5.7 11.4-9 18.7-9s14.2 3.3 18.7 9l17.3 21.6 56-84C360.5 132 368 128 376 128s15.5 4 20 10.7zM192 128a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120V344c0 75.1 60.9 136 136 136H456c13.3 0 24-10.7 24-24s-10.7-24-24-24H136c-48.6 0-88-39.4-88-88V120z"/></svg>
+                    <input type="submit" class="post-btn" value="Post">
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-user-information">
+                    <img src="img/circletest.png" class="user-icon-post">
+                    <div class="post-user-text">
+                        <p class="post-username"> Username </p>
+                        <p class="post-date"> 12 sep 2032 13:45</p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-title"> I want to yes tood you</div>
+                    <div class="post-detail-text"> sdiohbxdfbnklzdfnbklzdnfb zdfklbnzdklnbz bdfzklbnzkdlfnbklzd bzdfklbnzdlkfbnkzdlfnbklzdfb zdfbklnzndkfbnzkldb zdfkbzndfbklnzfd bzdfbinzdflkbnzfbklnzdfklb cgknbxklfngbxklfnbklfxgnbxklf;gnbklxfgnblkxnfgbklxfnbklxfnbl fdklbnzdklbnzkldf bzdkbnzd bdzbknzdnb klzdbkl zdfkbn dzfblzdfklbnzdfklb zdfbkzdfn blkzdfb zdfbknzdfb zdfbklzdfb dzflkbdfx bnklzdfn</div>
+                    <div class="post-img">
+                    </div>
+                </div>
+                <div class="post-interact">
+                    <div class="post-interact-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="like-icon" height="1.3em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                        <p> Like </p>
+                    </div>
+                    <div class="post-interact-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="comment-icon" height="1.3em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/></svg>
+                        <p>Comment</p>
+                    </div>
+                    <div class="post-interact-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="save" height="1.3em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/></svg>
+                        <p> Save </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-user-information">
+                    <img src="img/circletest.png" class="user-icon-post">
+                    <div class="post-user-text">
+                        <p class="post-username"> Username </p>
+                        <p class="post-date"> 12 sep 2032 13:45</p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-title"> I want to yes tood you</div>
+                    <div class="post-detail-text"> sdiohbxdfbnklzdfnbklzdnfb zdfklbnzdklnbz bdfzklbnzkdlfnbklzd bzdfklbnzdlkfbnkzdlfnbklzdfb zdfbklnzndkfbnzkldb zdfkbzndfbklnzfd bzdfbinzdflkbnzfbklnzdfklb cgknbxklfngbxklfnbklfxgnbxklf;gnbklxfgnblkxnfgbklxfnbklxfnbl fdklbnzdklbnzkldf bzdkbnzd bdzbknzdnb klzdbkl zdfkbn dzfblzdfklbnzdfklb zdfbkzdfn blkzdfb zdfbknzdfb zdfbklzdfb dzflkbdfx bnklzdfn</div>
+                    <div class="post-img">
+                        <img src="img/img-post1.png">
+                        <!-- <img src="img/img-post2.png"> -->
+                        <img src="img/img-post3.png">
+                        <!-- <img src="img/img-post4.jpg"> -->
+                    </div>
+                </div>
+                <div class="post-interact">
+                    <div class="post-interact-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="like-icon" height="1.3em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                        <p> Like </p>
+                    </div>
+                    <div class="post-interact-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="comment-icon" height="1.3em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/></svg>
+                        <p>Comment</p>
+                    </div>
+                    <div class="post-interact-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="save" height="1.3em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/></svg>
+                        <p> Save </p>
+                    </div>
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-user-information">
+                    <img src="img/circletest.png" class="user-icon-post">
+                    <div class="post-user-text">
+                        <p class="post-username"> Username </p>
+                        <p class="post-date"> 12 sep 2032 13:45</p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-title"> I want to yes tood you</div>
+                    <div class="post-detail-text"> sdiohbxdfbnklzdfnbklzdnfb zdfklbnzdklnbz bdfzklbnzkdlfnbklzd bzdfklbnzdlkfbnkzdlfnbklzdfb zdfbklnzndkfbnzkldb zdfkbzndfbklnzfd bzdfbinzdflkbnzfbklnzdfklb cgknbxklfngbxklfnbklfxgnbxklf;gnbklxfgnblkxnfgbklxfnbklxfnbl fdklbnzdklbnzkldf bzdkbnzd bdzbknzdnb klzdbkl zdfkbn dzfblzdfklbnzdfklb zdfbkzdfn blkzdfb zdfbknzdfb zdfbklzdfb dzflkbdfx bnklzdfn</div>
+                    <div class="post-img">
+                        <img src="img/img-post1.png">
+                        <img src="img/img-post2.png">
+                        <img src="img/img-post3.png">
+                        <img src="img/img-post4.jpg">
+                    </div>
+                </div>
+                <div class="post-interact">
+                    <div class="post-interact-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="like-icon" height="1.3em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                        <p> Like </p>
+                    </div>
+                    <div class="post-interact-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="comment-icon" height="1.3em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/></svg>
+                        <p>Comment</p>
+                    </div>
+                    <div class="post-interact-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="save" height="1.3em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/></svg>
+                        <p> Save </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================
+============== Right Zone ===============
+======================================  -->
+<div class="right-container">
+
+    <div class="your-chord-side">
+        <p class="text-your-chord"> Your Chords</p>
+        <div class="scroll-over">
+            <div class="your-chord-list">
+
+                <div class="your-chord">
+                    <img src="img/chord-cover.png" alt="">
+                    <div class="your-chord-imformation">
+                        <div class="your-chord-top">
+                            <p>ChuChu</p>
+                        </div>
+                        <div class="your-chord-down">
+                            <p class="your-chord-text-down">Artist:</p>
+                            <p class="your-chord-text-down-get">Three man down </p>
+                            <p class="your-chord-text-down">Key:</p>
+                            <p class="your-chord-text-down-get">C#</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="your-chord">
+                    <img src="img/chord-cover.png" alt="">
+                    <div class="your-chord-imformation">
+                        <div class="your-chord-top">
+                            <p>Lying Is the Most Fun a Girl Can Have Without Taking Her Clothes Off’
+                            </p>
+                        </div>
+                        <div class="your-chord-down">
+                            <p class="your-chord-text-down">Artist:</p>
+                            <p class="your-chord-text-down-get">Three man down </p>
+                            <p class="your-chord-text-down">Key:</p>
+                            <p class="your-chord-text-down-get">C#</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="create-chord">
+            <p> Create Chord </p>
+        </div>
+
+    </div>
+
+</div>
+    </div>
+
+</body>
+</html>
