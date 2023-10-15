@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400;500;600;700&family=Raleway:ital,wght@0,300;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
 
     <title>Music chord</title>
 </head>
@@ -35,7 +36,7 @@
             <div class="user-head">
                 <img src="img/circletest.png" class="user-icon" id="usericon">
                 <div class="user-popup" id="userPopup">
-                    <div class="user-profile-popup">
+                    <div class="user-profile-popup" id="user-page-btn">
                         <img src="img/circletest.png" alt="">
                         <div>
                             <p>User name</p>
@@ -68,8 +69,11 @@
     </header>
 
     <div class="container">
+<!-- ======================================
+============== Left Zone ===============
+======================================  -->
         <div class="left-container">
-            <div class="userprofile">
+            <div class="userprofile" id="user-go-btn">
                 <img src="img/circletest.png" class="user-img" alt="">
                 <div class="user-information">
                     <a> Username</a>
@@ -151,7 +155,7 @@
             </div>
         </div>
 
-        <!-- ======================================
+<!-- ======================================
 ============== Mid Zone ===============
 ======================================  -->
 
@@ -161,13 +165,27 @@
                     <div class="top-create-post">
                         <img src="img/circletest.png" class="user-img" alt="">
                         <div class="post-text-input">
-                            <input type="text" class="cr-post-title" placeholder="Title...">
-                            <input type="text" class="cr-post-content" contenteditable="true" placeholder="Content...">
+                            <input type="text" class="cr-post-title" placeholder="Write something..." maxlength="120">
+                            <textarea id="content-input" placeholder="content...."></textarea>
+                        </div>
+                    </div>
+                    <div class="slideshow-wrapper">
+                        <div class="prev-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arrow-hover" height="1.2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+                        </div>
+                        <div class="slideshow-left-right">
+                            <!-- Slides will be added here dynamically -->
+                        </div>
+                        <div class="next-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arrow-hover" height="1.2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
                         </div>
                     </div>
                 </div>
                 <div class="bottom-create-post">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="camera" height="1.4em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M160 32c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H160zM396 138.7l96 144c4.9 7.4 5.4 16.8 1.2 24.6S480.9 320 472 320H328 280 200c-9.2 0-17.6-5.3-21.6-13.6s-2.9-18.2 2.9-25.4l64-80c4.6-5.7 11.4-9 18.7-9s14.2 3.3 18.7 9l17.3 21.6 56-84C360.5 132 368 128 376 128s15.5 4 20 10.7zM192 128a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120V344c0 75.1 60.9 136 136 136H456c13.3 0 24-10.7 24-24s-10.7-24-24-24H136c-48.6 0-88-39.4-88-88V120z"/></svg>
+                    <label for="image-input">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="camera" height="1.4em" viewBox="0 0 576 512"><path d="M160 32c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H160zM396 138.7l96 144c4.9 7.4 5.4 16.8 1.2 24.6S480.9 320 472 320H328 280 200c-9.2 0-17.6-5.3-21.6-13.6s-2.9-18.2 2.9-25.4l64-80c4.6-5.7 11.4-9 18.7-9s14.2 3.3 18.7 9l17.3 21.6 56-84C360.5 132 368 128 376 128s15.5 4 20 10.7zM192 128a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120V344c0 75.1 60.9 136 136 136H456c13.3 0 24-10.7 24-24s-10.7-24-24-24H136c-48.6 0-88-39.4-88-88V120z"/></svg>
+                    </label>
+                    <input type="file" id="image-input" accept="image/*" multiple style="display: none;">
                     <input type="submit" class="post-btn" value="Post">
                 </div>
             </div>
@@ -181,8 +199,12 @@
                     </div>
                 </div>
                 <div class="post-content">
-                    <div class="post-title"> I want to yes tood you</div>
-                    <div class="post-detail-text"> sdiohbxdfbnklzdfnbklzdnfb zdfklbnzdklnbz bdfzklbnzkdlfnbklzd bzdfklbnzdlkfbnkzdlfnbklzdfb zdfbklnzndkfbnzkldb zdfkbzndfbklnzfd bzdfbinzdflkbnzfbklnzdfklb cgknbxklfngbxklfnbklfxgnbxklf;gnbklxfgnblkxnfgbklxfnbklxfnbl fdklbnzdklbnzkldf bzdkbnzd bdzbknzdnb klzdbkl zdfkbn dzfblzdfklbnzdfklb zdfbkzdfn blkzdfb zdfbknzdfb zdfbklzdfb dzflkbdfx bnklzdfn</div>
+                    <div class="post-title"> Some scholars consider articles to be a type of adjective, or in the same </div>
+                    <div class="post-detail-text">
+                        Some scholars consider articles to be a type of adjective, or in the same category with adjectives. Adjectives are words that describe a noun. Articles are similar to adjectives in that they modify nouns. However, unlike adjectives, they do not actually describe a noun; they just identify it. So some English language experts categorize articles as their own part of speech, separate from adjectives. For the purposes of this lesson, articles will be considered their own part of speech. <br>
+                        But these three little words are not interchangeable. They are crucial when referring to nouns in the English language, and each one is used in specific ways and in particular contexts.<br>
+                        "The" is the only definite article in English. When the article "the" is used to precede a word beginning with a consonant, it's pronounced "the" with a short "e" (also called a schwa) sound. The schwa sound is represented by an upside-down e symbol, usually within forward slashes.
+                    </div>
                     <div class="post-img">
                     </div>
                 </div>
@@ -270,7 +292,7 @@
             </div>
         </div>
 
-        <!-- ======================================
+<!-- ======================================
 ============== Right Zone ===============
 ======================================  -->
         <div class="right-container">
@@ -339,7 +361,7 @@
                     </div>
                 </div>
 
-                <div class="goto-chord">
+                <div class="goto-chord" id="chord-sus-btn">
                     <p> See more or create your chord..</p>
                 </div>
             </div>
