@@ -350,6 +350,7 @@ nav .home-bg .song-icon {
 }
 .scroll-over{
     overflow:scroll;
+    overflow-x: hidden;
 }
 .your-chord-list {
     width: 100%;
@@ -449,67 +450,56 @@ nav .home-bg .song-icon {
 
 /* ======================================
 =========================================
-============= Pop-UP User ==============
+=============== Responsive Zone ===============
 =========================================
 ====================================== */
-.user-popup{
-    visibility: hidden;
-
-    background-color: var(--color-midgray);
-    position:fixed;
-    top: 55px;
-    right: 0px;
-    width: 300px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 1rem 1rem;
-    justify-content: flex-start;
-    align-items: center;
-
-    border: solid;
-    border-radius: 10px;
-    border-width: 2px;
-    border-color: var(--color-darkwhite);
-
-    box-shadow: 0 0.05rem 0.25rem rgba(230, 230, 230, 0.25);
+@media  screen and (max-width: 1122px){
+    .container {
+        grid-template-columns: 35% 1fr 2%;
+    }
+    .right-container {
+        display: none;
+    }
 }
-.user-profile-popup{
-    width: 90%;
-    display: grid;
-    grid-template-columns: 20% 1fr;
-    gap: 10px;
-    padding: 0.3rem 0.3rem;
-    background-color: var(--color-lightgray);
-    border: solid;
-    border-width: 1px;
-    border-radius: 20px;
-    border-color: var(--color-darkwhite);
-    justify-items: start;
-    align-items: center;
+@media  screen and (max-width: 800px){
+    .appname {
+        grid-template-columns: 1fr;
+    }
+    .appname p{
+        content: "";
+        display: none;
+    }
+    .container {
+        grid-template-columns: 45% 1fr 2%;
+    }
+    .chord-display {
+        grid-template-columns: 1fr;
+    }
 }
-.user-profile-popup img{
-    width: 100%;
-    justify-self: center;
-    align-self: center;
-}
-
-.user-popup-btn{
-    width: 100%;
-    padding: 0.6rem 0.2rem;
-    border: none;
-    border-radius: 10px;
-
-    display: grid;
-    grid-template-columns: 15% 1fr;
-    align-items: center;
-    justify-items: start;
-}
-.user-popup-btn:hover{
-    background-color: var(--color-lightgray);
-}
-.popup-icon{
-    width: 100%;
-    /* padding: 0.2rem 0.9rem; */
+@media  screen and (max-width: 700px){
+    .container {
+        grid-template-columns: 1fr;
+    }
+    .left-container {
+        height: auto;
+        position: relative;
+        top: 0px;
+    }
+    .search-song{
+        width: 85%;
+    }
+    .type-group {
+        padding: 0.4rem 0.4rem;
+        width: 90%;
+    }
+    .chord-display {
+        margin: 0 2%;
+    }
+    .mid-container .chord {
+        height: 150px;
+    }
+    .chord .chord-top{
+        margin: 1rem 1rem;
+        padding-top: 17px;
+    }
 }
