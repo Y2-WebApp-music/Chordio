@@ -116,10 +116,87 @@ nav .song-bg .song-icon {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-
     position: sticky;
-    top: 60px;
+    top: 90px;
     height: 100vh;
+}
+.userprofile {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.userprofile img {
+    margin: 5px 5px;
+    width: 30%;
+}
+.user-information{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+.user-information .user-name{
+    font-size: 30px;
+    font-weight: var(--font-weight-mid);
+}
+.user-information .user-sub{
+    font-size: 15px;
+    font-weight: var(--font-weight-sma);
+    color: var(--color-textgray);
+}
+.user-status {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-bottom: 6%;
+}
+.user-gray {
+    color: var(--color-textgray);
+}
+.action-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 60%;
+    border: solid;
+    border-width: 1px;
+    border-color: var(--color-lightgray);
+    border-radius: 20px;
+    padding: 1rem 1rem;
+    margin: 0.5rem 0.1rem;
+    transition: .2s;
+}
+.action-btn:hover{
+    scale: 1.03;
+    background-color: var(--color-lightgray);
+    transition: .2s;
+}
+.save-btn{
+    fill: var(--color-darkwhite);
+    width: 40px;
+}
+.action-btn:hover .save-btn{
+    fill: var(--color-lightblue);
+}
+
+.like-btn{
+    fill: var(--color-darkwhite);
+    width: 40px;
+}
+.action-btn:hover .like-btn{
+    fill: var(--color-red);
+}
+
+.follow-btn{
+    fill: var(--color-darkwhite);
+    width: 40px;
+}
+.action-btn:hover .follow-btn{
+    fill: var(--color-green);
 }
 
 
@@ -154,7 +231,7 @@ nav .song-bg .song-icon {
     grid-template-columns: 10% 80%;
     gap: 5px ;
     padding: 0.2rem 0.3rem;
-    height: 130px;
+    min-height: 110px;
 }
 .top-create-post img {
     width: 80%;
@@ -168,7 +245,7 @@ nav .song-bg .song-icon {
 .top-create-post .post-text-input .cr-post-title {
     padding: 0.3rem 0.3rem;
     width: 100%;
-    font-size: 25px;
+    font-size: 22px;
     background: none;
     outline: none;
     border: none;
@@ -176,16 +253,98 @@ nav .song-bg .song-icon {
     border-width: 1px;
     border-color: var(--color-darkwhite);
 }
-.top-create-post .post-text-input .cr-post-content{
+.top-create-post .post-text-input #content-input{
     margin-top: 1%;
     padding: 0.3rem 0.3rem;
     width: 100%;
-    overflow-wrap: break-word;
+    min-height: 40px; /* Set a minimum height */
+    max-height: 1200px;
+    overflow-y: hidden;
+
     background: none;
     outline: none;
     border: none;
     color: var(--color-text);
     font-size: 16px;
+}
+
+.slideshow-wrapper {
+    display: flex;
+    justify-content: center; /* Center the slideshow and buttons horizontally */
+    align-items: center; /* Center vertically */
+    max-height: 400px;
+    margin-bottom: 1%;
+}
+
+.prev-button,
+.next-button {
+    flex: 0 0 20px; /* Adjust the width as needed */
+    cursor: pointer;
+    font-size: 18px;
+    padding: 2px;
+    text-align: center;
+}
+.arrow-hover{
+    fill: var(--color-darkwhite);
+    transition: .1s;
+}
+.prev-button:hover .arrow-hover ,.next-button:hover .arrow-hover{
+    fill: var(--color-lightblue);
+    transition: .1s;
+}
+
+.top-create-post .prev-button {
+    float: left; /* Float the "Previous" button to the left */
+}
+
+.top-create-post .next-button {
+    float: right; /* Float the "Next" button to the right */
+}
+
+/* Image input */
+.slideshow-left-right {
+    width: 100%;
+    text-align: center;
+    max-height: 400px;
+}
+.slide {
+    position: relative;
+    text-align: center;
+    height: 400px; /* Set a fixed height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Cancel button */
+.slideshow-left-right .slide .cancel-button {
+    position: absolute;
+    top: 5px;
+    right : 5px;
+    background-color: rgba(140, 140, 140, 0.5);
+    justify-self: center;
+    align-self: center;
+    border-radius: 40px;
+    height: 30px;
+    width: 30px;
+    padding: 0 0;
+    border: none;
+    cursor: pointer;
+}
+.cancel-button svg {
+    fill: white;
+    transition: fill 0.2s;
+}
+
+.cancel-button:hover svg {
+    fill: var(--color-red); /* Change to your desired color on hover */
 }
 
 .make-post .bottom-create-post {
@@ -226,12 +385,6 @@ nav .song-bg .song-icon {
     transition: .2s;
 }
 
-.text-post {
-    background-color:brown;
-    height: 600px;
-    margin: 2% 0;
-}
-
 /* Post Only Text */
 .post {
     margin-top: 2%;
@@ -248,7 +401,7 @@ nav .song-bg .song-icon {
 }
 .post .post-user-information {
     display: grid;
-    grid-template-columns: 8% 1fr;
+    grid-template-columns: 8% 1fr 3%;
     margin: 0.5rem 0.5rem;
 }
 .post .post-user-information .user-icon-post{
@@ -268,6 +421,15 @@ nav .song-bg .song-icon {
 .post .post-user-information .post-user-text .post-date{
     font-size: 14px;
     color: var(--color-textgray);
+}
+.post-edit {
+    justify-self: center;
+    fill: var(--color-darkwhite);
+    transition: .2s;
+}
+.post-edit:hover {
+    fill: var(--color-red);
+    transition: .2s;
 }
 .post .post-content{
     margin: 0rem 1rem;
@@ -484,72 +646,6 @@ nav .song-bg .song-icon {
     transition: .1s;
 }
 
-/* ======================================
-=========================================
-============= Pop-UP User ==============
-=========================================
-====================================== */
-.user-popup{
-    visibility: hidden;
-
-    background-color: var(--color-midgray);
-    position:fixed;
-    top: 55px;
-    right: 0px;
-    width: 300px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 1rem 1rem;
-    justify-content: flex-start;
-    align-items: center;
-
-    border: solid;
-    border-radius: 10px;
-    border-width: 2px;
-    border-color: var(--color-darkwhite);
-
-    box-shadow: 0 0.05rem 0.25rem rgba(230, 230, 230, 0.25);
-}
-.user-profile-popup{
-    width: 90%;
-    display: grid;
-    grid-template-columns: 20% 1fr;
-    gap: 10px;
-    padding: 0.3rem 0.3rem;
-    background-color: var(--color-lightgray);
-    border: solid;
-    border-width: 1px;
-    border-radius: 20px;
-    border-color: var(--color-darkwhite);
-    justify-items: start;
-    align-items: center;
-}
-.user-profile-popup img{
-    width: 100%;
-    justify-self: center;
-    align-self: center;
-}
-
-.user-popup-btn{
-    width: 100%;
-    padding: 0.6rem 0.2rem;
-    border: none;
-    border-radius: 10px;
-
-    display: grid;
-    grid-template-columns: 15% 1fr;
-    align-items: center;
-    justify-items: start;
-}
-.user-popup-btn:hover{
-    background-color: var(--color-lightgray);
-}
-.popup-icon{
-    width: 100%;
-    /* padding: 0.2rem 0.9rem; */
-}
 /* ======================================
 =========================================
 =========== Responsive screen ============
