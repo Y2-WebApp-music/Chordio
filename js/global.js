@@ -16,7 +16,6 @@ usericon.addEventListener("click", () => {
 document.addEventListener("click", (event) => {
     if (popup.style.visibility === "visible" && !userPopup.contains(event.target) && event.target !== usericon) {
         popup.style.visibility = "hidden";
-        console.log("testing--4")
     }
 });
 
@@ -40,6 +39,15 @@ const homepage = document.getElementById('home-page-btn');
 homepage.addEventListener('click',() => {
     if (window.location.href !=='./home.html'){
         window.location.href='./home.html'
+    }
+    else {}
+});
+
+// User Icon Click
+const userpage = document.getElementById('user-page-btn');
+userpage.addEventListener('click',() => {
+    if (window.location.href !=='./userprofile.html'){
+        window.location.href='./userprofile.html'
     }
     else {}
 });
