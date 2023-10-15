@@ -18,9 +18,97 @@
     --color-blue : #5D60F5;
     --color-red : #FF4054;
     --color-lightblue : #3c97b6;
-    --color-green : #34FA96;
+    --color-green : #1fa562;
 
     --color-text : #e4e4e4;
     --color-textgray : #aaaaaa;
     --color-textblack : #141414;
+}
+
+/* ======================================
+=========================================
+============= Pop-UP User ==============
+=========================================
+====================================== */
+.user-popup{
+    visibility: hidden;
+
+    background-color: var(--color-midgray);
+    position:fixed;
+    top: 55px;
+    right: 0px;
+    width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 1rem 1rem;
+    justify-content: flex-start;
+    align-items: center;
+
+    border: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: var(--color-darkwhite);
+
+    box-shadow: 0 0.05rem 0.25rem rgba(230, 230, 230, 0.25);
+}
+.user-profile-popup{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    gap: 10px;
+    padding: 0.3rem 0.3rem;
+    background-color: var(--color-lightgray);
+    border: solid;
+    border-width: 1px;
+    border-radius: 20px;
+    border-color: var(--color-darkwhite);
+    justify-items: start;
+    align-items: center;
+    transition: .2s;
+}
+.user-profile-popup img{
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+}
+.user-profile-popup:hover {
+    scale: 1.03;
+    background-color: var(--color-darkwhite);
+    transition: .2s;
+}
+
+.user-popup-btn{
+    width: 100%;
+    padding: 0.6rem 0.2rem;
+    border: none;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: 15% 1fr;
+    align-items: center;
+    justify-items: start;
+    transition: .1s;
+}
+.user-popup-btn:hover{
+    background-color: var(--color-lightgray);
+    transition: .1s;
+}
+.user-popup-btn svg{
+    fill: var(--color-darkwhite);
+    transition: .2s;
+}
+.user-popup-btn:hover #save-pop-btn{
+    fill: var(--color-lightblue);
+    transition: .2s;
+}
+
+.user-popup-btn:hover #like-pop-btn{
+    fill: var(--color-red);
+    transition: .2s;
+}
+.popup-icon{
+    width: 100%;
+    /* padding: 0.2rem 0.9rem; */
 }
