@@ -15,6 +15,19 @@
     <title>Music chord</title>
 </head>
 <body>
-    <div class="container"></div>
+    <div class="container">
+        <div class="createpost-btn" id="testrun">
+            <input type="submit" value="Go to home page">
+        </div>
+    </div>
+
+    <script>
+        const gotohome = document.getElementById('testrun');
+        gotohome.addEventListener('click',() => {
+            if (window.location.href !=='./home.html'){
+                window.location.href='./home.html'
+            }else {}
+        });
+    </script>
 </body>
 </html>
