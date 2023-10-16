@@ -97,7 +97,7 @@ nav .song-bg .song-icon {
 .container {
     width: auto;
     background-color: var(--color-bg);
-    padding-top: 60px;
+    padding-top: 61px;
     display: grid;
     grid-template-columns: 30% 1fr 28%;
     justify-items: center;
@@ -181,7 +181,7 @@ nav .song-bg .song-icon {
     border-color: var(--color-darkwhite);
     overflow: hidden;
     display: grid;
-    grid-template-columns: 10% 64% 20%;
+    grid-template-columns: 10% 1fr;
     padding: 0.5rem 0.3rem;
 }
 .search-box .seachicon {
@@ -199,20 +199,6 @@ nav .song-bg .song-icon {
     border: none;
     outline: none;
     transition: 0.4s;
-}
-.search-btn{
-    background-color: var(--color-blue);
-    border: none;
-    border-radius: 30px;
-    color: var(--color-text);
-    font-size: 0.938rem;
-    padding: 0.5rem 0.3rem;
-    margin-left: 4%;
-    transition: .1s;
-}
-.search-btn:hover {
-    scale: 1.05;
-    transition: .1s;
 }
 #cat-title {
     text-align: center;
@@ -747,6 +733,7 @@ nav .song-bg .song-icon {
     scale: 1.03;
     transition: .1s;
 }
+
 /* ======================================
 =========================================
 =========== Responsive screen ============
@@ -771,13 +758,136 @@ nav .song-bg .song-icon {
 }
 
 @media  screen and (max-width: 820px) {
+    .appname {
+        grid-template-columns: 1fr;
+    }
+    .appname p{
+        content: "";
+        display: none;
+    }
     .container {
         grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        padding-top: 52px;
     }
     .right-container{
         display: none;
     }
     .left-container{
+        display: flex;
+        height: auto;
+        top: 50px;
+        z-index: 1;
+    }
+    .Tag-group,#cat-title,.category,.createpost-btn,.userprofile {
         display: none;
     }
+    .search-post {
+        background-color: var(--color-darkgray);
+        width: 100%;
+        border: none;
+        border-radius: 0px;
+        margin: 0 0;
+        padding: 1rem 0;
+        justify-items: center;
+        align-items: center;
+    }
+    .search-box{
+        width: 80%;
+        grid-template-columns: 7% 1fr;
+        padding: 0.2rem 0.3rem;
+    }
+    .search-box .seachicon {
+        width: 60%;
+    }
+}
+
+/* ======================================
+=========================================
+=========== comment pop-up ============
+=========================================
+====================================== */
+.comment-fill{
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.504);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.comment-fill .comment-container{
+    width: 70%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 95% 5%;
+    gap: 7px;
+    padding: 1rem 1rem;
+}
+.comment-fill .comment-container .comment-background{
+    width: 100%;
+    height: 700px;
+    background-color: var(--color-darkgray);
+    border: solid;
+    border-width: 2px;
+    border-color: var(--color-lightgray);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 7px;
+}
+.comment-fill .comment-container .comment-background .scroll-post{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.comment-background .post{
+    margin: 0 0;
+    width: 98%;
+    border: none;
+    margin-right: 3%;
+    justify-content: start;
+}
+
+.comment-background .post-user-information {
+    display: grid;
+    grid-template-columns: 12% 1fr 7%;
+    margin: 0.5rem 0.5rem;
+    position: sticky;
+}
+.comment-close{
+    justify-self: center;
+    align-self: center;
+    /* background-color: aquamarine; */
+    border: none;
+    border-left: solid;
+    border-width: 2px;
+    border-color: var(--color-darkwhite);
+    padding-left: 5px;
+    fill: var(--color-darkwhite);
+}
+.comment-close:hover {
+    fill: var(--color-red);
+}
+.comment-background .scroll-post .post-img {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    grid-gap: 2px;
+    justify-items: center;
+    align-items: center;
+}
+.comment-background .scroll-post .post-content .post-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit:contain;
+    border: none;
+    border-radius: 6px;
 }
