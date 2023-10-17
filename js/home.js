@@ -126,6 +126,20 @@ gotosong.addEventListener('click',() => {
     else {}
 });
 
+// Check post has Photo? (In Comment show)
+const slideImages = document.querySelectorAll('.Slide-img');
+console.log('slideImages',slideImages);
+if (slideImages.length === 0) {
+    const comLeft = document.querySelector('.com-left');
+    const commentContainer = document.querySelector('.comment-container');
+    const commentBackground = document.querySelector('.comment-background');
+
+    comLeft.classList.add('no-photos');
+    commentContainer.classList.add('no-photos');
+    commentBackground.classList.add('no-photos');
+}
+
+// Comment slide Photo
 var slideIndex = 1;
 showDivs(slideIndex);
 
@@ -135,7 +149,12 @@ function plusDivs(n) {
 
 function showDivs(n) {
     var i;
-    var x = document.querySelectorAll(".Slide-img"); // Select all the .Slide-img elements
+    var x = document.querySelectorAll(".Slide-img");
+    if (x.length === 0) {
+        // No elements with class .Slide-img found, do nothing or handle this case as needed.
+        return;
+    }
+
     if (n > x.length) {
         slideIndex = 1;
     }
