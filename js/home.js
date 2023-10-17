@@ -125,3 +125,44 @@ gotosong.addEventListener('click',() => {
     }
     else {}
 });
+
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+    showDivs((slideIndex += n));
+}
+
+function showDivs(n) {
+    var i;
+    var x = document.querySelectorAll(".Slide-img"); // Select all the .Slide-img elements
+    if (n > x.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = x.length;
+    }
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    x[slideIndex - 1].style.display = "block";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    var showCommentBtn = document.querySelector(".comment-show");
+    var commentFill = document.querySelector(".comment-fill");
+
+    showCommentBtn.addEventListener("click", function () {
+        commentFill.style.display = "flex";
+    });
+
+    commentFill.addEventListener("click", function (e) {
+        if (e.target === commentFill) {
+            commentFill.style.display = "none";
+        }
+    });
+    var closeCommentBtn = document.querySelector(".close-commment");
+    closeCommentBtn.addEventListener("click", function () {
+        commentFill.style.display = "none";
+    });
+});
