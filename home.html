@@ -86,9 +86,7 @@
                     <img src="img/search.png" class="seachicon ">
                     <input class="input-field " type="text" placeholder="Search about you interest.....">
                 </div>
-
                 <a id="cat-title" > Type of post </a>
-
                 <div class="category ">
                     <div class="category-btn">
                         <a>Article</a>
@@ -153,11 +151,9 @@
                 <input type="submit" value="Create Post">
             </div>
         </div>
-
 <!-- ======================================
 ============== Mid Zone ===============
 ======================================  -->
-
         <div class="mid-container">
             <div class="make-post prevent-select">
                 <div class="input-content">
@@ -181,10 +177,24 @@
                     </div>
                 </div>
                 <div class="bottom-create-post">
-                    <label for="image-input">
+                    <label class="lable-input-img" for="image-input">
                         <svg xmlns="http://www.w3.org/2000/svg" class="camera" height="1.4em" viewBox="0 0 576 512"><path d="M160 32c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H160zM396 138.7l96 144c4.9 7.4 5.4 16.8 1.2 24.6S480.9 320 472 320H328 280 200c-9.2 0-17.6-5.3-21.6-13.6s-2.9-18.2 2.9-25.4l64-80c4.6-5.7 11.4-9 18.7-9s14.2 3.3 18.7 9l17.3 21.6 56-84C360.5 132 368 128 376 128s15.5 4 20 10.7zM192 128a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120V344c0 75.1 60.9 136 136 136H456c13.3 0 24-10.7 24-24s-10.7-24-24-24H136c-48.6 0-88-39.4-88-88V120z"/></svg>
                     </label>
                     <input type="file" id="image-input" accept="image/*" multiple style="display: none;">
+                    <select class="post-tag-select">
+                        <option value="option1">select tag</option>
+                        <option value="option1">other</option>
+                        <option value="option2">theory</option>
+                        <option value="option3">Sound engineer</option>
+                        <option value="option4">Band</option>
+                        <option value="option5">Guitar</option>
+                        <option value="option6">Vocal</option>
+                        <option value="option7">Bass</option>
+                        <option value="option8">Drum</option>
+                        <option value="option9">Piano</option>
+                        <option value="option10">String</option>
+                        <option value="option11">Brass</option>
+                    </select>
                     <input type="submit" class="post-btn" value="Post">
                 </div>
             </div>
@@ -291,6 +301,7 @@
                     </div>
                 </div>
             </div>
+            <div class="end-of-post"> <p>Create by : Guy and Guy</p></div>
         </div>
 
 <!-- ======================================
@@ -370,7 +381,7 @@
     </div>
 
 <!-- ======================================
-======= Pop-Up-Comment/Post (img) ==========
+======== Pop-Up-Comment/Post  ===========
 ======================================  -->
     <div class="comment-fill">
         <div class="comment-container">
@@ -393,8 +404,8 @@
                         </div>
                     </div>
                     <div class="slide-button">
-                        <svg class="slide-left" onclick="plusDivs(1)" xmlns="http://www.w3.org/2000/svg" height="2.4em" viewBox="0 0 320 512">! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.<path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
-                        <svg class="slide-right" onclick="plusDivs(-1)" xmlns="http://www.w3.org/2000/svg" height="2.4em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+                        <svg class="slide-left" onclick="plusDivs(1)" xmlns="http://www.w3.org/2000/svg" height="2.4em" viewBox="0 0 320 512"><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+                        <svg class="slide-right" onclick="plusDivs(-1)" xmlns="http://www.w3.org/2000/svg" height="2.4em" viewBox="0 0 320 512"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
                     </div>
                 </div>
                 <div class="com-right">
@@ -423,11 +434,35 @@
                             </div>
                         </div>
                         <div class="comment-post">
-                            <img src="img/circletest.png" class="comment-user-icon">
+                            <img src="img/circletest.png" class="comment-user-icon prevent-select">
                             <div class="comment-context">
                                 <p class="comment-username"> Username </p>
                                 <div class="comment-detail">
-                                    Some scholars consider articles to be a.
+                                    Some scholars consider articles to be a type of adjective, or in the same category with adjectives. Adjectives are words that describe a noun. Articles are similar to adjectives in that they modify nouns. However, unlike adjectives, they do not actually describe a noun; they just identify it. So some English language experts categorize articles as their own part of speech, separate from adjectives. For the purposes of this lesson, articles will be considered their own part of speech. <br>
+                            But these three little words are not interchangeable. They are crucial when referring to nouns in the English language, and each one is used in specific ways and in particular contexts.<br>
+                            "The" is the only definite article in English. When the article "the" is used to precede a word beginning with a consonant, it's pronounced "the" with a short "e" (also called a schwa) sound. The schwa sound is represented by an upside-down e symbol, usually within forward slashes.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-post">
+                            <img src="img/circletest.png" class="comment-user-icon prevent-select">
+                            <div class="comment-context">
+                                <p class="comment-username"> Username </p>
+                                <div class="comment-detail">
+                                    Some scholars consider articles to be a type of adjective, or in the same category with adjectives. Adjectives are words that describe a noun. Articles are similar to adjectives in that they modify nouns. However, unlike adjectives, they do not actually describe a noun; they just identify it. So some English language experts categorize articles as their own part of speech, separate from adjectives. For the purposes of this lesson, articles will be considered their own part of speech. <br>
+                            But these three little words are not interchangeable. They are crucial when referring to nouns in the English language, and each one is used in specific ways and in particular contexts.<br>
+                            "The" is the only definite article in English. When the article "the" is used to precede a word beginning with a consonant, it's pronounced "the" with a short "e" (also called a schwa) sound. The schwa sound is represented by an upside-down e symbol, usually within forward slashes.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-post">
+                            <img src="img/circletest.png" class="comment-user-icon prevent-select">
+                            <div class="comment-context">
+                                <p class="comment-username"> Username </p>
+                                <div class="comment-detail">
+                                    Some scholars consider articles to be a type of adjective, or in the same category with adjectives. Adjectives are words that describe a noun. Articles are similar to adjectives in that they modify nouns. However, unlike adjectives, they do not actually describe a noun; they just identify it. So some English language experts categorize articles as their own part of speech, separate from adjectives. For the purposes of this lesson, articles will be considered their own part of speech. <br>
+                            But these three little words are not interchangeable. They are crucial when referring to nouns in the English language, and each one is used in specific ways and in particular contexts.<br>
+                            "The" is the only definite article in English. When the article "the" is used to precede a word beginning with a consonant, it's pronounced "the" with a short "e" (also called a schwa) sound. The schwa sound is represented by an upside-down e symbol, usually within forward slashes.
                                 </div>
                             </div>
                         </div>
@@ -440,6 +475,56 @@
                 </div>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" class="close-commment" id="close-com" height="2em" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+        </div>
+    </div>
+<!-- ======================================
+======== Pop-Up-Create Post ============
+======================================  -->
+    <div class="create-post-pop">
+        <div class="create-post-pop-container">
+            <div class="make-post prevent-select">
+                <div class="input-content">
+                    <div class="top-create-post">
+                        <img src="img/circletest.png" class="user-img" alt="">
+                        <div class="post-text-input">
+                            <input type="text" class="cr-post-title" placeholder="Write something..." maxlength="120">
+                            <textarea id="content-input" placeholder="content...." maxlength="1000"></textarea>
+                        </div>
+                    </div>
+                    <div class="slideshow-wrapper">
+                        <div class="prev-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arrow-hover" height="1.2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+                        </div>
+                        <div class="slideshow-left-right">
+                            <!-- Slides will be added here dynamically -->
+                        </div>
+                        <div class="next-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arrow-hover" height="1.2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-create-post">
+                    <label class="lable-input-img" for="image-input">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="camera" height="1.4em" viewBox="0 0 576 512"><path d="M160 32c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H160zM396 138.7l96 144c4.9 7.4 5.4 16.8 1.2 24.6S480.9 320 472 320H328 280 200c-9.2 0-17.6-5.3-21.6-13.6s-2.9-18.2 2.9-25.4l64-80c4.6-5.7 11.4-9 18.7-9s14.2 3.3 18.7 9l17.3 21.6 56-84C360.5 132 368 128 376 128s15.5 4 20 10.7zM192 128a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120V344c0 75.1 60.9 136 136 136H456c13.3 0 24-10.7 24-24s-10.7-24-24-24H136c-48.6 0-88-39.4-88-88V120z"/></svg>
+                    </label>
+                    <input type="file" id="image-input" accept="image/*" multiple style="display: none;">
+                    <select class="post-tag-select">
+                        <option value="option1">select tag</option>
+                        <option value="option1">other</option>
+                        <option value="option2">theory</option>
+                        <option value="option3">Sound engineer</option>
+                        <option value="option4">Band</option>
+                        <option value="option5">Guitar</option>
+                        <option value="option6">Vocal</option>
+                        <option value="option7">Bass</option>
+                        <option value="option8">Drum</option>
+                        <option value="option9">Piano</option>
+                        <option value="option10">String</option>
+                        <option value="option11">Brass</option>
+                    </select>
+                    <input type="submit" class="post-btn" value="Post">
+                </div>
+            </div>
         </div>
     </div>
 
