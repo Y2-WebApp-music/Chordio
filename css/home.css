@@ -373,7 +373,7 @@ nav .song-bg .song-icon {
     min-height: 40px; /* Set a minimum height */
     max-height: 1200px;
     overflow-y: hidden;
-
+    resize: none;
     background: none;
     outline: none;
     border: none;
@@ -468,16 +468,50 @@ nav .song-bg .song-icon {
     border-color: var(--color-lightgray);
     padding-top: 9px;
     display: grid;
-    grid-template-columns: 1fr 18%;
+    grid-template-columns: 1fr 22% 18%;
+}
+.lable-input-img{
+    width: min-content;
 }
 .bottom-create-post .camera{
     fill: var(--color-gray17);
     align-self: center;
 }
-.bottom-create-post .camera:hover{
+.lable-input-img:hover .camera{
     scale: 1.05;
     fill: var(--color-lightblue);
 }
+
+/* =================
+= custom-select =
+=================*/
+.post-tag-select{
+    width: 90%;
+    padding: 0.3rem 0.5rem;
+    justify-self: end;
+    align-self: center;
+    background: none;
+    border: solid;
+    transition: .2s;
+    border-width: 2px ;
+    border-color: var(--color-blue);
+    border-radius: 30px;
+    font-size: 14px;
+    transition: .2s;
+}
+.post-tag-select:hover{
+    scale: 1.02;
+    background-color: var(--color-blue);
+    transition: .2s;
+}
+.post-tag-select:focus{
+    outline: none;
+}
+/* =================
+= custom-select =
+=================*/
+
+
 .make-post .bottom-create-post .post-btn {
     width: 90%;
     padding: 0.4rem 0.6rem;
@@ -604,6 +638,17 @@ nav .song-bg .song-icon {
     padding-left: 0.5rem;
 }
 
+.end-of-post{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.end-of-post p{
+    margin-bottom: 10px;
+    color: var(--color-lightgray);
+}
 /* ======================================
 =========================================
 ============== Right Zone ===============
@@ -824,7 +869,7 @@ nav .song-bg .song-icon {
     width: 70%;
     height: 80%;
     display: grid;
-    grid-template-columns: 97% 3%;
+    grid-template-columns: 95% 5%;
     gap: 7px;
     padding: 1rem 1rem;
     justify-items: center;
@@ -838,13 +883,14 @@ nav .song-bg .song-icon {
     border-color: var(--color-lightgray);
     border-radius: 10px;
     display: grid;
+    justify-items: center;
     grid-template-columns: 60% 40%;
-    gap: 7px;
+    gap: 4px;
 }
-.comment-fill .comment-container .comment-background .com-left{
+.com-left{
     width: 100%;
     height: 100%;
-    overflow: scroll;
+    overflow: hidden;
     background-color: black;
     border-radius: 10px;
 }
@@ -868,18 +914,30 @@ nav .song-bg .song-icon {
 }
 .slide-left{
     background-color: rgba(19, 19, 19, 0.387);
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 0.2rem 0.3rem 0.2rem 0;
     justify-self: start;
     fill: var(--color-text);
+    transition: .2s;
 }
 .slide-right{
     background-color: rgba(19, 19, 19, 0.387);
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+    padding: 0.2rem 0 0.2rem 0.3rem;
     justify-self: end;
     fill: var(--color-text);
+    transition: .2s;
+}
+.slide-right:hover ,.slide-left:hover{
+    scale: 1.05;
+    transition: .2s;
 }
 
 .com-right{
     width: 98%;
-    height: 100%;
+    height: 99%;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 9% 83% 8%;
@@ -889,7 +947,7 @@ nav .song-bg .song-icon {
     position: sticky;
     display: grid;
     grid-template-columns: 9% 1fr;
-    margin: 0.5rem 0rem;
+    margin: 0.0rem 0rem;
     border: none;
     border-bottom: solid;
     border-width: 1px;
@@ -963,6 +1021,7 @@ nav .song-bg .song-icon {
 }
 .comment-detail{
     font-size: 15px;
+    padding-left: 8px;
 }
 
 .com-user-input{
@@ -972,9 +1031,15 @@ nav .song-bg .song-icon {
     grid-template-columns: 10% 80% 10%;
     justify-items: center;
     align-items: center;
+    border: none;
+    border-top: solid;
+    border-width: 1px ;
+    border-color: var(--color-lightgray);
 }
 .com-user-icon{
-    width: 80%;
+    width: 65%;
+    padding: 0.2rem 0.2rem;
+    object-fit: contain;
     justify-self: center;
     align-self: center;
 }
@@ -1018,4 +1083,42 @@ nav .song-bg .song-icon {
 .close-commment:hover{
     fill: var(--color-red);
     transition: .2s;
+}
+/* Hide com-left when no Slide-img elements are found */
+.com-left.no-photos {
+    display: none;
+}
+/* Adjust the width of the comment container when no photos are present */
+.comment-fill .comment-container.no-photos {
+    width: 40%;
+}
+/* Change the grid template columns of comment-background */
+.comment-fill .comment-container.no-photos .comment-background {
+    grid-template-columns: 100%;
+    gap: 0px;
+}
+/* ======================================
+=========================================
+=========== Create Post pop-up ============
+=========================================
+====================================== */
+.create-post-pop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.704);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.create-post-pop-container{
+    width: 40%;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
