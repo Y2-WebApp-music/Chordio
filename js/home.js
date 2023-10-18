@@ -1,3 +1,22 @@
+// User Icon Click
+const usergobtn = document.getElementById('user-go-btn');
+usergobtn.addEventListener('click',() => {
+    if (window.location.href !=='./userprofile.html'){
+        window.location.href='./userprofile.html'
+    }
+    else {}
+});
+
+// User Icon Click
+const gotosong = document.getElementById('chord-sus-btn');
+gotosong.addEventListener('click',() => {
+    if (window.location.href !=='./song.html'){
+        window.location.href='./song.html'
+    }
+    else {}
+});
+
+// Create Post
 const contentInput = document.getElementById("content-input");
 contentInput.addEventListener("input", function () {
     const lines = this.value.split("\n");
@@ -10,6 +29,7 @@ contentInput.addEventListener("input", function () {
     }
 });
 
+// Image Input
 const imageInput = document.getElementById("image-input");
 const slideshowLeftRight = document.querySelector(".slideshow-left-right");
 const prevButton = document.querySelector(".prev-button");
@@ -108,80 +128,13 @@ imageInput.addEventListener("change", function (event) {
     });
 });
 
-// User Icon Click
-const usergobtn = document.getElementById('user-go-btn');
-usergobtn.addEventListener('click',() => {
-    if (window.location.href !=='./userprofile.html'){
-        window.location.href='./userprofile.html'
-    }
-    else {}
+// Get the select box and current elements
+const selectBox = document.getElementById("mySelectBox");
+const currentElement = selectBox.querySelector(".select-box__current");
+
+currentElement.addEventListener("focus", () => {
+    selectBox.style.borderRadius = "20px 20px 0px 0px";
 });
-
-// User Icon Click
-const gotosong = document.getElementById('chord-sus-btn');
-gotosong.addEventListener('click',() => {
-    if (window.location.href !=='./song.html'){
-        window.location.href='./song.html'
-    }
-    else {}
-});
-
-// Check post has Photo? (In Comment show)
-const slideImages = document.querySelectorAll('.Slide-img');
-console.log('slideImages',slideImages);
-if (slideImages.length === 0) {
-    const comLeft = document.querySelector('.com-left');
-    const commentContainer = document.querySelector('.comment-container');
-    const commentBackground = document.querySelector('.comment-background');
-
-    comLeft.classList.add('no-photos');
-    commentContainer.classList.add('no-photos');
-    commentBackground.classList.add('no-photos');
-}
-
-// Comment slide Photo
-var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-    showDivs((slideIndex += n));
-}
-
-function showDivs(n) {
-    var i;
-    var x = document.querySelectorAll(".Slide-img");
-    if (x.length === 0) {
-        // No elements with class .Slide-img found, do nothing or handle this case as needed.
-        return;
-    }
-
-    if (n > x.length) {
-        slideIndex = 1;
-    }
-    if (n < 1) {
-        slideIndex = x.length;
-    }
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    x[slideIndex - 1].style.display = "block";
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    var showCommentBtn = document.querySelector(".comment-show");
-    var commentFill = document.querySelector(".comment-fill");
-
-    showCommentBtn.addEventListener("click", function () {
-        commentFill.style.display = "flex";
-    });
-
-    commentFill.addEventListener("click", function (e) {
-        if (e.target === commentFill) {
-            commentFill.style.display = "none";
-        }
-    });
-    var closeCommentBtn = document.querySelector(".close-commment");
-    closeCommentBtn.addEventListener("click", function () {
-        commentFill.style.display = "none";
-    });
+currentElement.addEventListener("blur", () => {
+    selectBox.style.borderRadius = "20px 20px 20px 20px";
 });
