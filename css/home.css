@@ -31,18 +31,15 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
-
 .appname{
     margin-left: 2%;
     display: grid;
     grid-template-columns: 46px 1fr;
     align-items: center;
 }
-
 #appicon {
     height: 40px;
 }
-
 nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -65,7 +62,6 @@ nav {
 nav .home-bg .home-icon {
     fill :var(--color-blue);
 }
-
 .song-bg {
     width: 90%;
     height: 100%;
@@ -83,7 +79,6 @@ nav .song-bg .song-icon {
 .song-bg:hover {
     background-color: var(--color-lightgray);
 }
-
 .user-head {
     display: flex;
     justify-content: end;
@@ -93,7 +88,6 @@ nav .song-bg .song-icon {
 .user-head .user-icon {
     height: 40px;
 }
-
 .container {
     width: auto;
     background-color: var(--color-bg);
@@ -355,7 +349,7 @@ nav .song-bg .song-icon {
     display: flex;
     flex-direction: column;
 }
-.top-create-post .post-text-input .cr-post-title {
+.cr-post-title {
     padding: 0.3rem 0.3rem;
     width: 100%;
     font-size: 22px;
@@ -366,7 +360,7 @@ nav .song-bg .song-icon {
     border-width: 1px;
     border-color: var(--color-darkwhite);
 }
-.top-create-post .post-text-input #content-input{
+.cr-post-detail{
     margin-top: 1%;
     padding: 0.3rem 0.3rem;
     width: 100%;
@@ -531,113 +525,6 @@ nav .song-bg .song-icon {
     background-color: var(--color-blue);
     transition: .2s;
 }
-/* Post Only Text */
-.post {
-    margin-top: 2%;
-    width: 90%;
-    background-color: var(--color-darkgray);
-    border: solid;
-    border-radius: 10px;
-    border-width: 2px;
-    border-color: var(--color-lightgray);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.post .post-user-information {
-    display: grid;
-    grid-template-columns: 8% 1fr;
-    margin: 0.5rem 0.5rem;
-}
-.post .post-user-information .user-icon-post{
-    width: 80%;
-    justify-self: center;
-    align-self: center;
-}
-.post .post-user-information .post-user-text{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    margin-top: 3px;
-}
-.post .post-user-information .post-user-text .post-username{
-    font-size: 18px;
-}
-.post .post-user-information .post-user-text .post-date{
-    font-size: 14px;
-    color: var(--color-textgray);
-}
-.post .post-content{
-    margin: 0rem 1rem;
-    display: flex;
-    flex-direction: column;
-}
-.post .post-content .post-title {
-    font-size: 19px;
-    font-weight: var(--font-weight-mid);
-}
-.post .post-content .post-detail-text {
-    font-size: 15px;
-    font-weight: var(--font-weight-sma);
-    margin-top: 4px;
-}
-
-.post .post-content .post-img {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
-    width: 100%;
-    grid-gap: 2px;
-    justify-items: center;
-    align-items: center;
-}
-
-
-.post-img img {
-    width: 100%;
-    min-height: 100%;
-    object-fit:cover;
-    border: none;
-    border-radius: 6px;
-}
-.post-interact  {
-    display: flex;
-    flex-direction: row;
-    margin: 0.3rem 1rem;
-    gap: 9px;
-    border: none;
-    border-top: solid;
-    padding: 0.2rem 0;
-    border-width: 1px;
-    border-color: var(--color-darkwhite);
-    justify-content: start;
-    align-items: center;
-}
-.post-interact-btn {
-    display: flex;
-    flex-direction: row;
-    gap: 3px;
-    padding: 0.3rem 0;
-    padding-right: 0.4rem;
-    /* padding-top: 1px; */
-    border: none;
-    border-radius: 7px;
-    transition: .1s;
-}
-.post-interact-btn:hover {
-    background-color: var(--color-lightgray);
-    transition: .1s;
-}
-.post-interact-btn p {
-    margin: 0 0 ;
-    transform: translateY(2px);
-}
-.post-interact svg {
-    padding: 0.1rem 0.2rem;
-    padding-left: 0.5rem;
-}
-
 .end-of-post{
     width: 100%;
     height: 50px;
@@ -758,8 +645,6 @@ nav .song-bg .song-icon {
     justify-self: center;
     align-self: flex-end;
 }
-
-
 .goto-chord {
     margin-top: 2%;
     width: max-content;
@@ -846,257 +731,6 @@ nav .song-bg .song-icon {
         width: 60%;
     }
 }
-
-/* ======================================
-=========================================
-=========== comment pop-up ============
-=========================================
-====================================== */
-.comment-fill{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.504);
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-.comment-fill .comment-container{
-    width: 70%;
-    height: 80%;
-    display: grid;
-    grid-template-columns: 95% 5%;
-    gap: 7px;
-    padding: 1rem 1rem;
-    justify-items: center;
-}
-.comment-fill .comment-container .comment-background{
-    width: 100%;
-    height: 700px;
-    background-color: var(--color-darkgray);
-    border: solid;
-    border-width: 2px;
-    border-color: var(--color-lightgray);
-    border-radius: 10px;
-    display: grid;
-    justify-items: center;
-    grid-template-columns: 60% 40%;
-    gap: 4px;
-}
-.com-left{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: black;
-    border-radius: 10px;
-}
-.com-post-img, .post-img, .Slide-img {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-.Slide-img img{
-    height: 100%;
-    object-fit: contain;
-    border-radius: 30px;
-}
-.slide-button{
-    width: 100%;
-    height: 100%;
-    transform: translateY(-100%);
-    display: grid;
-    grid-template-columns: 50% 50%;
-    align-items: center;
-}
-.slide-left{
-    background-color: rgba(19, 19, 19, 0.387);
-    border-bottom-right-radius: 6px;
-    border-top-right-radius: 6px;
-    padding: 0.2rem 0.3rem 0.2rem 0;
-    justify-self: start;
-    fill: var(--color-text);
-    transition: .2s;
-}
-.slide-right{
-    background-color: rgba(19, 19, 19, 0.387);
-    border-bottom-left-radius: 6px;
-    border-top-left-radius: 6px;
-    padding: 0.2rem 0 0.2rem 0.3rem;
-    justify-self: end;
-    fill: var(--color-text);
-    transition: .2s;
-}
-.slide-right:hover ,.slide-left:hover{
-    scale: 1.05;
-    transition: .2s;
-}
-
-.com-right{
-    width: 98%;
-    height: 99%;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 9% 83% 8%;
-}
-.com-post-own{
-    width: 100%;
-    position: sticky;
-    display: grid;
-    grid-template-columns: 9% 1fr;
-    margin: 0.0rem 0rem;
-    border: none;
-    border-bottom: solid;
-    border-width: 1px;
-    border-color: var(--color-textgray);
-}
-.com-own-icon{
-    width: 80%;
-    justify-self: center;
-    align-self: center;
-}
-.com-own-icon-text{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    margin-top: 3px;
-}
-.com-own-username{
-    font-size: 18px;
-}
-.com-own-date{
-    font-size: 14px;
-    color: var(--color-textgray);
-}
-.scroll-com{
-    width: 100%;
-    max-height: 600px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-.com-post-title{
-    font-size: 20px;
-    font-weight: var(--font-weight-mid);
-    width: 100%;
-    padding-left: 10px;
-}
-.com-post-detail{
-    font-size: 15px;
-    font-weight: var(--font-weight-sma);
-    border: none;
-    padding-bottom: 5px;
-}
-.scroll-com .post-interact {
-    position: sticky;
-    top: 0;
-    background-color: var(--color-darkgray);
-    width: 100%;
-    margin: 0.3rem 0;
-}
-.comment-post {
-    display: grid;
-    grid-template-columns: 8% 92%;
-    gap: 1px;
-    height: auto;
-    width: 100%;
-    justify-items: center;
-    align-items: flex-start;
-    margin-bottom: 2%;
-}
-.comment-user-icon{
-    width: 90%;
-}
-.comment-context{
-    background-color: var(--color-lightgray);
-    width: 95%;
-    padding: 0.5rem 0.5rem;
-    border-radius: 20px;
-}
-.comment-username{
-    font-size: 18px;
-    font-weight: var(--font-weight-mid);
-}
-.comment-detail{
-    font-size: 15px;
-    padding-left: 8px;
-}
-
-.com-user-input{
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 10% 80% 10%;
-    justify-items: center;
-    align-items: center;
-    border: none;
-    border-top: solid;
-    border-width: 1px ;
-    border-color: var(--color-lightgray);
-}
-.com-user-icon{
-    width: 65%;
-    padding: 0.2rem 0.2rem;
-    object-fit: contain;
-    justify-self: center;
-    align-self: center;
-}
-.com-input{
-    width: 95%;
-    height: 70%;
-    margin: 0 0;
-    padding: 0 0.4rem;
-    font-size: 16px;
-    color: var(--color-text);
-    background: none;
-    outline: none;
-    border: solid;
-    border-radius: 60px;
-    border-width: 2px;
-    border-color: var(--color-darkwhite);
-}
-.send-com-btn{
-    fill: var(--color-darkwhite);
-    transition: .2s;
-    rotate: 0deg;
-}
-.send-com-btn:hover{
-    fill: var(--color-blue);
-    transition: .2s;
-    rotate: 20deg;
-}
-.close-commment{
-    fill: var(--color-textgray);
-    justify-self: center;
-    background-color: var(--color-darkgray);
-    width: 35px;
-    height: 35px;
-    margin: 0.5rem 0.5rem;
-    border-radius: 100px;
-    border: solid;
-    border-width: 1px;
-    border-color: var(--color-midgray);
-    transition: .2s;
-}
-.close-commment:hover{
-    fill: var(--color-red);
-    transition: .2s;
-}
-/* Hide com-left when no Slide-img elements are found */
-.com-left.no-photos {
-    display: none;
-}
-/* Adjust the width of the comment container when no photos are present */
-.comment-fill .comment-container.no-photos {
-    width: 40%;
-}
-/* Change the grid template columns of comment-background */
-.comment-fill .comment-container.no-photos .comment-background {
-    grid-template-columns: 100%;
-    gap: 0px;
-}
 /* ======================================
 =========================================
 =========== Create Post pop-up ============
@@ -1116,9 +750,13 @@ nav .song-bg .song-icon {
     align-items: center;
 }
 .create-post-pop-container{
-    width: 40%;
+    width: 45%;
     max-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.create-post-pop-container .cr-post-detail{
+    resize:vertical;
 }
