@@ -11,4 +11,6 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
 [Web Demo](https://y2-webapp-music.github.io/Chordio/)
 
 `Work in nodeJS, Vanila CSS, Vanila HTML`
-[](https://github.com/Y2-WebApp-music/Chordio/main/img/img-post4.jpg)
+
+## Roadmap
+- [ ] All page html and css file
