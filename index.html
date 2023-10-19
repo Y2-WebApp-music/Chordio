@@ -1,33 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
         <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=IBM Plex Sans Thai:wght@400;500;600;700&display=swap"
-        />
-    <link rel='stylesheet' href='./index.css'>
+ 
+    <link rel='stylesheet' href='./css/index.css'>
     <link rel='stylesheet' href='./css/global.css'>
     <script defer src="js/global.js"></script>
-
-    <title>Music chord</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400;500;600;700&family=Raleway:ital,wght@0,300;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!--! icon SVG from Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
 </head>
 <body>
     <div class="container">
-        <div class="createpost-btn" id="testrun">
-            <input type="submit" value="Go to home page">
+      <div class="logo">
+        <div>Chordio</div>  
+      </div>
+      <div class="login-form">
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" placeholder="name@example.com">
         </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Password">
+        </div>
+
+        <button class="btn" id="testrun" type="submit">Login</button>
+      </div>
     </div>
 
     <script>
-        const gotohome = document.getElementById('testrun');
-        gotohome.addEventListener('click',() => {
-            if (window.location.href !=='./home.html'){
-                window.location.href='./home.html'
-            }else {}
-        });
-    </script>
+      const gotohome = document.getElementById('testrun');
+      gotohome.addEventListener('click',() => {
+          if (window.location.href !=='./home.html'){
+              window.location.href='./home.html'
+          }else {}
+      });
+  </script>
 </body>
 </html>
