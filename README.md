@@ -7,7 +7,7 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 👉🏻 Config comment Layout `CSS,JS in post-display`
   - 👉🏻 Add tag in create Post of hame.html `also in JS CSS of home Update`
   - 👉🏻 Add category of create post button of hame.html `also in JS CSS of home Update`
-  - 👉🏻 Login page in index.html `also add CSS of index` not finish, press login to go to homepage
+  - 👉🏻 Login page in index.html `also add CSS of index` (not finish, press login to go to homepage)
 
 
 ### Static Web
