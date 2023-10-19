@@ -138,3 +138,14 @@ currentElement.addEventListener("focus", () => {
 currentElement.addEventListener("blur", () => {
     selectBox.style.borderRadius = "20px 20px 20px 20px";
 });
+
+// Get the select box and current elements
+const selectPost = document.getElementById("PostTag");
+const boxBellow = selectPost.querySelector(".select-post_current");
+
+boxBellow.addEventListener("focus", () => {
+    selectPost.style.borderRadius = "20px 20px 0px 0px";
+});
+boxBellow.addEventListener("blur", () => {
+    selectPost.style.borderRadius = "20px 20px 20px 20px";
+});
