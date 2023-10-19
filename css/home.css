@@ -462,7 +462,7 @@ nav .song-bg .song-icon {
     border-color: var(--color-lightgray);
     padding-top: 9px;
     display: grid;
-    grid-template-columns: 1fr 24% 15%;
+    grid-template-columns: 1fr 24% 21% 15%;
 }
 .lable-input-img{
     width: min-content;
@@ -470,6 +470,7 @@ nav .song-bg .song-icon {
 .bottom-create-post .camera{
     fill: var(--color-gray17);
     align-self: center;
+    transform: translateY(5px);
 }
 .lable-input-img:hover .camera{
     scale: 1.05;
@@ -479,25 +480,27 @@ nav .song-bg .song-icon {
 /* =================
 = custom-select =
 =================*/
-
 .select-box {
     position: relative;
     display: block;
-    width: 98%;
-    font-size: 18px;
+    min-width: 95%;
+    justify-self: center;
+    align-self: center;
+    font-size: 15px;
     color: #60666d;
     background: none;
     border: solid;
-    border-width: 2px;
+    border-width: 1px;
     border-color: var(--color-blue);
-    /* background-color: aqua; */
     border-radius: 20px 20px 20px 20px;
     transition: .2s;
+    z-index: 1;
 }
 .select-box:hover {
     scale: 1.03;
     transition: .2s;
     background-color: var(--color-blue);
+    z-index: 1;
 }
 .select-box__current {
     position: relative;
@@ -514,18 +517,16 @@ nav .song-bg .song-icon {
 .select-box__current:focus + .select-box__list .select-box__option {
     cursor: pointer;
 }
-
 .select-box__current:focus .select-box__icon {
     -webkit-transform: translateY(-50%) rotate(180deg);
             transform: translateY(-50%) rotate(180deg);
 }
-
 /* Arrow Down-Up -> Right filed */
 .select-box__icon {
     fill: white;
     position: absolute;
-    top: 58%;
-    right: 5px;
+    top: 50%;
+    right: 4px;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
     width: 20px;
@@ -541,7 +542,6 @@ nav .song-bg .song-icon {
 .select-box__input:checked + .select-box__input-text {
     display: block;
 }
-
 .select-box__input-text {
     display: none;
     width: 90%;
@@ -550,7 +550,7 @@ nav .song-bg .song-icon {
     padding-left: 10px;
     background: none;
     align-self: center;
-    font-size: 17px;
+    font-size: 15px;
 }
 .select-box__list {
     position: absolute;
@@ -571,10 +571,11 @@ nav .song-bg .song-icon {
     box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
     background-color: var(--color-darkgray);
     border: solid;
-    border-width: 2px;
+    border-width: 1px;
     border-color: var(--color-blue);
     border-radius: 0 0 20px 20px;
-    transform: translateX(-2px);
+    transform: translateX(-1px);
+    /* z-index: 1; */
 }
 .select-box__option {
     display: block;
@@ -586,7 +587,6 @@ nav .song-bg .song-icon {
 .select-box__option:hover, .select-box__option:focus {
     color: var(--color-lightblue);
 }
-
 @-webkit-keyframes HideList {
     from {
         -webkit-transform: scaleY(1);
@@ -597,7 +597,6 @@ nav .song-bg .song-icon {
                 transform: scaleY(0);
     }
 }
-
 @keyframes HideList {
     from {
         -webkit-transform: scaleY(1);
@@ -608,12 +607,137 @@ nav .song-bg .song-icon {
                 transform: scaleY(0);
     }
 }
-
 /* =================
 = custom-select =
 =================*/
-
-
+.select-Post {
+    position: relative;
+    display: block;
+    justify-self: center;
+    align-self: center;
+    width: 95%;
+    font-size: 15px;
+    color: #60666d;
+    background: none;
+    border: solid;
+    border-width: 1px;
+    border-color: var(--color-blue);
+    /* background-color: aqua; */
+    border-radius: 20px 20px 20px 20px;
+    transition: .2s;
+}
+.select-Post:hover {
+    scale: 1.03;
+    transition: .2s;
+    background-color: var(--color-blue);
+}
+.select-post_current {
+    position: relative;
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    outline: none;
+}
+.select-post_current:focus + .select-post_list {
+    opacity: 1;
+    -webkit-animation-name: none;
+            animation-name: none;
+}
+/* Focus area */
+.select-post_current:focus + .select-post_list .select-post_option {
+    cursor: pointer;
+}
+.select-post_current:focus .select-post_icon {
+    -webkit-transform: translateY(-50%) rotate(180deg);
+            transform: translateY(-50%) rotate(180deg);
+}
+/* Arrow Down-Up -> Right filed */
+.select-post_icon {
+    fill: white;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 20px;
+    opacity: 0.3;
+    transition: 0.2s ease;
+}
+.select-post_value {
+    display: flex;
+}
+.select-post_input {
+    display: none;
+}
+.select-post_input:checked + .select-post_input-text {
+    display: block;
+}
+.select-post_input-text {
+    display: none;
+    width: 90%;
+    margin: 0;
+    padding: 4px;
+    padding-left: 10px;
+    background: none;
+    align-self: center;
+    font-size: 16px;
+}
+.select-post_list {
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+    -webkit-animation-name: HideListPost;
+            animation-name: HideListPost;
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+    -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-timing-function: step-start;
+            animation-timing-function: step-start;
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-darkgray);
+    border: solid;
+    border-width: 1px;
+    border-color: var(--color-blue);
+    border-radius: 0 0 20px 20px;
+    transform: translateX(-1px);
+}
+.select-post_option {
+    display: block;
+    padding: 10px;
+    background: none;
+    border-radius: 30px;
+    font-size: 16px;
+}
+.select-post_option:hover, .select-post_option:focus {
+    color: var(--color-lightblue);
+}
+@-webkit-keyframes HideListPost {
+    from {
+        -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+    }
+    to {
+        -webkit-transform: scaleY(0);
+                transform: scaleY(0);
+    }
+}
+@keyframes HideListPost {
+    from {
+        -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+    }
+    to {
+        -webkit-transform: scaleY(0);
+                transform: scaleY(0);
+    }
+}
+/* =================
+= custom-select =
+=================*/
 .make-post .bottom-create-post .post-btn {
     width: 90%;
     padding: 0.4rem 0rem;
