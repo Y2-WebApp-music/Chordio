@@ -232,16 +232,11 @@ nav .song-bg .song-icon {
     top: 60px;
     height: 100vh;
 }
-
-.scroll-over{
-    overflow:auto;
-}
-
 .your-chord-side{
     margin-top: 2%;
     width: 80%;
     background-color: var(--color-darkgray);
-    height: 600px;
+    height: 80%;
     padding: 1rem 1rem;
     border: solid;
     border-width: 2px;
@@ -263,26 +258,27 @@ nav .song-bg .song-icon {
     font-weight: var(--font-weight-big);
     font-size: 20px;
 }
+.scroll-over{
+    overflow-y:scroll;
+    overflow-x: hidden;
+}
 .your-chord-list {
     width: 100%;
-    min-height: 500px;
-    max-height: auto;
+    min-height: 90%;
+    max-height: 90%;
     padding: 0.2rem 0.2rem;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    scroll-behavior: smooth;
 }
 
 .your-chord{
+    position: relative;
     margin-top: 10px;
     width: 90%;
-    min-height: 80px;
-    max-height: auto;
+    min-height: 120px;
+    height: 120px;
     background-color: var(--color-lightgray);
     display: grid;
     grid-template-columns: 20% 1fr ;
@@ -297,6 +293,98 @@ nav .song-bg .song-icon {
     background-color: var(--color-darkwhite);
     scale: 1.02;
     transition: .1s;
+}
+.your-chord:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    pointer-events: none;
+}
+.hover-chord{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 120px;
+    height: 120px;
+    border-radius: 10px;
+    background-color: rgba(92, 92, 92, 0.52);
+    display: none;
+    grid-template-columns: 20% 60% 20%;
+    align-items: center;
+}
+.your-chord:hover .hover-chord {
+    display: grid;
+}
+.edit-chord{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-left: 10px;
+    border: none;
+    border-right: solid;
+    border-width: 1px;
+    padding: 1rem 0;
+    border-color: var(--color-text);
+}
+.edit-chord p{
+    display: block;
+    font-size: 14px;
+    font-weight: var(--font-weight-mid);
+}
+.edit-icon{
+    fill: var(--color-text);
+    padding: 0.6rem 0.6rem;
+    border-radius: 10px;
+    transition: .2s;
+}
+.edit-icon:hover{
+    fill: var(--color-lightblue);
+    background-color: rgba(56, 56, 56, 0.425);
+    height: 2em;
+    transition: .2s;
+}
+.edit-icon:hover+p {
+    display: block;
+    color: var(--color-lightblue);
+}
+.delete-chord{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-right: 10px;
+    border: none;
+    border-left: solid;
+    border-width: 1px;
+    padding: 1rem 0;
+    border-color: var(--color-text);
+}
+.delete-chord p{
+    display: block;
+    font-size: 14px;
+    font-weight: var(--font-weight-mid);
+}
+.delete-icon{
+    fill: var(--color-text);
+    padding: 0.6rem 0.6rem;
+    border-radius: 10px;
+}
+.delete-icon:hover{
+    fill: var(--color-red);
+    background-color: rgba(56, 56, 56, 0.425);
+    height: 2em;
+    transition: .2s;
+}
+.delete-icon:hover+p {
+    display: block;
+    color: var(--color-red);
 }
 .your-chord img{
     width: 100%;
@@ -313,30 +401,51 @@ nav .song-bg .song-icon {
     flex-direction: column;
     justify-content: center;
 }
+
 .your-chord-imformation .your-chord-top p{
     width: 100%;
+    max-height: 80px; /* Set the maximum height to 2 lines */
+    display: -webkit-box; /* For WebKit-based browsers */
+    -webkit-line-clamp: 2; /* Limit the number of displayed lines to 2 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
     font-size: 20px;
     font-weight: var(--font-weight-mid);
+    text-overflow: ellipsis;
 }
 .your-chord-down {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap :4px;
+    padding-bottom: 3%;
+}
+.your-chord-down-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
 }
 .your-chord-text-down{
     font-weight: var(--font-weight-mid);
     color: var(--color-textgray);
     font-size: 13px;
+    height: 1em;
     justify-self: center;
     align-self: flex-end;
 }
 .your-chord-text-down-get {
     font-size: 17px;
+    width: 90%;
+    height: 1em;
+    display: -webkit-box; /* For WebKit-based browsers */
+    -webkit-line-clamp: 1; /* Limit the number of displayed lines to 2 */
+    -webkit-box-orient: vertical;
     justify-self: center;
     align-self: flex-end;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
-
 .create-chord {
     margin-top: 2%;
     width: 40%;
