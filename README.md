@@ -14,7 +14,7 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
 
 ## All HTML progress
 - [ ] Index.html
-- [x] ✅home.html
+- [x] ✅ home.html
 - [ ] song.html
 - [ ] userprofile.html
 - [ ] chordview.html
