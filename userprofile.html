@@ -10,7 +10,7 @@
     <link rel='stylesheet' href='./css/post-display.css'>
     <script defer src="js/global.js"></script>
     <script defer src="js/userprofile.js"></script>
-    <script defer src="js/post.js"></script>
+    <script defer src="js/post-display.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,26 +113,136 @@
                         <img src="img/circletest.png" class="user-img" alt="">
                         <div class="post-text-input">
                             <input type="text" class="cr-post-title" placeholder="Write something..." maxlength="120">
-                            <textarea id="content-input" placeholder="content...."></textarea>
+                            <textarea class="cr-post-detail" id="content-input" placeholder="content...." maxlength="1000"></textarea>
                         </div>
                     </div>
                     <div class="slideshow-wrapper">
                         <div class="prev-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="arrow-hover" height="1.2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arrow-hover" height="1.2em" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
                         </div>
                         <div class="slideshow-left-right">
                             <!-- Slides will be added here dynamically -->
                         </div>
                         <div class="next-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="arrow-hover" height="1.2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="arrow-hover" height="1.2em" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
                         </div>
                     </div>
                 </div>
                 <div class="bottom-create-post">
-                    <label for="image-input">
+                    <label class="lable-input-img" for="image-input">
                         <svg xmlns="http://www.w3.org/2000/svg" class="camera" height="1.4em" viewBox="0 0 576 512"><path d="M160 32c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H160zM396 138.7l96 144c4.9 7.4 5.4 16.8 1.2 24.6S480.9 320 472 320H328 280 200c-9.2 0-17.6-5.3-21.6-13.6s-2.9-18.2 2.9-25.4l64-80c4.6-5.7 11.4-9 18.7-9s14.2 3.3 18.7 9l17.3 21.6 56-84C360.5 132 368 128 376 128s15.5 4 20 10.7zM192 128a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120V344c0 75.1 60.9 136 136 136H456c13.3 0 24-10.7 24-24s-10.7-24-24-24H136c-48.6 0-88-39.4-88-88V120z"/></svg>
                     </label>
                     <input type="file" id="image-input" accept="image/*" multiple style="display: none;">
+
+                    <div class="select-box" id="mySelectBox">
+                        <div class="select-box__current" tabindex="1">
+                            <div class="select-box__value">
+                                <input class="select-box__input" type="radio" id="0" value="1" name="Ben" checked="checked"/>
+                                <p class="select-box__input-text">Theory</p>
+                            </div>
+                            <div class="select-box__value">
+                                <input class="select-box__input" type="radio" id="1" value="2" name="Ben" checked="checked"/>
+                                <p class="select-box__input-text">Sound engineer</p>
+                            </div>
+                            <div class="select-box__value">
+                                <input class="select-box__input" type="radio" id="2" value="3" name="Ben" checked="checked"/>
+                                <p class="select-box__input-text">Band</p>
+                            </div>
+                            <div class="select-box__value">
+                                <input class="select-box__input" type="radio" id="3" value="4" name="Ben" checked="checked"/>
+                                <p class="select-box__input-text">Guitar</p>
+                            </div>
+                            <div class="select-box__value">
+                                <input class="select-box__input" type="radio" id="4" value="5" name="Ben" checked="checked"/>
+                                <p class="select-box__input-text">Vocal</p>
+                            </div>
+                            <div class="select-box__value">
+                                <input class="select-box__input" type="radio" id="5" value="6" name="Ben" checked="checked"/>
+                                <p class="select-box__input-text">Bass</p>
+                            </div>
+                            <div class="select-box__value">
+                                <input class="select-box__input" type="radio" id="6" value="7" name="Ben" checked="checked"/>
+                                <p class="select-box__input-text">Drum</p>
+                            </div>
+                            <div class="select-box__value">
+                                <input class="select-box__input" type="radio" id="7" value="8" name="Ben" checked="checked"/>
+                                <p class="select-box__input-text">Piano</p>
+                            </div>
+                            <div class="select-box__value">
+                                <input class="select-box__input" type="radio" id="8" value="9" name="Ben" checked="checked"/>
+                                <p class="select-box__input-text">String</p>
+                            </div>
+                            <div class="select-box__value">
+                                <input class="select-box__input" type="radio" id="9" value="10" name="Ben" checked="checked"/>
+                                <p class="select-box__input-text">Brass</p>
+                            </div>
+                            <div class="select-box__value">
+                                <input class="select-box__input" type="radio" id="10" value="11" name="Ben" checked="checked"/>
+                                <p class="select-box__input-text">other</p>
+                            </div>
+
+                            <svg class="select-box__icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+                        </div>
+                        <ul class="select-box__list">
+                            <li>
+                                <label class="select-box__option" for="0" aria-hidden="aria-hidden">Theory</label>
+                            </li>
+                            <li>
+                                <label class="select-box__option" for="1" aria-hidden="aria-hidden">Sound engineer</label>
+                            </li>
+                            <li>
+                                <label class="select-box__option" for="2" aria-hidden="aria-hidden">Band</label>
+                            </li>
+                            <li>
+                                <label class="select-box__option" for="3" aria-hidden="aria-hidden">Guitar</label>
+                            </li>
+                            <li>
+                                <label class="select-box__option" for="4" aria-hidden="aria-hidden">Vocal</label>
+                            </li>
+                            <li>
+                                <label class="select-box__option" for="5" aria-hidden="aria-hidden">Bass</label>
+                            </li>
+                            <li>
+                                <label class="select-box__option" for="6" aria-hidden="aria-hidden">Drum</label>
+                            </li>
+                            <li>
+                                <label class="select-box__option" for="7" aria-hidden="aria-hidden">Piano</label>
+                            </li>
+                            <li>
+                                <label class="select-box__option" for="8" aria-hidden="aria-hidden">String</label>
+                            </li>
+                            <li>
+                                <label class="select-box__option" for="9" aria-hidden="aria-hidden">Brass</label>
+                            </li>
+                            <li>
+                                <label class="select-box__option" for="10" aria-hidden="aria-hidden">other</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="select-Post" id="PostTag">
+                        <div class="select-post_current" tabindex="1">
+                            <div class="select-post_value">
+                                <input class="select-post_input" type="radio" id="type0" value="post-1" name="Post" checked="checked"/>
+                                <p class="select-post_input-text">Question</p>
+                            </div>
+                            <div class="select-post_value">
+                                <input class="select-post_input" type="radio" id="type1" value="post-2" name="Post" checked="checked"/>
+                                <p class="select-post_input-text">Article</p>
+                            </div>
+
+                            <svg class="select-post_icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+                        </div>
+                        <ul class="select-post_list">
+                            <li>
+                                <label class="select-post_option" for="type0" aria-hidden="aria-hidden">Question</label>
+                            </li>
+                            <li>
+                                <label class="select-post_option" for="type1" aria-hidden="aria-hidden">Article</label>
+                            </li>
+                        </ul>
+                    </div>
+
                     <input type="submit" class="post-btn" value="Post">
                 </div>
             </div>
