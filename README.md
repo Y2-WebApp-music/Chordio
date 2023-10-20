@@ -5,6 +5,7 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 👉🏻 `new` Login page in index.html `also add CSS of index` (not finish, press login to go to homepage)
   - 👉🏻 Done home page `JS-> post-display,home CSS->home, post-display`
   - 👉🏻 Update Create post in Uesrprofile page  `CSS HTML`
+  - 👉🏻 Home page structure is Done (May be)  `CSS HTML`
 
 
 ### Static Web
