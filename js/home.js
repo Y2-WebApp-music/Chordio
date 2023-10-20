@@ -129,23 +129,157 @@ imageInput.addEventListener("change", function (event) {
 });
 
 // Get the select box and current elements
-const selectBox = document.getElementById("mySelectBox");
-const currentElement = selectBox.querySelector(".select-box__current");
+const POPselectBox = document.getElementById("pop-mySelectBox");
+const POPcurrentElement = POPselectBox.querySelector(".pop-select-box__current");
 
-currentElement.addEventListener("focus", () => {
-    selectBox.style.borderRadius = "20px 20px 0px 0px";
+POPcurrentElement.addEventListener("focus", () => {
+    POPselectBox.style.borderRadius = "20px 20px 0px 0px";
 });
-currentElement.addEventListener("blur", () => {
-    selectBox.style.borderRadius = "20px 20px 20px 20px";
+POPcurrentElement.addEventListener("blur", () => {
+    POPselectBox.style.borderRadius = "20px 20px 20px 20px";
 });
 
 // Get the select box and current elements
-const selectPost = document.getElementById("PostTag");
-const boxBellow = selectPost.querySelector(".select-post_current");
+const POPselectPost = document.getElementById("pop-PostTag");
+const POPboxBellow = POPselectPost.querySelector(".pop-select-post_current");
 
-boxBellow.addEventListener("focus", () => {
-    selectPost.style.borderRadius = "20px 20px 0px 0px";
+POPboxBellow.addEventListener("focus", () => {
+    POPselectPost.style.borderRadius = "20px 20px 0px 0px";
 });
-boxBellow.addEventListener("blur", () => {
-    selectPost.style.borderRadius = "20px 20px 20px 20px";
+POPboxBellow.addEventListener("blur", () => {
+    POPselectPost.style.borderRadius = "20px 20px 20px 20px";
+});
+
+
+/* ==================================================
+   ================================================== */
+// Pop Create Post
+const popContentInput = document.getElementById("pop-content-input");
+popContentInput.addEventListener("input", function () {
+    const lines = this.value.split("\n");
+
+    this.style.height = "auto"; // Reset the height to auto
+    this.style.height = this.scrollHeight + "px"; // Set the height to match the scrollHeight
+    // Limit to 5 lines
+    if (lines.length > 5) {
+        this.value = lines.slice(0, 5).join("\n");
+    }
+});
+
+// Image Input
+const popimageInput = document.getElementById("pop-image-input");
+const popslideshowLeftRight = document.querySelector(".pop-slideshow-left-right");
+const popprevButton = document.querySelector(".pop-prev-button");
+const popnextButton = document.querySelector(".pop-next-button");
+popprevButton.style.display = "none";
+popnextButton.style.display = "none";
+// Track the current slide index
+let PopcurrentSlideIndex = 0;
+
+popimageInput.addEventListener("change", function (event) {
+    const files = event.target.files;
+    const images = [];
+
+    // Limit the number of images to 4
+    if (files.length > 4) {
+        alert("You can only upload up to 4 photos.");
+        event.target.value = null; // Clear the file input
+        return;
+    }
+
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        if (file.type.startsWith("image/")) {
+            images.push({
+                src: URL.createObjectURL(file),
+                file: file,
+            });
+        }
+    }
+
+    // Show or hide arrow buttons based on the number of images
+    if (images.length > 0) {
+        popprevButton.style.display = "block";
+        popnextButton.style.display = "block";
+    } else {
+        popprevButton.style.display = "none";
+        popnextButton.style.display = "none";
+    }
+    // Clear the existing slideshow
+    popslideshowLeftRight.innerHTML = "";
+
+    // Create slides for each image
+    for (let i = 0; i < images.length; i++) {
+        const slide = document.createElement("div");
+        slide.className = "pop-slide";
+        slide.style.display = i === PopcurrentSlideIndex ? "block" : "none";
+
+        const img = document.createElement("img");
+        img.src = images[i].src;
+
+        // Create a cancel button for each photo
+        const cancelBtn = document.createElement("button");
+        cancelBtn.innerHTML = `
+        <svg class="cancel-icon" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+        </svg>`;
+        cancelBtn.className = "pop-cancel-button";
+        cancelBtn.addEventListener("click", function () {
+            // Remove the photo from the array
+            images.splice(i, 1);
+            // Remove the slide
+            popslideshowLeftRight.removeChild(slide);
+            // Update the slideshow
+            showSlide(PopcurrentSlideIndex);
+            if (images.length > 0) {
+                popprevButton.style.display = "block";
+                popnextButton.style.display = "block";
+            } else {
+                popprevButton.style.display = "none";
+                popnextButton.style.display = "none";
+            }
+        });
+
+        slide.appendChild(img);
+        slide.appendChild(cancelBtn);
+        popslideshowLeftRight.appendChild(slide);
+    }
+
+    // Function to display the current slide
+    function showSlide(index) {
+        const slides = document.querySelectorAll(".pop-slide");
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index ? "block" : "none";
+        });
+    }
+
+    // Event listener for the "Previous" button
+    popprevButton.addEventListener("click", function () {
+        PopcurrentSlideIndex = (PopcurrentSlideIndex - 1 + images.length) % images.length;
+        showSlide(PopurrentSlideIndex);
+    });
+
+    // Event listener for the "Next" button
+    popnextButton.addEventListener("click", function () {
+        PopcurrentSlideIndex = (PopcurrentSlideIndex + 1) % images.length;
+        showSlide(PopcurrentSlideIndex);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var showCRpost = document.querySelector(".createpost-btn");
+    var postFill = document.querySelector(".create-post-pop");
+
+    showCRpost.addEventListener("click", function () {
+        postFill.style.display = "flex";
+    });
+
+    postFill.addEventListener("click", function (e) {
+        if (e.target === postFill) {
+            postFill.style.display = "none";
+        }
+    });
+    var closePostBtn = document.querySelector(".close-pop-cr-post");
+    closePostBtn.addEventListener("click", function () {
+        postFill.style.display = "none";
+    });
 });
