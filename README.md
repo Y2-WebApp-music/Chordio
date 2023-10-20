@@ -24,3 +24,4 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
 - [ ] 🟥 userchord.html
 - [ ] 🟥 chordsave.html
 - [ ] 🟥 postsave.html
+- [ ] 🟥 setting.html
