@@ -6,6 +6,7 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 👉🏻 Done home page `JS-> post-display,home CSS->home, post-display`
   - 👉🏻 Update Create post in Uesrprofile page  `CSS HTML`
   - 👉🏻 Home page structure is Done (May be)  `CSS HTML`
+  - 👉🏻 Your-chrord:hover in userprofile and song page `CSS HTML`
 
 
 ### Static Web
@@ -14,12 +15,12 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
 `Work in nodeJS, Vanila CSS, Vanila HTML`
 
 ## All HTML progress
-- [ ] Index.html
-- [x] ✅ home.html
-- [ ] song.html
-- [ ] userprofile.html
-- [ ] chordview.html
-- [ ] chordcreate.html
-- [ ] userchord.html
-- [ ] chordsave.html
-- [ ] postsave.html
+- [ ] 🟨 Index.html
+- [x] 🟩 home.html
+- [x] 🟨 song.html
+- [ ] 🟨 userprofile.html
+- [ ] 🟨 chordview.html
+- [ ] 🟥 chordcreate.html
+- [ ] 🟥 userchord.html
+- [ ] 🟥 chordsave.html
+- [ ] 🟥 postsave.html
