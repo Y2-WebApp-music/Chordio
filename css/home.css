@@ -359,7 +359,7 @@ nav .song-bg .song-icon {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 500px;
+    height: 65%;
 }
 .chord-suggest .chord-suggest-title{
     font-size: 17px;
@@ -371,7 +371,7 @@ nav .song-bg .song-icon {
 }
 .chord-list {
     width: 100%;
-    height: 500px;
+    height: 90%;
     padding: 0.2rem 0.2rem;
     display: flex;
     flex-direction: column;
@@ -385,8 +385,9 @@ nav .song-bg .song-icon {
 
 .chord{
     margin-top: 10px;
-    width: 90%;
-    height: auto;
+    width: 95%;
+    min-height: 120px;
+    height: 120px;
     background-color: var(--color-lightgray);
     display: grid;
     grid-template-columns: 20% 1fr ;
@@ -417,10 +418,16 @@ nav .song-bg .song-icon {
     flex-direction: column;
     justify-content: center;
 }
-.chord-imformation .chord-top {
+.chord-imformation .chord-top p{
     width: 100%;
-    font-size: 23px;
-    font-weight: var(--font-weight-big);
+    max-height: 80px; /* Set the maximum height to 2 lines */
+    display: -webkit-box; /* For WebKit-based browsers */
+    -webkit-line-clamp: 2; /* Limit the number of displayed lines to 2 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 20px;
+    font-weight: var(--font-weight-mid);
+    text-overflow: ellipsis;
 }
 .chord-down {
     display: flex;
@@ -428,17 +435,31 @@ nav .song-bg .song-icon {
     flex-wrap: wrap;
     gap :4px;
 }
+.chord-down-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+}
 .chord-text-down{
     font-weight: var(--font-weight-mid);
     color: var(--color-textgray);
     font-size: 13px;
+    height: 1em;
     justify-self: center;
     align-self: flex-end;
 }
 .chord-text-down-get {
     font-size: 17px;
+    width: 90%;
+    height: 1em;
+    display: -webkit-box; /* For WebKit-based browsers */
+    -webkit-line-clamp: 1; /* Limit the number of displayed lines to 2 */
+    -webkit-box-orient: vertical;
     justify-self: center;
     align-self: flex-end;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .goto-chord {
     margin-top: 2%;
