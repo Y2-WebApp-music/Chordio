@@ -16,4 +16,7 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
 `Work in nodeJS, Vanila CSS, Vanila HTML`
 
 ## Roadmap
-- [ ] All page html and css file
+- [ ] Index.html
+- [ ] home.html
+- [ ] song.html
+- [ ] userprofile.html
