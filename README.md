@@ -19,8 +19,8 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
 - [x] 🟩 home.html
 - [x] 🟩 song.html
 - [ ] 🟨 userprofile.html
-- [ ] 🟨 chordview.html
-- [ ] 🟥 chordcreate.html
+- [ ] 🟩 chordview.html
+- [ ] 🟨 chordcreate.html
 - [ ] 🟥 userchord.html
 - [ ] 🟥 chordsave.html
 - [ ] 🟥 postsave.html
