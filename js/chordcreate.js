@@ -1,16 +1,12 @@
 // File Upload
-// 
 function ekUpload(){
-    function Init() {
-  
-      console.log("Upload Initialised");
-  
-      var fileSelect    = document.getElementById('file-upload'),
-          fileDrag      = document.getElementById('file-drag'),
-          submitButton  = document.getElementById('submit-button');
-  
-      fileSelect.addEventListener('change', fileSelectHandler, false);
-  
+  function Init() {
+    console.log("Upload Initialised");
+    var fileSelect  = document.getElementById('file-upload'),
+    fileDrag = document.getElementById('file-drag')
+
+    fileSelect.addEventListener('change', fileSelectHandler, false);
+
       // Is XHR2 available?
       var xhr = new XMLHttpRequest();
       if (xhr.upload) {
@@ -20,48 +16,48 @@ function ekUpload(){
         fileDrag.addEventListener('drop', fileSelectHandler, false);
       }
     }
-  
+
     function fileDragHover(e) {
       var fileDrag = document.getElementById('file-drag');
-  
+
       e.stopPropagation();
       e.preventDefault();
-  
+
       fileDrag.className = (e.type === 'dragover' ? 'hover' : 'modal-body file-upload');
     }
-  
+
     function fileSelectHandler(e) {
       // Fetch FileList object
       var files = e.target.files || e.dataTransfer.files;
-  
+
       // Cancel event and hover styling
       fileDragHover(e);
-  
+
       // Process all File objects
       for (var i = 0, f; f = files[i]; i++) {
         parseFile(f);
         uploadFile(f);
       }
     }
-  
+
     // Output
     function output(msg) {
       // Response
       var m = document.getElementById('messages');
       m.innerHTML = msg;
     }
-  
+
     function parseFile(file) {
-  
+
       console.log(file.name);
       output(
         '<strong>' + encodeURI(file.name) + '</strong>'
       );
-      
+
       // var fileType = file.type;
       // console.log(fileType);
       var imageName = file.name;
-  
+
       var isGood = (/\.(?=gif|jpg|png|jpeg)/gi).test(imageName);
       if (isGood) {
         document.getElementById('start').classList.add("hidden");
@@ -79,47 +75,22 @@ function ekUpload(){
         document.getElementById("file-upload-form").reset();
       }
     }
-  
-    function setProgressMaxValue(e) {
-      var pBar = document.getElementById('file-progress');
-  
-      if (e.lengthComputable) {
-        pBar.max = e.total;
-      }
-    }
-  
-    function updateFileProgress(e) {
-      var pBar = document.getElementById('file-progress');
-  
-      if (e.lengthComputable) {
-        pBar.value = e.loaded;
-      }
-    }
-  
+
     function uploadFile(file) {
-  
+
       var xhr = new XMLHttpRequest(),
-        fileInput = document.getElementById('class-roster-file'),
-        pBar = document.getElementById('file-progress'),
+        fileInput = document.getElementById('class-roster-file');
         fileSizeLimit = 1024; // In MB
       if (xhr.upload) {
         // Check if file is less than x MB
         if (file.size <= fileSizeLimit * 1024 * 1024) {
-          // Progress bar
-          pBar.style.display = 'inline';
-          xhr.upload.addEventListener('loadstart', setProgressMaxValue, false);
-          xhr.upload.addEventListener('progress', updateFileProgress, false);
-  
+
           // File received / failed
           xhr.onreadystatechange = function(e) {
             if (xhr.readyState == 4) {
-              // Everything is good!
-  
-              // progress.className = (xhr.status == 200 ? "success" : "failure");
-              // document.location.reload(true);
             }
           };
-  
+
           // Start upload
           xhr.open('POST', document.getElementById('file-upload-form').action, true);
           xhr.setRequestHeader('X-File-Name', file.name);
@@ -131,7 +102,7 @@ function ekUpload(){
         }
       }
     }
-  
+
     // Check for the various File API support.
     if (window.File && window.FileList && window.FileReader) {
       Init();
