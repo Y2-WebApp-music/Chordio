@@ -36,3 +36,11 @@ document.addEventListener("DOMContentLoaded", function() {
         chordTypeButton.classList.remove("chose");
     });
 });
+
+const chordcreate = document.getElementById('getback');
+chordcreate.addEventListener('click',() => {
+    if (window.location.href !=='./song.html'){
+        window.location.href='./song.html'
+    }
+    else {}
+});
