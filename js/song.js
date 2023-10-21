@@ -14,3 +14,11 @@ chordview.addEventListener('click',() => {
     }
     else {}
 });
+
+const chordcreate = document.getElementById('cr-chord');
+chordcreate.addEventListener('click',() => {
+    if (window.location.href !=='./chordcreate.html'){
+        window.location.href='./chordcreate.html'
+    }
+    else {}
+});
