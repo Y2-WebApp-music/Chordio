@@ -178,12 +178,203 @@
                     </div>
                 </div>
                 <div class="key-bpm">
-                    <p>Type</p>
-                    <p>nationality</p>
+                    <div class="flex-in">
+                        <div class="text"><p>Type</p></div>
+                        <div class="select-type" id="typeSelect">
+                            <div class="select-box__current" tabindex="1">
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-0" value="1" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">Pop</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-1" value="2" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">Rock</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-2" value="3" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">Soul</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-3" value="4" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">Jazz</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-4" value="5" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">R&B</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-5" value="6" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">K-pop</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-6" value="7" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">J-pop</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-7" value="8" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">T-pop</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-8" value="9" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">Anime</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-9" value="10" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">Alternative</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-10" value="11" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">Country</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-11" value="11" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">Classical</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-12" value="11" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">Indie</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-13" value="11" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">Metal</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-13" value="11" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">Hip-Hop</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="type-14" value="11" name="type" checked="checked"/>
+                                    <p class="select-box__input-text">Other</p>
+                                </div>
+                                <svg class="select-box__icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+                            </div>
+                            <div class="type-group">
+                                <div class="type-grid">
+                                    <label class="type-btn" for="type-0">
+                                        <img src="img/pop.png" class="Tagicon">
+                                        <a>Pop</a>
+                                    </label>
+                                    <label class="type-btn" for="type-1">
+                                        <img src="img/rock.png" class="Tagicon">
+                                        <a>Rock</a>
+                                    </label>
+                                    <label class="type-btn" for="type-2">
+                                        <img src="img/soul.png" class="Tagicon">
+                                        <a>Soul</a>
+                                    </label>
+                                    <label class="type-btn" for="type-3">
+                                        <img src="img/jazz.png" class="Tagicon">
+                                        <a>Jazz</a>
+                                    </label>
+                                    <label class="type-btn" for="type-4">
+                                        <img src="img/r-b.png" class="Tagicon">
+                                        <a>R&B</a>
+                                    </label>
+                                    <label class="type-btn" for="type-5">
+                                        <img src="img/south-korea.png" class="Tagicon">
+                                        <a>K-pop</a>
+                                    </label>
+                                    <label class="type-btn" for="type-6">
+                                        <img src="img/japan.png" class="Tagicon">
+                                        <a>J-pop</a>
+                                    </label>
+                                    <label class="type-btn" for="type-7">
+                                        <img src="img/thailand.png" class="Tagicon">
+                                        <a>T-pop</a>
+                                    </label>
+                                    <label class="type-btn" for="type-8">
+                                        <img src="img/anime.png" class="Tagicon">
+                                        <a>Anime</a>
+                                    </label>
+                                    <label class="type-btn" for="type-9">
+                                        <img src="img/alter.png" class="Tagicon">
+                                        <a>Alternative</a>
+                                    </label>
+                                    <label class="type-btn" for="type-10">
+                                        <img src="img/musician.png" class="Tagicon">
+                                        <a>Country</a>
+                                    </label>
+                                    <label class="type-btn" for="type-11">
+                                        <img src="img/conductor.png" class="Tagicon">
+                                        <a>Classical</a>
+                                    </label>
+                                    <label class="type-btn" for="type-12">
+                                        <img src="img/radio.png" class="Tagicon">
+                                        <a>Indie</a>
+                                    </label>
+                                    <label class="type-btn" for="type-13">
+                                        <img src="img/metal.png" class="Tagicon">
+                                        <a>Metal</a>
+                                    </label>
+                                    <label class="type-btn" for="type-14">
+                                        <img src="img/hip-hop.png" class="Tagicon">
+                                        <a>Hip-Hop</a>
+                                    </label>
+                                    <label class="type-btn" for="type-15">
+                                        <img src="img/more.png" class="Tagicon">
+                                        <a>other</a>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-in">
+                        <div class="text"><p>nationality</p></div>
+                        <div class="select-type" id="nationSelect">
+                            <div class="select-box__current" tabindex="1">
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="na-0" value="1" name="nationality" checked="checked"/>
+                                    <p class="select-box__input-text">Thai</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="na-0" value="2" name="nationality" checked="checked"/>
+                                    <p class="select-box__input-text">Japan</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="na-2" value="3" name="nationality" checked="checked"/>
+                                    <p class="select-box__input-text">Korea</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="na-3" value="4" name="nationality" checked="checked"/>
+                                    <p class="select-box__input-text">National</p>
+                                </div>
+                                <div class="select-box__value">
+                                    <input class="select-box__input" type="radio" id="na-4" value="5" name="nationality" checked="checked"/>
+                                    <p class="select-box__input-text">other</p>
+                                </div>
+                                <svg class="select-box__icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+                            </div>
+                            <div class="type-group">
+                                <div class="type-grid">
+                                    <label class="type-btn" for="na-0">
+                                        <img src="img/thailand.png" class="Tagicon">
+                                        <a>Thai</a>
+                                    </label>
+                                    <label class="type-btn" for="na-1">
+                                        <img src="img/japan.png" class="Tagicon">
+                                        <a>Japan</a>
+                                    </label>
+                                    <label class="type-btn" for="na-2">
+                                        <img src="img/south-korea.png" class="Tagicon">
+                                        <a>Korea</a>
+                                    </label>
+                                    <label class="type-btn" for="na-3">
+                                        <img src="img/music-note.png" class="Tagicon">
+                                        <a>National</a>
+                                    </label>
+                                    <label class="type-btn" for="na-4">
+                                        <img src="img/more.png" class="Tagicon">
+                                        <a>other</a>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="text"><p>Youtube link</p></div>
                 <input type="text" name="YTlink" id="" class="input-text" placeholder="Youtube link....">
-                <!-- Upload  -->
+                <!-- Cover Photo Upload  -->
                 <div class="text"><p>Cover photo</p></div>
                 <form id="file-upload-form" class="uploader">
                     <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
