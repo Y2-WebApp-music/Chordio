@@ -314,7 +314,7 @@ nav .song-bg .song-icon {
     height: 120px;
     border-radius: 10px;
     background-color: rgba(92, 92, 92, 0.52);
-    display: grid;
+    display: none;
     grid-template-columns: 23% 54% 23%;
     align-items: center;
 }
