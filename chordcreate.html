@@ -9,7 +9,7 @@
     <link rel='stylesheet' href='./css/global.css'>
 
     <script defer src="js/global.js"></script>
-    <script defer src="js/userprofile.js"></script>
+    <script defer src="js/chordcreate.js"></script>
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,7 +70,59 @@
     </header>
 
     <div class="container">
-        
+        <div class="left-container">
+            <div class="text-input">
+                <div class="text"><p>Song Name</p></div>
+                <input type="text" name="SongName" id="" class="input-text" placeholder="Song name....">
+                <div class="text"><p>Artist</p></div>
+                <input type="text" name="ArtistName" id="" class="input-text" placeholder="Artist name....">
+                <div class="key-bpm">
+                    <p>Key</p>
+                    <div class="flex-in">
+                        <div class="text"><p>BPM</p></div>
+                        <input type="number" name="BPM" id="" class="bpm" placeholder="BPM" min="1" max="300">
+                    </div>
+                </div>
+                <div class="key-bpm">
+                    <p>Type</p>
+                    <p>nationality</p>
+                </div>
+                <div class="text"><p>Youtube link</p></div>
+                <input type="text" name="YTlink" id="" class="input-text" placeholder="Youtube link....">
+                <!-- <input type="file" id="image-input" accept="image/*"> -->
+                <!-- Upload  -->
+                <form id="file-upload-form" class="uploader">
+                    <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+                    <label for="file-upload" id="file-drag">
+                        <img id="file-image" src="#" alt="Preview" class="hidden">
+                        <div id="start">
+                            <div>Select a file or drag here</div>
+                            <div id="notimage" class="hidden">Please select an image</div>
+                            <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+                        </div>
+                        <div id="response" class="hidden">
+                            <div id="messages"></div>
+                            <progress class="progress" id="file-progress" value="0">
+                                <span>0</span>%
+                            </progress>
+                        </div>
+                    </label>
+                </form>
+
+            </div>
+        </div>
+        <div class="main-container prevent-select">
+            <div class="input-area">
+                <div class="pic-input">
+                    <div class="chord-input"></div>
+                    <div class="note-input"></div>
+                </div>
+                <div class="post-area"></div>
+            </div>
+            <div class="close-area">
+                <svg class="close-btn" id="getback" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+            </div>
+        </div>
     </div>
 </body>
 </html>
