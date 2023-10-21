@@ -107,3 +107,11 @@ imageInput.addEventListener("change", function (event) {
         showSlide(currentSlideIndex);
     });
 });
+
+const chordcreate = document.getElementById('cr-chord');
+chordcreate.addEventListener('click',() => {
+    if (window.location.href !=='./chordcreate.html'){
+        window.location.href='./chordcreate.html'
+    }
+    else {}
+});
