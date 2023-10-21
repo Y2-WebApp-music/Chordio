@@ -429,18 +429,20 @@ nav .home-bg .song-icon {
 .edit-icon{
     fill: var(--color-text);
     padding: 0.6rem 0.6rem;
+    margin-right: 4px;
     border-radius: 10px;
     transition: .2s;
 }
 .edit-icon:hover{
     fill: var(--color-lightblue);
-    background-color: rgba(56, 56, 56, 0.425);
+    background-color: rgba(56, 56, 56, 0.525);
     height: 2em;
     transition: .2s;
 }
 .edit-icon:hover+p {
     display: block;
     color: var(--color-lightblue);
+    text-align: center;
 }
 .delete-chord{
     display: flex;
@@ -462,7 +464,9 @@ nav .home-bg .song-icon {
 .delete-icon{
     fill: var(--color-text);
     padding: 0.6rem 0.6rem;
+    margin-left: 4px;
     border-radius: 10px;
+    transition: .2s;
 }
 .delete-icon:hover{
     fill: var(--color-red);
