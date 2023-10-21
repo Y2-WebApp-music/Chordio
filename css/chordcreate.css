@@ -1,0 +1,104 @@
+* {
+    margin: 0 0;
+    padding: 0 0;
+    color: var(--color-text);
+    font-family: var(--font-thai);
+    font-weight: var(--font-weight-sma);
+}
+body {
+    background-color: var(--color-bg);
+}
+
+/* ======================================
+=========================================
+=============== head Zone ===============
+=========================================
+====================================== */
+header {
+    background-color: var(--color-darkgray);
+    height: 42px;
+    width: 100%;
+    position: fixed;
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.95);
+    padding-top: 7px;
+    padding-bottom: 4px;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: var(--color-lightgray);
+    z-index:10 ;
+}
+.headin {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.appname{
+    margin-left: 2%;
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    align-items: center;
+}
+
+#appicon {
+    height: 40px;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+.song-bg {
+    width: 90%;
+    height: 100%;
+    margin: 0 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px;
+    border: none;
+    border-bottom: solid;
+    border-color: var(--color-blue);
+    border-width: 3px;
+}
+nav .song-bg .song-icon {
+    fill :var(--color-blue);
+}
+
+.home-bg {
+    width: 90%;
+    height: 100%;
+    margin: 0 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px;
+    border: none;
+    border-radius: 10px;
+}
+nav .home-bg .song-icon {
+    fill :var(--color-gray17);
+}
+.home-bg:hover {
+    background-color: var(--color-lightgray);
+}
+
+.user-head {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 2%;
+}
+.user-head .user-icon {
+    height: 40px;
+}
+
+.container {
+    width: auto;
+    background-color: var(--color-bg);
+    padding-top: 60px;
+    display: grid;
+    grid-template-columns: 30% 1fr 28%;
+    justify-items: center;
+}
