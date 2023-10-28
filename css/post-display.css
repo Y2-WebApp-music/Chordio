@@ -175,13 +175,13 @@
     border-color: var(--color-blue);
     border-radius: 20px 20px 20px 20px;
     transition: .2s;
-    z-index: 1;
+    z-index: 0;
 }
 .pop-select-box:hover {
     scale: 1.03;
     transition: .2s;
     background-color: var(--color-blue);
-    z-index: 1;
+    z-index: 0;
 }
 .pop-select-box__current {
     position: relative;
@@ -306,11 +306,13 @@
     /* background-color: aqua; */
     border-radius: 20px 20px 20px 20px;
     transition: .2s;
+    z-index: 0;
 }
 .pop-select-Post:hover {
     scale: 1.03;
     transition: .2s;
     background-color: var(--color-blue);
+    z-index: 0;
 }
 .pop-select-post_current {
     position: relative;
@@ -482,15 +484,64 @@
     font-size: 14px;
     color: var(--color-textgray);
 }
-.post-edit {
-    justify-self: center;
+.setting-post{
+    width: 100%;
+}
+.setting-btn {
+    position: relative;
     fill: var(--color-darkwhite);
     transition: .2s;
 }
-.post-edit:hover {
-    fill: var(--color-red);
+.setting-btn:hover {
+    fill: var(--color-lightblue);
     transition: .2s;
 }
+.setting{
+    display: none;
+    position: absolute;
+    background-color: var(--color-midgray);
+    width: 180px;
+    transform: translateX(-184px);
+    padding: 0.4rem 7px;
+    border-radius: 10px;
+    border: none;
+    z-index: 7;
+    box-shadow: -2px -1px 6px 0px rgba(0, 0, 0, 0.75);
+}
+.setting-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 3px;
+    padding: 0.1rem 0.7rem ;
+    height: 40px;
+    padding: 0.3rem 0rem;
+    align-items: center;
+    justify-items: center;
+    transition: .2s;
+}
+.setting.active {
+    display: block;
+}
+.setting-grid:hover {
+    background-color: var(--color-darkwhite);
+    border-radius: 10px;
+    transition: .2s;
+}
+.setting-grid p {
+    justify-self: start;
+    font-size: 15px;
+    font-weight: var(--font-weight-mid);
+}
+.setting-grid svg{
+    fill: var(--color-gray17);
+    transition: .2s;
+}
+.setting-grid:hover svg{
+    fill: var(--color-text);
+    transition: .2s;
+}
+
 .post .post-content{
     margin: 0rem 1rem;
     display: flex;
@@ -788,7 +839,7 @@
     transition: .2s;
     rotate: 20deg;
 }
-.close-commment{
+.close-comment{
     fill: var(--color-textgray);
     justify-self: center;
     background-color: var(--color-darkgray);
@@ -801,7 +852,7 @@
     border-color: var(--color-midgray);
     transition: .2s;
 }
-.close-commment:hover{
+.close-comment:hover{
     fill: var(--color-red);
     transition: .2s;
 }
@@ -1026,13 +1077,13 @@
     border-color: var(--color-blue);
     border-radius: 20px 20px 20px 20px;
     transition: .2s;
-    z-index: 1;
+    z-index: 0;
 }
 .select-box:hover {
     scale: 1.03;
     transition: .2s;
     background-color: var(--color-blue);
-    z-index: 1;
+    z-index: 0;
 }
 .select-box__current {
     position: relative;
@@ -1083,6 +1134,7 @@
     background: none;
     align-self: center;
     font-size: 15px;
+    z-index: 0;
 }
 .select-box__list {
     position: absolute;
