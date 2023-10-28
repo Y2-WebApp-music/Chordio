@@ -17,9 +17,9 @@ Have data-target for each post that unique of post
     <svg xmlns="http://www.w3.org/2000/svg" .......
     <p>Comment</p>
 </div>
->>>
+
 <!--  Pop-Up-Comment/Post   -->
-    <div class="comment-fill" **id="post1"**>
+    <div class="comment-fill" id="post1">
 ```
 #### This in JS (post-display)
 ``` ruby
