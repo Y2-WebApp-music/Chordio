@@ -7,6 +7,7 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 👉🏻 Your-chrord:hover in userprofile and song page `CSS HTML`
   - 👉🏻 Update Setting Of Post in Userprofile page
   - 👉🏻 Post Comment Update `post-display.js, post-display.css, home.html, userprofile.html`
+  - 👉🏻 Add userchord page `HTML CSS`
 
 
 In post Update Comment like this
