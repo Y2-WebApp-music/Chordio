@@ -38,7 +38,7 @@ const commentFill = document.getElementById(postID);
 - [x] 🟩 userprofile.html
 - [x] 🟩 chordview.html
 - [ ] 🟨 chordcreate.html
-- [ ] 🟥 userchord.html
+- [ ] 🟨 userchord.html
 - [ ] 🟥 chordsave.html
 - [ ] 🟥 postsave.html
 - [ ] 🟥 setting.html
