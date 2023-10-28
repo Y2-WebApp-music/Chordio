@@ -76,29 +76,58 @@ function showDivs(n) {
     x[slideIndex - 1].style.display = "block";
 }
 
+// ================================================================
+// ================================================================
+// =================== Comment Button Pop-Up ======================
+// ================================================================
+// ================================================================
 document.addEventListener("DOMContentLoaded", function () {
-    var showCommentBtn = document.querySelector(".comment-show");
-    var showImage = document.querySelector(".img-show");
-    var commentFill = document.querySelector(".comment-fill");
+    // Add click event listener to all comment buttons
+    const commentButtons = document.querySelectorAll(".comment-show");
+    
+    commentButtons.forEach(commentButton => {
+        commentButton.addEventListener("click", function (event) {
+            console.log("This view show Comment");
+            // Get the target post ID from the data attribute
+            const postID = event.currentTarget.dataset.target;
+            const commentFill = document.getElementById(postID);
 
-    showCommentBtn.addEventListener("click", function () {
-        commentFill.style.display = "flex";
-    });
-    showImage.addEventListener("click", function () {
-        commentFill.style.display = "flex";
+            // Display the corresponding comment section
+            commentFill.style.display = "flex";
+        });
     });
 
-    commentFill.addEventListener("click", function (e) {
-        if (e.target === commentFill) {
+    // Add click event listener to close comment sections
+    const closeCommentButtons = document.querySelectorAll(".close-comment");
+    
+    closeCommentButtons.forEach(closeCommentButton => {
+        closeCommentButton.addEventListener("click", function (event) {
+            console.log("Close comment active");
+            const postID = event.currentTarget.dataset.target;
+            let commentFill = document.querySelector(".comment-fill");
+
             commentFill.style.display = "none";
-        }
+        });
     });
-    var closeCommentBtn = document.querySelector(".close-commment");
-    closeCommentBtn.addEventListener("click", function () {
-        commentFill.style.display = "none";
+
+    // Add click event listener to close comment sections when clicking outside
+    const commentFills = document.querySelectorAll(".comment-fill");
+    
+    commentFills.forEach(commentFill => {
+        commentFill.addEventListener("click", function (e) {
+            if (e.target === commentFill) {
+                commentFill.style.display = "none";
+            }
+        });
     });
 });
 
+
+// ================================================================
+// ================================================================
+// ======= Fix tag and Category of Post =========
+// ================================================================
+// ================================================================
 // Get the select box and current elements
 const selectBox = document.getElementById("mySelectBox");
 const currentElement = selectBox.querySelector(".select-box__current");
@@ -120,3 +149,31 @@ boxBellow.addEventListener("focus", () => {
 boxBellow.addEventListener("blur", () => {
     selectPost.style.borderRadius = "20px 20px 20px 20px";
 });
+
+// ================================================================
+// ================================================================
+// Setting Button of Post In there userProfile page of user
+// ================================================================
+// ================================================================
+// Get all the post elements
+const posts = document.querySelectorAll('.post');
+
+// Loop through each post and add event listeners
+posts.forEach((post) => {
+    const settingBtn = post.querySelector('.setting-btn');
+    const setting = post.querySelector('.setting');
+    
+    settingBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setting.classList.toggle('active');
+    });
+    
+    document.body.addEventListener('click', () => {
+        setting.classList.remove('active');
+    });
+    
+    setting.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+});
+
