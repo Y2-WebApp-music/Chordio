@@ -183,7 +183,7 @@ function chordUpload(){
 
     var isGood = (/\.(?=gif|jpg|png|jpeg)/gi).test(imageName);
     if (isGood) {
-      document.getElementById('start').classList.add("hidden");
+      document.getElementById('start-chord').classList.add("hidden");
       document.getElementById('response').classList.remove("hidden");
       document.getElementById('notimage').classList.add("hidden");
       // Thumbnail Preview
@@ -193,7 +193,7 @@ function chordUpload(){
     else {
       document.getElementById('chord-image').classList.add("hidden");
       document.getElementById('notimage').classList.remove("hidden");
-      document.getElementById('start').classList.remove("hidden");
+      document.getElementById('start-chord').classList.remove("hidden");
       document.getElementById('response').classList.add("hidden");
       document.getElementById("file-upload-chord").reset();
     }
@@ -237,7 +237,11 @@ function chordUpload(){
 chordUpload();
 
 
-
+// ==============================================================================================================
+// ==============================================================================================================
+// ==============================================================================================================
+// ==============================================================================================================
+// ==============================================================================================================
 // File Upload
 function noteUpload(){
   function Init() {
@@ -300,7 +304,7 @@ function noteUpload(){
 
     var isGood = (/\.(?=gif|jpg|png|jpeg)/gi).test(imageName);
     if (isGood) {
-      document.getElementById('start').classList.add("hidden");
+      document.getElementById('start-note').classList.add("hidden");
       document.getElementById('response').classList.remove("hidden");
       document.getElementById('notimage').classList.add("hidden");
       // Thumbnail Preview
@@ -310,7 +314,7 @@ function noteUpload(){
     else {
       document.getElementById('note-image').classList.add("hidden");
       document.getElementById('notimage').classList.remove("hidden");
-      document.getElementById('start').classList.remove("hidden");
+      document.getElementById('start-note').classList.remove("hidden");
       document.getElementById('response').classList.add("hidden");
       document.getElementById("file-upload-note").reset();
     }
@@ -353,6 +357,11 @@ function noteUpload(){
 // Use Function
 noteUpload();
 
+// ==============================================================================================================
+// ==============================================================================================================
+// ==============================================================================================================
+// ==============================================================================================================
+// ==============================================================================================================
 const chordView = document.getElementById('getback');
 chordView.addEventListener('click',() => {
     if (window.location.href !=='./song.html'){
