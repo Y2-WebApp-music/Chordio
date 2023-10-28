@@ -102,6 +102,7 @@ nav .home-bg .song-icon {
     grid-template-columns: 24% 1fr;
     gap: 10px;
     justify-items: center;
+    overflow-x: hidden;
 }
 
 /* ======================================
@@ -111,10 +112,10 @@ nav .home-bg .song-icon {
 ====================================== */
 .left-container {
     width: 100%;
-    height: auto;
+    height: 100vh;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: minmax(80px,auto) minmax(300px,auto) minmax(300px,auto) 1fr;
+    grid-template-rows: minmax(80px,auto) 1fr;
     align-items: center;
     justify-items: center;
 
@@ -658,7 +659,7 @@ nav .home-bg .song-icon {
 }
 .pic-input {
     width: 100%;
-    height: 80vh;
+    height: auto;
     padding-bottom: 10px;
     display: grid;
     grid-template-columns: 50% 50%;
@@ -737,7 +738,7 @@ nav .home-bg .song-icon {
 }
 .close-btn:hover {
     fill: var(--color-red);
-    scale: 1.13;
+    scale: 1.03;
     transition: .2s;
     background-color: var(--color-darkwhite);
 }
@@ -748,7 +749,7 @@ nav .home-bg .song-icon {
     clear: both;
     margin: 0 0;
     width: 98%;
-    height: 100%;
+    height: 70vh;
 }
 .upload-photo label {
     float: left;
@@ -767,7 +768,7 @@ nav .home-bg .song-icon {
     scale: 1.01;
 }
 
-.upload-photo #start {
+.upload-photo #start-chord {
     float: left;
     clear: both;
     width: 100%;
@@ -777,7 +778,7 @@ nav .home-bg .song-icon {
     flex-direction: column;
     justify-content: center;
 }
-.upload-photo #start.hidden {
+.upload-photo #start-chord.hidden {
     display: none;
 }
 .upload-photo #chord-image {
@@ -822,5 +823,18 @@ nav .home-bg .song-icon {
     object-fit: contain;
 }
 .upload-photo #note-image.hidden {
+    display: none;
+}
+.upload-photo #start-note {
+    float: left;
+    clear: both;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.upload-photo #start-note.hidden {
     display: none;
 }
