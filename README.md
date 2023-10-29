@@ -7,7 +7,10 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 👉🏻 Your-chrord:hover in userprofile and song page `CSS HTML`
   - 👉🏻 Update Setting Of Post in Userprofile page
   - 👉🏻 Post Comment Update `post-display.js, post-display.css, home.html, userprofile.html`
-  - 👉🏻 Add userchord page `HTML CSS`
+  - 👉🏻 Add userchord page `HTML CSS JS`
+  - 👉🏻 Add chordsave page `HTML CSS JS`
+  - 👉🏻 Add postsave page `HTML CSS JS`
+  - 👉🏻 Add Setting page `HTML CSS JS`
 
 
 ### In post Update Comment like this
@@ -56,4 +59,4 @@ chordElements.forEach((element) => {
 - [ ] 🟩 userchord.html
 - [ ] 🟩 chordsave.html
 - [ ] 🟨 postsave.html
-- [ ] 🟥 setting.html
+- [ ] 🟨 setting.html
