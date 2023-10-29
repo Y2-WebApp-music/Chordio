@@ -17,14 +17,18 @@
     --color-gray17 : #686868;
     --color-blue : #5D60F5;
     --color-red : #FF4054;
-    --color-lightblue : #3c97b6;
+    --color-lightblue : #7fd3ef;
     --color-green : #1fa562;
+    --color-yellow : rgb(243, 174, 26) ;
 
     --color-text : #e4e4e4;
     --color-textgray : #aaaaaa;
     --color-textblack : #141414;
-}
 
+}
+img[src="data:image/png;base64,null"] {
+    display: none;
+}
 .prevent-select {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
