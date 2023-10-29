@@ -233,7 +233,6 @@ nav .home-bg .song-icon {
     height: 300px;
     border-radius: 10px;
     overflow: hidden;
-    background-image: linear-gradient(rgba(80, 71, 88, 0.267),#25243b),url("../img/chord-cover.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
