@@ -52,8 +52,8 @@ chordElements.forEach((element) => {
 - [x] 🟩 song.html
 - [x] 🟩 userprofile.html
 - [x] 🟩 chordview.html
-- [ ] 🟨 chordcreate.html
-- [ ] 🟨 userchord.html
-- [ ] 🟥 chordsave.html
-- [ ] 🟥 postsave.html
+- [ ] 🟩 chordcreate.html
+- [ ] 🟩 userchord.html
+- [ ] 🟩 chordsave.html
+- [ ] 🟨 postsave.html
 - [ ] 🟥 setting.html
