@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-const chordcreate = document.getElementById('getback');
-chordcreate.addEventListener('click',() => {
+const chordView = document.getElementById('getback');
+chordView.addEventListener('click',() => {
     if (window.location.href !=='./song.html'){
         window.location.href='./song.html'
     }
