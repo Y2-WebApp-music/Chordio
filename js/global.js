@@ -61,7 +61,6 @@ userpage.addEventListener('click',() => {
 //=====================================================================
 // Get all elements with the class "userchord"
 const userchord = document.querySelectorAll('.userchord');
-
 // Add a click event listener to each element
 userchord.forEach((element) => {
     element.addEventListener('click', () => {
@@ -73,7 +72,6 @@ userchord.forEach((element) => {
 
 // Get all elements with the class "chordsave"
 const chordSaveElements = document.querySelectorAll('.chordsave');
-
 // Add a click event listener to each element
 chordSaveElements.forEach((element) => {
     element.addEventListener('click', () => {
@@ -85,12 +83,22 @@ chordSaveElements.forEach((element) => {
 
 // Get all elements with the class "userchord"
 const postsave = document.querySelectorAll('.postsave');
-
 // Add a click event listener to each element
 postsave.forEach((element) => {
     element.addEventListener('click', () => {
         if (window.location.href !== './postsave.html') {
             window.location.href = './postsave.html';
+        }
+    });
+});
+
+// Get all elements with the class "userchord"
+const settingpage = document.querySelectorAll('.settingpage');
+// Add a click event listener to each element
+settingpage.forEach((element) => {
+    element.addEventListener('click', () => {
+        if (window.location.href !== './setting.html') {
+            window.location.href = './setting.html';
         }
     });
 });
