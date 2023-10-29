@@ -1,21 +1,23 @@
 
-// Pop-Up listener
 const usericon = document.getElementById('usericon');
 const popup = document.getElementById("userPopup");
 
 usericon.addEventListener("click", () => {
-    if( popup.style.visibility === "visible"){
-        popup.style.visibility = "hidden";
-    }
-    else{
-        popup.style.visibility = "visible";
+    popup.classList.toggle('visible');
+});
+
+// Close the popup when clicking outside of it
+document.addEventListener("click", (event) => {
+    if (popup.classList.contains('visible') && !popup.contains(event.target) && event.target !== usericon) {
+        popup.classList.remove('visible');
     }
 });
 
 // Close the popup when clicking outside of it
 document.addEventListener("click", (event) => {
-    if (popup.style.visibility === "visible" && !userPopup.contains(event.target) && event.target !== usericon) {
-        popup.style.visibility = "hidden";
+    if (popup.style.transform === "translate(0, 0)" && !userPopup.contains(event.target) && event.target !== usericon) {
+        console.log("test4");
+        popup.style.transform = "translate(100%, 0)";
     }
 });
 
@@ -48,6 +50,15 @@ const userpage = document.getElementById('user-page-btn');
 userpage.addEventListener('click',() => {
     if (window.location.href !=='./userprofile.html'){
         window.location.href='./userprofile.html'
+    }
+    else {}
+});
+
+// Userchord
+const userchord = document.getElementById('userchord');
+userchord.addEventListener('click',() => {
+    if (window.location.href !=='./userchord.html'){
+        window.location.href='./userchord.html'
     }
     else {}
 });
