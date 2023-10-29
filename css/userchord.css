@@ -56,16 +56,16 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 0px;
+    border-radius: 10px;
     border: none;
-    border-bottom: solid;
-    border-color: var(--color-blue);
     border-width: 3px;
 }
 nav .song-bg .song-icon {
-    fill :var(--color-blue);
+    fill :var(--color-gray17);
 }
-
+.song-bg:hover {
+    background-color: var(--color-lightgray);
+}
 .home-bg {
     width: 90%;
     height: 100%;
@@ -245,13 +245,15 @@ nav .home-bg .song-icon {
     filter: blur(2px); /* Adjust the blur radius as needed */
     z-index: -1; /* Position the pseudo-element behind the content */
 }
-.mid-container .chord {
+.chord {
     background-color: var(--color-darkwhite);
     width: 100%;
     height: 300px;
     border-radius: 10px;
     overflow: hidden;
-    background-image: linear-gradient(rgba(80, 71, 88, 0.267),#25243b),url("../img/chord-cover.png");
+    /* --chord-background: linear-gradient(rgba(80, 71, 88, 0.267), #25243b); */
+    /* background-image: var(--chord-background); */
+    /* background-image: linear-gradient(rgba(80, 71, 88, 0.267),#25243b), url(attr(data-background-image)); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
