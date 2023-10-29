@@ -7,7 +7,7 @@
 
     <link rel='stylesheet' href='./css/userchord.css'>
     <link rel='stylesheet' href='./css/global.css'>
-    <!-- <script defer src="js/song.js"></script> -->
+    <script defer src="js/userchord.js"></script>
     <script defer src="js/global.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +42,7 @@
                             <p>#id name</p>
                         </div>
                     </div>
-                    <div class="user-popup-btn">
+                    <div class="user-popup-btn" id="userchord">
                         <svg id="chord-pop-btn" xmlns="http://www.w3.org/2000/svg" class="popup-icon" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 32a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm-96-32a96 96 0 1 0 192 0 96 96 0 1 0 -192 0zM96 240c0-35 17.5-71.1 45.2-98.8S205 96 240 96c8.8 0 16-7.2 16-16s-7.2-16-16-16c-45.4 0-89.2 22.3-121.5 54.5S64 194.6 64 240c0 8.8 7.2 16 16 16s16-7.2 16-16z"/></svg>
                         <p>Your chord</p>
                     </div>
@@ -72,7 +72,7 @@
 ============== Left Zone ===============
 ======================================  -->
         <div class="left-container prevent-select">
-            <div class="backPro">
+            <div class="backPro" id="goProfile">
                 <svg class="back-icon" xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
                 <p> Go to Profile</p>
             </div>
@@ -89,7 +89,7 @@
                     <p class="user-gray">chords : </p>
                     <p class="user-text-status">99</p>
                 </div>
-                <div class="action-btn">
+                <div class="action-btn" id="cr-Chord">
                     <p>Create Chord</p>
                 </div>
             </div>
