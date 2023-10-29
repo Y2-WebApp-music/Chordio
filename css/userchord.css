@@ -99,7 +99,7 @@ nav .home-bg .song-icon {
     background-color: var(--color-bg);
     padding-top: 60px;
     display: grid;
-    grid-template-columns: 30% 1fr;
+    grid-template-columns: 28% 1fr;
     justify-items: center;
 }
 /* ======================================
@@ -109,16 +109,55 @@ nav .home-bg .song-icon {
 ====================================== */
 .left-container {
     width: 100%;
-    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     position: sticky;
-    top: 90px;
+    top: 60px;
     height: 100vh;
 }
+.backPro {
+    align-self: flex-start;
+    width: auto;
+    display: block;
+    margin-top: 1%;
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: auto 1fr  ;
+    justify-items: start;
+    align-items: center;
+    padding: 0.3rem 0.5rem;
+    border-radius: 15px;
+    transition: .2s;
+}
+.back-icon {
+    fill: var(--color-gray17);
+    transition: .2s;
+}
+.backPro p{
+    display: inline-block;
+    width: 100%;
+    padding-right: 0.5rem;
+    margin-left: 3%;
+    color: var(--color-gray17);
+    font-size: 16px;
+    transition: .2s;
+}
+.backPro:hover {
+    background-color: var(--color-midgray);
+    transition: .2s;
+}
+.backPro:hover p {
+    color: var(--color-text);
+    transition: .2s;
+}
+.backPro:hover .back-icon{
+    fill: var(--color-text);
+    transition: .2s;
+}
 .userprofile {
+    margin-top: 1%;
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -161,16 +200,21 @@ nav .home-bg .song-icon {
     gap: 10px;
     width: 60%;
     border: solid;
-    border-width: 1px;
-    border-color: var(--color-lightgray);
-    border-radius: 20px;
-    padding: 1rem 1rem;
+    border-width: 2px;
+    border-color: var(--color-blue);
+    border-radius: 30px;
+    padding: 1rem 0.5rem;
     margin: 0.5rem 0.1rem;
     transition: .2s;
 }
+.action-btn p {
+    font-size: 20px;
+    font-weight: var(--font-weight-mid);
+}
 .action-btn:hover{
     scale: 1.03;
-    background-color: var(--color-lightgray);
+    background-color: var(--color-blue);
+    padding: 1rem 1rem;
     transition: .2s;
 }
 /* ======================================
@@ -181,13 +225,13 @@ nav .home-bg .song-icon {
 .mid-container{
     width: 100%;
     height: auto;
-    margin-top: 3%;
-    margin-right: 4%;
+    margin-top: 1%;
 }
 .chord-display {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
+    width: 95%;
 }
 .chord::before{
     content: "";
@@ -239,4 +283,89 @@ nav .home-bg .song-icon {
 .chord-text-down {
     color: var(--color-textgray);
     font-size: 15px;
+}
+.chord:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    pointer-events: none;
+    background: linear-gradient(#00000000, #03103353);
+    z-index: 0;
+}
+.hover-chord{
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    min-height: 120px;
+    height: 120px;
+    border-radius: 10px;
+    display: none;
+    grid-template-columns: 20% 60% 20%;
+    align-items: center;
+    z-index: 1;
+}
+.chord:hover .hover-chord {
+    display: grid;
+}
+.edit-chord{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-left: 15px;
+    border: none;
+}
+.edit-chord p{
+    display: block;
+    font-size: 14px;
+    font-weight: var(--font-weight-mid);
+}
+.edit-icon{
+    fill: var(--color-text);
+    padding: 0.6rem 0.6rem;
+    border-radius: 10px;
+    transition: .2s;
+}
+.edit-icon:hover{
+    fill: var(--color-lightblue);
+    height: 2em;
+    transition: .2s;
+}
+.edit-icon:hover+p {
+    display: block;
+    color: var(--color-lightblue);
+    text-align: center;
+}
+.delete-chord{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-right: 10px;
+    border: none;
+}
+.delete-chord p{
+    display: block;
+    font-size: 14px;
+    font-weight: var(--font-weight-mid);
+}
+.delete-icon{
+    fill: var(--color-text);
+    padding: 0.6rem 0.6rem;
+    border-radius: 10px;
+    transition: .2s;
+}
+.delete-icon:hover{
+    fill: var(--color-red);
+    height: 2em;
+    transition: .2s;
+}
+.delete-icon:hover+p {
+    display: block;
+    color: var(--color-red);
 }
