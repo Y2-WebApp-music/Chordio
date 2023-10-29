@@ -387,7 +387,7 @@ nav .song-bg .song-icon {
     margin-top: 10px;
     width: 95%;
     min-height: 120px;
-    height: 120px;
+    height: 130px;
     background-color: var(--color-lightgray);
     display: grid;
     grid-template-columns: 20% 1fr ;
