@@ -54,11 +54,43 @@ userpage.addEventListener('click',() => {
     else {}
 });
 
-// Userchord
-const userchord = document.getElementById('userchord');
-userchord.addEventListener('click',() => {
-    if (window.location.href !=='./userchord.html'){
-        window.location.href='./userchord.html'
-    }
-    else {}
+//=====================================================================
+//=====================================================================
+//=====================================================================
+//=====================================================================
+//=====================================================================
+// Get all elements with the class "userchord"
+const userchord = document.querySelectorAll('.userchord');
+
+// Add a click event listener to each element
+userchord.forEach((element) => {
+    element.addEventListener('click', () => {
+        if (window.location.href !== './userchord.html') {
+            window.location.href = './userchord.html';
+        }
+    });
+});
+
+// Get all elements with the class "chordsave"
+const chordSaveElements = document.querySelectorAll('.chordsave');
+
+// Add a click event listener to each element
+chordSaveElements.forEach((element) => {
+    element.addEventListener('click', () => {
+        if (window.location.href !== './chordsave.html') {
+            window.location.href = './chordsave.html';
+        }
+    });
+});
+
+// Get all elements with the class "userchord"
+const postsave = document.querySelectorAll('.postsave');
+
+// Add a click event listener to each element
+postsave.forEach((element) => {
+    element.addEventListener('click', () => {
+        if (window.location.href !== './postsave.html') {
+            window.location.href = './postsave.html';
+        }
+    });
 });
