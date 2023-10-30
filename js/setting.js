@@ -25,10 +25,10 @@ function setInitialStylesForInformation() {
 
     // Reset styles for other buttons
     followedButton.style.backgroundColor = "";
-    followedButton.querySelector("p").style.color = "var(--color-textgray)";
+    followedButton.querySelector("p").style.color = "var(--color-gray17)";
     followedButton.querySelector("svg").style.fill = "var(--color-gray17)";
     followerButton.style.backgroundColor = "";
-    followerButton.querySelector("p").style.color = "var(--color-textgray)";
+    followerButton.querySelector("p").style.color = "var(--color-gray17)";
     followerButton.querySelector("svg").style.fill = "var(--color-gray17)";
 }
 
@@ -51,7 +51,7 @@ followedButton.addEventListener("click", () => {
 
     // Reset styles for informationButton
     informationButton.style.backgroundColor = "";
-    informationButton.querySelector("p").style.color = "var(--color-textgray)";
+    informationButton.querySelector("p").style.color = "var(--color-gray17)";
     informationButton.querySelector("svg").style.fill = "var(--color-gray17)";
 
     // Update styles for followedButton
@@ -61,7 +61,7 @@ followedButton.addEventListener("click", () => {
 
     // Reset styles for followerButton
     followerButton.style.backgroundColor = "";
-    followerButton.querySelector("p").style.color = "var(--color-textgray)";
+    followerButton.querySelector("p").style.color = "var(--color-gray17)";
     followerButton.querySelector("svg").style.fill = "var(--color-gray17)";
 });
 
@@ -73,12 +73,12 @@ followerButton.addEventListener("click", () => {
 
     // Reset styles for informationButton
     informationButton.style.backgroundColor = "";
-    informationButton.querySelector("p").style.color = "var(--color-textgray)";
+    informationButton.querySelector("p").style.color = "var(--color-gray17)";
     informationButton.querySelector("svg").style.fill = "var(--color-gray17)";
 
     // Reset styles for followedButton
     followedButton.style.backgroundColor = "";
-    followedButton.querySelector("p").style.color = "var(--color-textgray)";
+    followedButton.querySelector("p").style.color = "var(--color-gray17)";
     followedButton.querySelector("svg").style.fill = "var(--color-gray17)";
 
     // Update styles for followerButton
@@ -89,3 +89,8 @@ followerButton.addEventListener("click", () => {
 
 // Set initial styles for informationButton on page load
 setInitialStylesForInformation();
+
+
+
+
+
