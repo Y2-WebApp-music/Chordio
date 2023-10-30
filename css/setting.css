@@ -209,17 +209,100 @@ nav .home-bg .song-icon {
     height: 100vh;
     margin-top: 1%;
     margin-left: 1%;
-    background-color: rgb(68, 89, 82);
+    /* background-color: rgb(68, 89, 82); */
 }
 .userinfo-container{
     background-color: brown;
     display: block;
 }
+/* ======================================
+=============== Followed ===============
+====================================== */
 .Followed-container{
-    background-color: cadetblue;
     display: none;
+    padding-top: 10px;
+    height: 89vh;
 }
+/* ======================================
+=============== Follower ===============
+====================================== */
 .Follower-container{
-    background-color: chocolate;
     display: none;
+    padding-top: 10px;
+    height: 89vh;
+}
+.search-user{
+    width: 30%;
+    background-color: var(--color-darkgray);
+    padding: 0.4rem 1rem;
+    border: solid;
+    border-width: 2px;
+    border-radius: 30px;
+    border-color: var(--color-lightgray);
+    display: flex;
+    flex-direction: row;
+    z-index: 0;
+    margin-bottom: 1%;
+    margin-left: 1%;
+}
+.search-box {
+    width: 100%;
+    justify-self: center;
+    align-self: start;
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 18px;
+}
+.grid-scroll{
+    width: 100%;
+    height: 90%;
+    padding: 1rem 0;
+    overflow: scroll;
+}
+/* ======================================
+========== Followed / Follower ==========
+====================================== */
+.Followed-grid , .Follower-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    justify-items: center;
+}
+.userprofile {
+    padding: 0.3rem 1rem;
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    background-color: var(--color-darkgray);
+    width: 80%;
+    height: 80px;
+    border: solid;
+    border-radius: 30px;
+    border-width: 2px;
+    border-color: var(--color-lightgray);
+    transition: .1s;
+}
+.userprofile:hover {
+    scale: 1.04;
+    background-color: var(--color-lightgray);
+    transition: .1s;
+}
+.userprofile .user-img {
+    width: 91%;
+    margin: 3% 3%;
+    align-self: center;
+    justify-self: center;
+}
+.userprofile .user-information{
+    margin-left: 6%;
+    margin-top: 4%;
+}
+.userprofile .user-information a{
+    font-size: 25px;
+    font-weight: var(--font-weight-mid);
+}
+.userprofile .user-information p{
+    font-size: 15px;
+    font-weight: var(--font-weight-sma);
 }
