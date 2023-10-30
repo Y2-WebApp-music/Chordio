@@ -115,6 +115,10 @@ img[src="data:image/png;base64,null"] {
     fill: var(--color-darkwhite);
     transition: .2s;
 }
+.user-popup-btn:hover #chord-pop-btn{
+    fill: var(--color-blue);
+    transition: .2s;
+}
 .user-popup-btn:hover #save-pop-btn{
     fill: var(--color-lightblue);
     transition: .2s;
@@ -122,6 +126,14 @@ img[src="data:image/png;base64,null"] {
 
 .user-popup-btn:hover #like-pop-btn{
     fill: var(--color-red);
+    transition: .2s;
+}
+.user-popup-btn:hover #setting-pop-btn{
+    fill:var(--color-yellow);
+    transition: .2s;
+}
+.user-popup-btn:hover #logout-pop-btn{
+    fill:var(--color-red);
     transition: .2s;
 }
 .popup-icon{
