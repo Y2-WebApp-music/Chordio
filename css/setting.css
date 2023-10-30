@@ -8,6 +8,7 @@
 body {
     background-color: var(--color-bg);
     overflow: hidden;
+    height: auto;
 }
 
 /* ======================================
@@ -103,6 +104,7 @@ nav .home-bg .song-icon {
     grid-template-columns: 25% 1fr;
     grid-template-rows: 60px 1fr;
     justify-items: center;
+    height: auto;
 }
 /* ======================================
 =========================================
@@ -211,10 +213,6 @@ nav .home-bg .song-icon {
     margin-left: 1%;
     /* background-color: rgb(68, 89, 82); */
 }
-.userinfo-container{
-    background-color: brown;
-    display: block;
-}
 /* ======================================
 =============== Followed ===============
 ====================================== */
@@ -305,4 +303,112 @@ nav .home-bg .song-icon {
 .userprofile .user-information p{
     font-size: 15px;
     font-weight: var(--font-weight-sma);
+}
+/* ======================================
+============== Information ==============
+====================================== */
+.userinfo-container{
+    /* background-color: rgb(29, 52, 85); */
+    display: block;
+    padding-top: 1rem;
+}
+.title-info {
+    font-size: 24px;
+    font-weight: var(--font-weight-mid);
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    background-color: var(--color-darkgray);
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin-bottom: 1%;
+}
+.user-edit {
+    width: 96%;
+    /* background-color: rgb(36, 36, 36); */
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+    margin-top: 1%;
+    gap: 10px;
+}
+.user-imgprofile{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: var(--color-midgray);
+}
+#imgProfile{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+}
+#file {
+    display: none;
+}
+#uploadbtn {
+    position: absolute;
+}
+#uploadbtn svg {
+    fill: var(--color-gray17);
+    transition: .2s;
+}
+#uploadbtn:hover svg {
+    fill: var(--color-text);
+    scale: 1.08;
+    transition: .2s;
+}
+.user-text{
+    margin-left: 2%;
+}
+.user-input {
+    width: 20%;
+    font-size: 18px;
+    height: 40px;
+    background: none;
+    outline: none;
+    border: solid;
+    border-bottom: solid;
+    padding: 0rem 1rem;
+    border-radius: 30px;
+    border-width: 1px;
+    border-color: var(--color-lightgray);
+    margin-bottom: 2%;
+    transition: .2s;
+}
+.user-input:hover {
+    scale: 1.01;
+    border-color: var(--color-blue);
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.95);
+    transition: .2s;
+}
+.text{
+    justify-content: start;
+    width: 100%;
+    margin-left: 0px;
+    margin-bottom: 2px;
+}
+.text p{
+    color: var(--color-textgray);
+    font-size: 12px;
+}
+.save-button{
+    width: max-content;
+    align-self: flex-end;
+    font-size: 20px;
+    height: 40px;
+    background: none;
+    outline: none;
+    border: solid;
+    border-bottom: solid;
+    padding: 0rem 3rem;
+    border-radius: 30px;
+    border-width: 2px;
+    border-color: var(--color-green);
+    margin-bottom: 2%;
+    margin-right: 3%;
+    transition: .2s;
+}
+.save-button:hover {
+    background-color: var(--color-green);
+    scale: 1.03;
 }
