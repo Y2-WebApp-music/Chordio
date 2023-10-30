@@ -7,7 +7,7 @@
 }
 body {
     background-color: var(--color-bg);
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 /* ======================================
@@ -160,7 +160,7 @@ nav .home-bg .song-icon {
     padding: 0.3rem 1rem;
     border-radius: 10px;
     display: inline-block;
-    color: var(--color-text);
+    color: var(--color-textgray);
     transition: .2s;
 }
 .title-set {
