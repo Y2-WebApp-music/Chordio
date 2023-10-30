@@ -7,6 +7,7 @@
 }
 body {
     background-color: var(--color-bg);
+    /* overflow: hidden; */
 }
 
 /* ======================================
@@ -97,9 +98,9 @@ nav .home-bg .song-icon {
 .container {
     width: auto;
     background-color: var(--color-bg);
-    padding-top: 60px;
+    padding-top: 55px;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 25% 1fr;
     grid-template-rows: 60px 1fr;
     justify-items: center;
 }
@@ -110,21 +111,28 @@ nav .home-bg .song-icon {
 ====================================== */
 .left-container {
     width: 100%;
-    height: 60px;
-    display: grid;
-    grid-template-columns: 7% auto 30% 1fr;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
     align-items: center;
     gap: 10px;
     position: sticky;
     top: 60px;
+    border: none;
+    border-right: solid;
+    border-color: var(--color-darkgray);
+    border-width: 1px;
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.95);
 }
 .backPro {
     width: auto;
     display: block;
-    margin-top: 1%;
+    margin-top: 3%;
     margin-left: 5%;
+    align-self: flex-start;
     display: grid;
-    grid-template-columns: auto 1fr  ;
+    grid-template-columns: auto auto auto 1fr ;
     justify-items: start;
     align-items: center;
     padding: 0.3rem 0.5rem;
@@ -135,23 +143,12 @@ nav .home-bg .song-icon {
     fill: var(--color-gray17);
     transition: .2s;
 }
-.backPro p{
-    display: inline-block;
-    width: 100%;
-    padding-right: 0.5rem;
-    margin-left: 3%;
-    color: var(--color-gray17);
-    font-size: 16px;
-    transition: .2s;
-}
+
 .backPro:hover {
     background-color: var(--color-midgray);
     transition: .2s;
 }
-.backPro:hover p {
-    color: var(--color-text);
-    transition: .2s;
-}
+
 .backPro:hover .back-icon{
     fill: var(--color-text);
     transition: .2s;
@@ -163,27 +160,44 @@ nav .home-bg .song-icon {
     padding: 0.3rem 1rem;
     border-radius: 10px;
     display: inline-block;
+    color: var(--color-text);
+    transition: .2s;
 }
-.search-song{
-    width: 70%;
+.title-set {
     background-color: var(--color-darkgray);
-    padding: 0.4rem 1rem;
-    border: solid;
-    border-width: 2px;
-    border-radius: 30px;
-    border-color: var(--color-lightgray);
-    display: flex;
-    flex-direction: row;
-    z-index: 0;
+    width: 60%;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    justify-items: center;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    margin-bottom: 4%;
+    gap: 10px;
 }
-.search-box {
-    width: 100%;
-    justify-self: center;
-    align-self: start;
-    background: none;
-    outline: none;
-    border: none;
-    font-size: 18px;
+.title-set svg {
+    fill: var(--color-gray17);
+    justify-self: end;
+    transition: .2s;
+}
+.title-set p {
+    justify-self: start;
+    font-size: 20px;
+    font-weight: var(--font-weight-mid);
+    color: var(--color-textgray);
+    transition: .2s;
+}
+.title-set:hover {
+    background-color: var(--color-lightgray);
+    transition: .2s;
+}
+.title-set:hover p{
+    color: var(--color-text);
+    transition: .2s;
+}
+.title-set:hover svg{
+    fill: var(--color-text);
+    transition: .2s;
 }
 /* ======================================
 =========================================
@@ -191,129 +205,21 @@ nav .home-bg .song-icon {
 =========================================
 ====================================== */
 .mid-container{
-    width: 100%;
-    height: auto;
+    width: 98%;
+    height: 100vh;
     margin-top: 1%;
+    margin-left: 1%;
+    background-color: rgb(68, 89, 82);
 }
-.chord-display {
-    display: grid;
-    margin-left: 2%;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
-    width: 96%;
+.userinfo-container{
+    background-color: brown;
+    display: block;
 }
-.chord::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;
-    background-image: inherit; /* Inherit the background image from the parent */
-    filter: blur(2px); /* Adjust the blur radius as needed */
-    z-index: -1; /* Position the pseudo-element behind the content */
-}
-.chord {
-    background-color: var(--color-darkwhite);
-    width: 100%;
-    height: 300px;
-    border-radius: 10px;
-    overflow: hidden;
-    /* --chord-background: linear-gradient(rgba(80, 71, 88, 0.267), #25243b); */
-    /* background-image: var(--chord-background); */
-    /* background-image: linear-gradient(rgba(80, 71, 88, 0.267),#25243b), url(attr(data-background-image)); */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    backdrop-filter: blur(5px);
-    transition: .2s;
-}
-.chord:hover{
-    scale: 1.02;
-    transition: .2s;
-}
-.chord .chord-top{
-    margin: 1rem 1rem;
-    padding-top: 60px;
-    font-size: 20px;
-    font-weight: var(--font-weight-big);
-}
-.chord .chord-down {
-    margin: 1rem 1rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-.chord-text-down-grid{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.chord-text-down {
-    color: var(--color-textgray);
-    font-size: 15px;
-}
-.chord:hover::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    pointer-events: none;
-    background: linear-gradient(#00000000, #03103353);
-    z-index: 0;
-}
-.hover-chord{
-    position: absolute;
-    bottom: 0;
-    left: 10%;
-    width: 80%;
-    min-height: 90px;
-    height: 90px;
-    border-radius: 10px;
+.Followed-container{
+    background-color: cadetblue;
     display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
 }
-.chord:hover .hover-chord {
-    display: flex;
-}
-.like-container {
-    margin-top: 5%;
-    width: 50%;
-    display: grid;
-    grid-template-columns: 20% 1fr;
-    background-color: rgba(0, 0, 0, 0.338);
-    padding: 0.3rem 1rem;
-    border: solid;
-    border-width: 2px;
-    border-radius: 60px;
-    border-color: var(--color-red);
-    transition: .2s;
-    margin-bottom: 4%;
-}
-.like-container:hover {
-    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.95);
-    scale: 1.03;
-    transition: .2s;
-}
-
-.like-pop-btn{
-    fill: var(--color-red);
-    transition: .2s;
-}
-
-.like-container:hover .like-pop-btn{
-    transition: .2s;
-}
-.like-container p{
-    margin: 0 0;
-    font-size: 17px;
-    transform: translateY(3px);
-    text-align: center;
+.Follower-container{
+    background-color: chocolate;
+    display: none;
 }
