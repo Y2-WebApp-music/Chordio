@@ -336,10 +336,15 @@ nav .home-bg .song-icon {
     height: 160px;
     border-radius: 50%;
     background-color: var(--color-midgray);
+    border: solid;
+    border-color: var(--color-midgray);
+    border-width: 1px;
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.95);
 }
 #imgProfile{
     width: 160px;
     height: 160px;
+    object-fit: cover;
     border-radius: 50%;
 }
 #file {
