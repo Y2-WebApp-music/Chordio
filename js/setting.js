@@ -90,7 +90,19 @@ followerButton.addEventListener("click", () => {
 // Set initial styles for informationButton on page load
 setInitialStylesForInformation();
 
+const imgProfile = document.getElementById("imgProfile");
+const fileInput = document.getElementById("file");
 
-
-
-
+    // Add an event listener to the file input to listen for changes
+    fileInput.addEventListener("change", function() {
+        const file = fileInput.files[0];
+        if (file) {
+            // Create a FileReader to read the selected file
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                // Set the src attribute of the img element to the selected file's data URL
+                imgProfile.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
