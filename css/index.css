@@ -13,31 +13,30 @@ body {
     height: 100%;
     display: flex;
     background-color: var(--color-bg);
-    padding-left: 25%;
     align-items: center;
+    justify-content: center;
 }
 
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    max-width: 25rem;
 }
 
 .logo {
-    padding: 0 5rem;
     grid-column: 1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .logo>div {
-    font-size: 40px;
+    font-size: 60px;
     font-weight: bold;
+    letter-spacing: 10px;
 }
   
 .login-form {
-    width: 100%;
-    padding: 5rem 8rem;
+    width: 80%;
+    padding: 4rem 6rem;
     background-color: var(--color-darkgray);
     border: solid;
     border-radius: 10px;
@@ -46,7 +45,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}   
+}
+
+.text {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
   
 .form-group {
     margin-bottom: 1rem;
@@ -70,6 +76,10 @@ body {
     border-width: 1px;
     border-color: var(--color-darkwhite);
 }
+
+.form-group input:focus {
+    border-color: rgb(150, 150, 150);
+}
  
 .btn {
     display: block;
@@ -83,7 +93,73 @@ body {
     background-color: var(--color-darkwhite);
     border: solid;
     border-radius: 40px;
-    border-width: 1px;
-    border-color: var(--color-gray17);
+    border-width: 2px;
+    border-color: var(--color-blue);
     cursor: pointer;
+}
+
+.btn:hover{
+    background-color: var(--color-blue);
+    scale: 1.07;
+    transition: .1s;
+}
+
+.signup {
+    margin-top: 1rem;
+    font-size: 14px;
+    text-align: center;
+}
+
+.signup label {
+    color: var(--color-green);
+    text-decoration: none;
+}
+
+.signup label:hover {
+    text-decoration: underline;
+}
+
+.register-container {
+    background-color: var(--color-darkgray);
+    padding: 8rem 12rem;
+    background-color: var(--color-darkgray);
+    border: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: var(--color-lightgray);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.close-btn{
+    position: absolute;
+    top: 23%;
+    right: 33%;
+    background-color: var(--color-lightgray);
+    fill: var(--color-text);
+    padding: 0.3rem 0.3rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 60px;
+    transition: .2s;
+}
+.close-btn:hover {
+    fill: var(--color-red);
+    background-color: var(--color-darkwhite);
+    height: 2.3em ;
+    scale: 1.03;
+    transition: .2s;
+}
+
+#showSignin:checked ~ .register-container {
+    display: flex;
+}
+
+#showSignin:checked ~ .container {
+    display: none;
+}
+
+input[type="checkbox"] {
+    display: none;
 }
