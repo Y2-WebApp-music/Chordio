@@ -106,3 +106,44 @@ const fileInput = document.getElementById("file");
             reader.readAsDataURL(file);
         }
     });
+
+    // ================================================================
+// ================================================================
+// =================== Comment Button Pop-Up ======================
+// ================================================================
+// ================================================================
+document.addEventListener("DOMContentLoaded", function () {
+    // Add click event listener to all comment buttons
+    const changePassS = document.querySelectorAll(".changePass");
+
+    changePassS.forEach(changePass => {
+        changePass.addEventListener("click", function (event) {
+            const passFill = document.querySelector(".passwd-fill");
+
+            // Display the corresponding comment section
+            passFill.style.display = "flex";
+        });
+    });
+
+    // Add click event listener to close comment sections
+    const closechangePassS = document.querySelectorAll(".close-change");
+
+    closechangePassS.forEach(closechangePass => {
+        closechangePass.addEventListener("click", function (event) {
+            let passFill = document.querySelector(".passwd-fill");
+
+            passFill.style.display = "none";
+        });
+    });
+
+    // Add click event listener to close comment sections when clicking outside
+    const changePassSs = document.querySelectorAll(".passwd-fill");
+
+    changePassSs.forEach(passFill => {
+        passFill.addEventListener("click", function (e) {
+            if (e.target === passFill) {
+                passFill.style.display = "none";
+            }
+        });
+    });
+});
