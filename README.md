@@ -8,6 +8,8 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 👉🏻 Update Setting Of Post in Userprofile page
   - 👉🏻 Post Comment Update `post-display.js, post-display.css, home.html, userprofile.html`
   - 👉🏻 Update index page `HTML CSS`
+  - 👉🏻 Logout button update
+  - 👉🏻 delete post,chord Update
 
 
 ### In post Update Comment like this
