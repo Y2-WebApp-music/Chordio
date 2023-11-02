@@ -561,7 +561,86 @@ nav .home-bg .song-icon {
     transition: .1s;
 }
 
-
+/* ======================================
+=========================================
+=========== Delete pop-up ============
+=========================================
+====================================== */
+.delete-fill{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.654);
+    /* Display --> flex */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+}
+.delete-container{
+    width: 400px;
+    height: 180px;
+    padding: 0.1rem 0.1rem;
+    background-color: var(--color-darkgray);
+    border: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: var(--color-lightgray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.95);
+}
+.del-bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.del-bg p{
+    font-size: 22px;
+}
+.btn-contain{
+    width: 100%;
+    margin-top: 10%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.btn-delete{
+    outline: none;
+    background: none;
+    padding: 0.6rem 1rem;
+    border: solid;
+    border-radius: 30px;
+    border-width: 2px;
+    transition: .2s;
+}
+#notdel-btn{
+    border-color: var(--color-green);
+}
+#notdel-btn:hover {
+    background-color: var(--color-green);
+    border-color: var(--color-green);
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.95);
+    transition: .2s;
+    scale: 1.03;
+}
+#del-btn{
+    border-color: var(--color-red);
+}
+#del-btn:hover {
+    background-color: var(--color-red);
+    border-color: var(--color-red);
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.95);
+    transition: .2s;
+    scale: 1.03;
+}
 /* ======================================
 =========================================
 =============== Responsive Zone ===============
