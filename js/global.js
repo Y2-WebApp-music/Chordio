@@ -102,3 +102,32 @@ settingpage.forEach((element) => {
         }
     });
 });
+
+// ================================================================
+// =================== Log Pop-Up ======================
+// ================================================================
+// ================================================================
+document.addEventListener("DOMContentLoaded", function () {
+    // Add click event listener to all comment buttons
+    const logButtons = document.querySelectorAll(".logout-show");
+
+    logButtons.forEach(logButton => {
+        logButton.addEventListener("click", function (event) {
+            const logoutFill = document.querySelector(".logout-fill");
+            popup.classList.remove('visible');
+            // Display the corresponding comment section
+            logoutFill.style.display = "flex";
+        });
+    });
+
+    // Add click event listener to close comment sections when clicking outside
+    const logclFills = document.querySelectorAll(".logout-fill");
+
+    logclFills.forEach(logclFill => {
+        logclFill.addEventListener("click", function (e) {
+            if (e.target === logclFill) {
+                logclFill.style.display = "none";
+            }
+        });
+    });
+});
