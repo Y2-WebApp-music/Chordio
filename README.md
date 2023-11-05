@@ -10,6 +10,7 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 👉🏻 Update index page `HTML CSS`
   - 👉🏻 Logout button update
   - 👉🏻 delete post,chord Update
+  - 👉🏻 Otheruserprofile `HTML JS CSS`
 
 
 ### In post Update Comment like this
