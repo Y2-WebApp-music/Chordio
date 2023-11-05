@@ -480,6 +480,15 @@
 .post .post-user-information .post-user-text .post-username{
     font-size: 18px;
 }
+.user-icon-post:hover{
+    scale: 1.03;
+}
+.user-icon-post:hover+.post-user-text .post-username{
+    text-decoration: underline;
+}
+.post .post-user-information .post-user-text .post-username:hover{
+    text-decoration: underline;
+}
 .post .post-user-information .post-user-text .post-date{
     font-size: 14px;
     color: var(--color-textgray);
@@ -505,7 +514,7 @@
     padding: 0.4rem 7px;
     border-radius: 10px;
     border: none;
-    z-index: 7;
+    z-index: 6;
     box-shadow: -2px -1px 6px 0px rgba(0, 0, 0, 0.75);
 }
 .setting-grid {
@@ -522,6 +531,7 @@
 }
 .setting.active {
     display: block;
+    z-index: 0;
 }
 .setting-grid:hover {
     background-color: var(--color-darkwhite);
@@ -537,8 +547,12 @@
     fill: var(--color-gray17);
     transition: .2s;
 }
-.setting-grid:hover svg{
-    fill: var(--color-text);
+.setting-grid:hover .Edit-svg{
+    fill: var(--color-lightblue);
+    transition: .2s;
+}
+.setting-grid:hover .delete-svg{
+    fill: var(--color-red);
     transition: .2s;
 }
 
@@ -636,8 +650,9 @@
     display: none;
     justify-content: center;
     align-items: center;
+    z-index: 9;
 }
-.comment-fill .comment-container{
+.comment-container{
     width: 70%;
     height: 80%;
     display: grid;
@@ -646,7 +661,7 @@
     padding: 1rem 1rem;
     justify-items: center;
 }
-.comment-fill .comment-container .comment-background{
+.comment-container .comment-background{
     width: 100%;
     height: 700px;
     background-color: var(--color-darkgray);
