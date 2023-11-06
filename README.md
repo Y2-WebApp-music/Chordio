@@ -58,6 +58,24 @@ chordElements.forEach((element) => {
 });
 ```
 
+### New directory structure
+A quick look at the top-level files and directories
+``` ruby
+.
+├── public
+      ├── css
+      ├── img
+      ├── js
+          ├── post
+          ├── user-display
+          ├── other JS files
+├── routes
+├── views
+      ├── HTML files
+├── app.js
+├── package.json
+```
+
 ### Environment Variable
 `DB_HOST` - the base URL of your database.<br>
 `DB_USER` - the database user name.<br>
