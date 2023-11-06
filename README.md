@@ -57,11 +57,16 @@ chordElements.forEach((element) => {
 });
 ```
 
-### node package requiremant 
-``` ruby
-npm i bcrypt cookie-session dotenv express mysql2
-```
+### Environment Variable
+`DB_HOST` - the base URL of your database
+`DB_USER` - the database user name
+`DB_PASSWORD` - the database user password
+`DB_DATABASE` - the database name.
 
+### node package requirement 
+``` ruby
+npm i bcrypt cookie-session dotenv express mysql2 nodemon
+```
 Run server using
 ``` ruby
 npm start
