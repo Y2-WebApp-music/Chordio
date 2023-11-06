@@ -66,6 +66,9 @@ app.get('/userchord', (req, res) => {
 app.get('/setting', (req, res) => {
     res.sendFile(__dirname + '/views/setting.html')
 })
+app.get('/otheruserprofile', (req, res) => {
+    res.sendFile(__dirname + '/views/otheruserprofile.html')
+})
 
 
 const PORT = 3000;
