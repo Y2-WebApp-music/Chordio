@@ -58,9 +58,9 @@ chordElements.forEach((element) => {
 ```
 
 ### Environment Variable
-`DB_HOST` - the base URL of your database.\
-`DB_USER` - the database user name.\
-`DB_PASSWORD` - the database user password.\
+`DB_HOST` - the base URL of your database.<br>
+`DB_USER` - the database user name.<br>
+`DB_PASSWORD` - the database user password.<br>
 `DB_DATABASE` - the database name.
 
 ### node package requirement 
