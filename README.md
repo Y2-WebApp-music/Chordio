@@ -12,11 +12,16 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 👉🏻 delete post,chord Update
   - 👉🏻 Otheruserprofile `HTML JS CSS`
   - 👉🏻 save,like toggle button `HTML CSS JS -> post-display`
-  - 🔧 Create new directory structure
+  - 🔧 Create new directory structure 
   - 🔧 Update all `CSS JS` file path
   - 🔧 Add `JQuery` and `user-display` in `HTML`
   - 🔧 Add class for display user image profile, name and email in `HTML`
   - 🔧 Create Server side
+  - 🔧 Database connection `./routes/db.js`
+  - 🔧 Login and Register system `./routes/auth.js` Logout `./routes/logout.js`
+  - 🔧 Check user session `./routes/home.js`
+  - 🔧 Fetch post `./routes/fetch-post.js` working with `./public/js/post`
+  - 🔧 User display `./routes/cur-user.js` working with `./public/js/user-display`
 
 
 ### In post Update Comment like this
@@ -50,6 +55,9 @@ chordElements.forEach((element) => {
     element.style.backgroundImage = `linear-gradient(rgba(80, 71, 88, 0.267), #25243b), url(${backgroundImage})`;
 });
 ```
+
+
+
 ### Static Web
 [Web Demo Static](https://y2-webapp-music.github.io/Chordio/)
 
