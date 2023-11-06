@@ -24,7 +24,7 @@ document.addEventListener("click", (event) => {
 // App Icon Click
 const appicon = document.getElementById('appicon');
 appicon.addEventListener('click',() => {
-    window.location.href='./home.html'
+    window.location.href='./home'
 });
 
 // Song Icon Click

@@ -21,11 +21,11 @@ function displayUser(data) {
 
     if (user.profile_image != null) {
         if (document.querySelector('.user-img')) {
-            const userprofileElement = document.querySelectorAll('.user-img');
+            const userprofileElements = document.querySelectorAll('.user-img');
 
             const base64Image = 'data:image/png;base64,' + user.profile_image;
 
-            userprofileElement.forEach(function(userprofileElement) {
+            userprofileElements.forEach(function(userprofileElement) {
                 userprofileElement.src = base64Image;
             });
         }
@@ -43,31 +43,29 @@ function displayUser(data) {
         }
     }
 
-    if (document.querySelector('.user-information>a')) {
-        const usernameElement = document.querySelector('.user-information>a');
-        usernameElement.textContent = user.username;
-    }
-
-    if (document.querySelector('.user-information>p')) {
-        const userIdElement = document.querySelector('.user-information>p');
-        userIdElement.textContent = user.user_id;
-    }
-
     if (document.querySelector('.me')) {
-        const usernameElement = document.querySelector('.me');
-        usernameElement.textContent = user.username;
+        const usernameElements = document.querySelectorAll('.me');
+
+        usernameElements.forEach(function(usernameElement) {
+            usernameElement.textContent = user.username;
+        });
     }
 
     if (document.querySelector('.id')) {
-        const userIdElement = document.querySelector('.id');
-        userIdElement.textContent = user.user_id;
+        const userIdElements = document.querySelectorAll('.id');
+
+        userIdElements.forEach(function(userIdElement) {
+            userIdElement.textContent = user.user_id;
+        });
     }
 
     if (document.querySelector('.email')) {
-        const userIdElement = document.querySelector('.email');
-        userIdElement.textContent = user.email;
-    }
+        const userEmailElements = document.querySelectorAll('.email');
 
+        userEmailElements.forEach(function(userEmailElement) {
+            userEmailElement.textContent = user.email;
+        });
+    }
 
     if(document.querySelector('.user-input username') && document.querySelector('.user-input email')) {
         const inputUsernameElement = document.querySelector('input[class="user-input username"]'); 
