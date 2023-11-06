@@ -14,9 +14,10 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 👉🏻 save,like toggle button `HTML CSS JS -> post-display`
   - 🔧 Create new directory structure 
   - 🔧 Update all `CSS JS` file path
-  - 🔧 Add `JQuery` and `user-display` in `HTML`
+  - 🔧 Add `JS` `JQuery` and `user-display` in `HTML`
   - 🔧 Add class for display user image profile, name and email in `HTML`
   - 🔧 Create Server side
+  - 🔧 MySQL `CREATE SCHEMA` and `CREATE TABLE`
   - 🔧 Database connection `./routes/db.js`
   - 🔧 Login and Register system `./routes/auth.js` Logout `./routes/logout.js`
   - 🔧 Check user session `./routes/home.js`
@@ -56,7 +57,16 @@ chordElements.forEach((element) => {
 });
 ```
 
+### node package requiremant 
+``` ruby
+npm i bcrypt cookie-session dotenv express mysql2
+```
 
+Run server using
+``` ruby
+npm start
+```
+The server running on port 3000
 
 ### Static Web
 [Web Demo Static](https://y2-webapp-music.github.io/Chordio/)
