@@ -2,7 +2,7 @@
 This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
 
 ## 📝แก้ไรไปบ้าง :
-  - 👉🏻 `new` Login page in index.html `also add CSS of index` (not finish, press login to go to homepage)
+  - 👉🏻 Login page in index.html `also add CSS of index` (not finish, press login to go to homepage)
   - 👉🏻 Update Create post in Uesrprofile page  `CSS HTML`
   - 👉🏻 Your-chrord:hover in userprofile and song page `CSS HTML`
   - 👉🏻 Update Setting Of Post in Userprofile page
