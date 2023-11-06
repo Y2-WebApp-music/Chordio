@@ -177,3 +177,35 @@ posts.forEach((post) => {
     });
 });
 
+// ================================================================
+// ======= "Like" and "save" interact button =========
+// ================================================================
+const likeButtons = document.querySelectorAll(".like-button");
+
+// Add a click event listener to each like button
+likeButtons.forEach((button) => {
+    button.addEventListener("click", function(e) {
+        e.preventDefault();
+        this.classList.toggle("active");
+        this.classList.add("animated");
+        generateClones(this);
+    });
+});
+
+const saveButtons = document.querySelectorAll(".save-button");
+
+// Add a click event listener to each like button
+saveButtons.forEach((button) => {
+    button.addEventListener("click", function(e) {
+        e.preventDefault();
+        this.classList.toggle("active");
+        this.classList.add("animated");
+        generateClones(this);
+    });
+});
+
+function generateClones(button) {
+        let removeClassTimeout = setTimeout( function() {
+            button.classList.remove("animated")
+        }, 600);
+}
