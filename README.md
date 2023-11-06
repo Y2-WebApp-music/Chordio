@@ -16,6 +16,10 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 🔧 Update all `CSS JS` file path
   - 🔧 Add `JS` `JQuery` and `user-display` in `HTML`
   - 🔧 Add class for display user image profile, name and email in `HTML`
+      - class `user-img` for profileimage
+      - class `me` for username
+      - class `id` for user_id
+      - class `email` for email
   - 🔧 Create Server side
   - 🔧 MySQL `CREATE SCHEMA` and `CREATE TABLE`
   - 🔧 Database connection `./routes/db.js`
