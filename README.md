@@ -11,6 +11,7 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 👉🏻 Logout button update
   - 👉🏻 delete post,chord Update
   - 👉🏻 Otheruserprofile `HTML JS CSS`
+  - 👉🏻 save,like toggle button `HTML CSS JS -> post-display`
 
 
 ### In post Update Comment like this
