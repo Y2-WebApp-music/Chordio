@@ -12,6 +12,11 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 👉🏻 delete post,chord Update
   - 👉🏻 Otheruserprofile `HTML JS CSS`
   - 👉🏻 save,like toggle button `HTML CSS JS -> post-display`
+  - 🔧 Create new directory structure
+  - 🔧 Update all `CSS JS` file path
+  - 🔧 Add `JQuery` and `user-display` in `HTML`
+  - 🔧 Add class for display user image profile, name and email in `HTML`
+  - 🔧 Create Server side
 
 
 ### In post Update Comment like this
