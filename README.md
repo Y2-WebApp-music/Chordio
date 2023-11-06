@@ -28,7 +28,7 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
 
 ### In post Update Comment like this
 Have data-target for each post that unique of post This in html structure
-``` ruby
+```
 <div class="post-interact-btn comment-show" data-target="post1">
     <svg xmlns="http://www.w3.org/2000/svg" .......
     <p>Comment</p>
