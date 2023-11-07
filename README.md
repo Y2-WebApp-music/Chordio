@@ -2,16 +2,6 @@
 This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
 
 ## 📝แก้ไรไปบ้าง :
-  - 👉🏻 Login page in index.html `also add CSS of index` (not finish, press login to go to homepage)
-  - 👉🏻 Update Create post in Uesrprofile page  `CSS HTML`
-  - 👉🏻 Your-chrord:hover in userprofile and song page `CSS HTML`
-  - 👉🏻 Update Setting Of Post in Userprofile page
-  - 👉🏻 Post Comment Update `post-display.js, post-display.css, home.html, userprofile.html`
-  - 👉🏻 Update index page `HTML CSS`
-  - 👉🏻 Logout button update
-  - 👉🏻 delete post,chord Update
-  - 👉🏻 Otheruserprofile `HTML JS CSS`
-  - 👉🏻 save,like toggle button `HTML CSS JS -> post-display`
   - 🔧 Create new directory structure 
   - 🔧 Update all `CSS JS` file path
   - 🔧 Add `JS` `JQuery` and `user-display` in `HTML`
