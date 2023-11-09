@@ -15,7 +15,7 @@ const requireLogin = (req, res, next) => {
 
 // Route to get the current user's information
 router.get('/user/info', requireLogin, (req, res) => {
-    db.query('SELECT * FROM users WHERE email = ?', [req.session.user.email], (err, results) => {
+    db.query('SELECT * FROM users WHERE user_id = ?', [req.session.user.user_id], (err, results) => {
         if (err) {
             console.error('Error fetching posts:', err);
             res.status(500).json({ error: 'Error fetching posts' });
