@@ -19,6 +19,8 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 🔧 User display `./routes/cur-user.js` working with `./public/js/user-display`
   - 🔧 Database `development.sql`
   - 👉🏻 Add function `sendImagesToServer` in `home.js` and addEventListener in post button
+  - 👉🏻 Edit `HTML` of home, otheruserprofile, song and userprofile for display user profile
+  - 👉🏻 Edit `routes` `JS` files of auth, cur-user, fetch-post and home
 
 
 ### In post Update Comment like this
