@@ -21,7 +21,7 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 👉🏻 Add function `sendImagesToServer` in `home.js` and addEventListener in post button
   - 👉🏻 Edit `HTML` of home, otheruserprofile, song and userprofile for display user profile
   - 👉🏻 Edit `routes` `JS` files of auth, cur-user, fetch-post and home
-  - 👉🏻 Add `create-post.js`
+  - 👉🏻 Add `create-post.js` in routes
 
 
 ### In post Update Comment like this
