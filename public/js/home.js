@@ -34,6 +34,7 @@ const imageInput = document.getElementById("image-input");
 const slideshowLeftRight = document.querySelector(".slideshow-left-right");
 const prevButton = document.querySelector(".prev-button");
 const nextButton = document.querySelector(".next-button");
+const postButton = document.querySelector(".post-btn");
 prevButton.style.display = "none";
 nextButton.style.display = "none";
 // Track the current slide index
@@ -115,6 +116,30 @@ imageInput.addEventListener("change", function (event) {
         });
     }
 
+    // Function to send images to the server
+    function sendImagesToServer(images) {
+        const formData = new FormData();
+        images.forEach((image, index) => {
+            formData.append("images", image.file); // Use "images" as the field name
+        });
+      
+        fetch("/upload", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((data) => {
+            console.log(data); // Log the server response
+            // You can display a success message here
+            alert("Upload successful");
+          })
+          .catch((error) => {
+            console.error("Error uploading images:", error);
+            // Handle the error, e.g., display an error message
+            alert("Error uploading images");
+        });
+    }
+
     // Event listener for the "Previous" button
     prevButton.addEventListener("click", function () {
         currentSlideIndex = (currentSlideIndex - 1 + images.length) % images.length;
@@ -125,6 +150,13 @@ imageInput.addEventListener("change", function (event) {
     nextButton.addEventListener("click", function () {
         currentSlideIndex = (currentSlideIndex + 1) % images.length;
         showSlide(currentSlideIndex);
+    });
+
+    // Event listener for the "Post" button
+    postButton.addEventListener("click", function () {
+        event.preventDefault();
+        currentSlideIndex = (currentSlideIndex + 1) % images.length;
+        sendImagesToServer(images);
     });
 });
 
