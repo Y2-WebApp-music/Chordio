@@ -1,9 +1,18 @@
 import Post from './post-class.js';
 
-// Function to fetch posts from the server
-function fetchPosts() {
+import { getCurrentUser } from '../user-display/user-display.js';
+
+let who;
+
+function fetchPosts(user) {
+    if (typeof homeValue === 'undefined') {
+        who = user.user_id // Assign user's ID to 'who'
+    } else if (homeValue) {
+        who = 'all'; // Assign 'all' to 'who'
+    }
+
     $.ajax({
-        url: '/database/getPosts',
+        url: `/post/get?who=${who}`,
         method: 'GET',
         success: function (data) {
             displayPosts(data);
@@ -13,7 +22,6 @@ function fetchPosts() {
         }
     });
 }
-
 
 // Function to display posts in the HTML
 function displayPosts(posts) {
@@ -48,5 +56,11 @@ function displayPosts(posts) {
 
 // Call the fetchPosts function to load posts when the page loads
 $(document).ready(function () {
-    fetchPosts();
+    getCurrentUser()
+    .then(function(user) {
+        fetchPosts(user);
+    })
+    .catch(function(error) {
+        console.error(error);
+    });;
 });
