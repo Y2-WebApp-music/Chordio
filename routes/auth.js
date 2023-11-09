@@ -9,7 +9,7 @@ const db = require('./db');
 router.post('/login', (req, res) => {
     const { user_email, user_pass } = req.body;
   
-    db.query('SELECT email, password FROM users WHERE email = ?', [user_email], (err, results) => {
+    db.query('SELECT user_id, email, password FROM users WHERE email = ?', [user_email], (err, results) => {
         if (err) throw err;
     
         if (results.length > 0) {
