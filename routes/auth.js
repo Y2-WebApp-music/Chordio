@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
+const fs = require('fs');
 
 const db = require('./db');
 
@@ -35,6 +36,10 @@ router.post('/login', (req, res) => {
 router.post('/register', (req, res) => {
     const { user_name, user_email, user_pass } = req.body;
     const registrationDate = new Date();
+
+    const imagePath = 'public/img/circletest.png';
+
+    const imageData = fs.readFileSync(imagePath);
     
     db.query('SELECT email FROM users WHERE email = ?', [user_email], (err, results) => {
         if (err) {
@@ -49,7 +54,7 @@ router.post('/register', (req, res) => {
             bcrypt.hash(user_pass, 12, (err, hash) => {
                 if (err) throw err;
                 
-                db.query('INSERT INTO users (username, email, password, reg_date) VALUES (?, ?, ?, ?)', [user_name, user_email, hash, registrationDate], (err, results) => {
+                db.query('INSERT INTO users (username, email, password, reg_date, profile_image) VALUES (?, ?, ?, ?, ?)', [user_name, user_email, hash, registrationDate, imageData], (err, results) => {
                     if (err) throw err;
                 
                     res.redirect('/');
