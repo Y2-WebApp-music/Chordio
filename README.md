@@ -18,6 +18,7 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 🔧 Fetch post `./routes/fetch-post.js` working with `./public/js/post`
   - 🔧 User display `./routes/cur-user.js` working with `./public/js/user-display`
   - 🔧 Database `development.sql`
+  - 👉🏻 Add function `sendImagesToServer` in `home.js` and addEventListener in post button
 
 
 ### In post Update Comment like this
