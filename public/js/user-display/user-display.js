@@ -1,24 +1,24 @@
 import User from './user-class.js';
 
 function getCurrentUser() {
-    $.ajax({
-        url: '/user/info',
-        method: 'GET',
-        success: function (data) {
-            displayUser(data);
-        },
-        error: function (error) {
-            console.error('Error fetching posts:', error);
-        }
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            url: '/user/info',
+            method: 'GET',
+            success: function (data) {
+                const i = data[0];
+                const user = new User(i.user_id, i.username, i.email, i.profile_image);
+                resolve(user);  
+            },
+            error: function (error) {
+                reject('Error fetching user info:', error);
+            }
+        });
     });
 }
 
 
-function displayUser(data) {
-    const i = data[0];
-
-    const user = new User(i.user_id, i.username, i.email, i.profile_image);
-
+function displayUser(user) {
     if (user.profile_image != null) {
         if (document.querySelector('.user-img')) {
             const userprofileElements = document.querySelectorAll('.user-img');
@@ -76,7 +76,16 @@ function displayUser(data) {
     }
 }
 
+
 // Call the getCurrentUser function when the page loads
 $(document).ready(function () {
-    getCurrentUser();
+    getCurrentUser()
+    .then(function(user) {
+        displayUser(user);
+    })
+    .catch(function(error) {
+        console.error(error);
+    });
 });
+
+export { getCurrentUser };
