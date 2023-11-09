@@ -4,8 +4,14 @@ const router = express.Router();
 const db = require('./db');
 
 
-router.get('/database/getPosts', (req, res) => {
-    db.query('SELECT *, DATE_FORMAT(post_date, "%d %b %Y %h:%i") as postdate FROM post JOIN users USING(user_id) ORDER BY post_id DESC', (err, results) => {
+router.get('/post/get', (req, res) => {
+    if(req.query.who == 'all') {
+        query = 'SELECT *, DATE_FORMAT(post_date, "%d %b %Y %h:%i") as postdate FROM post JOIN users USING(user_id) ORDER BY post_id DESC';
+    } else {
+        query = `SELECT *, DATE_FORMAT(post_date, "%d %b %Y %h:%i") as postdate FROM post JOIN users USING(user_id) WHERE user_id=${req.query.who} ORDER BY post_id DESC`;
+    }
+
+    db.query(query, (err, results) => {
         if (err) {
             throw err;
         } else {
