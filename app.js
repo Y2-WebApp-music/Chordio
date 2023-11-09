@@ -31,6 +31,7 @@ const homeRoutes = require('./routes/home');
 const logoutRoutes = require('./routes/logout');
 const fetchPosts = require('./routes/fetch-post');
 const curUser = require('./routes/cur-user');
+const createPost = require('./routes/create-post');
 
 
 // Use route files
@@ -39,6 +40,7 @@ app.use('/', homeRoutes);
 app.use('/', logoutRoutes);
 app.use('/', fetchPosts);
 app.use('/', curUser);
+app.use('/', createPost);
 
 
 // Testing other page
@@ -73,5 +75,5 @@ app.get('/otheruserprofile', (req, res) => {
 
 const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

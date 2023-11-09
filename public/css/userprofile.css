@@ -216,6 +216,19 @@ nav .song-bg .song-icon {
     margin-top: 2%;
 }
 
+
+.end-of-post{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.end-of-post p{
+    margin-bottom: 10px;
+    color: var(--color-lightgray);
+}
+
 /* ======================================
 =========================================
 ============== Right Zone ===============
