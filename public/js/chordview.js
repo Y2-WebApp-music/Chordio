@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 const chordView = document.getElementById('getback');
 chordView.addEventListener('click',() => {
-    if (window.location.href !=='./song'){
-        window.location.href='./song'
+    if (window.location.href !=='/song'){
+        window.location.href='/song'
     }
     else {}
 });
