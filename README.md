@@ -22,6 +22,13 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 👉🏻 Edit `HTML` of home, otheruserprofile, song and userprofile for display user profile
   - 👉🏻 Edit `routes` `JS` files of auth, cur-user, fetch-post and home
   - 👉🏻 Add `create-post.js` in routes
+  - 👉 Modified `app.js`
+  - 👉 Modified `chordview.css` and `chordview.js`
+  - 👉 Modified `song.html`
+  - 👉 Modified `global.js` and `home.js`
+  - 👉 Modified `fetchpost.js` and `post-class.js`
+  - 👉 New `public/js/chord/chord-class.js` and `fetchchord.js`
+  - 👉 Modified `fetch-post.js` and New `song.js` in routes
 
 
 ### In post Update Comment like this
