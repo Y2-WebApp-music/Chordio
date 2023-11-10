@@ -1,8 +1,8 @@
 // User Icon Click
 const usergobtn = document.getElementById('user-go-btn');
 usergobtn.addEventListener('click',() => {
-    if (window.location.href !=='/userprofile'){
-        window.location.href='/userprofile'
+    if (window.location.href !=='./userprofile'){
+        window.location.href='./userprofile'
     }
     else {}
 });
@@ -10,8 +10,8 @@ usergobtn.addEventListener('click',() => {
 // User Icon Click
 const gotosong = document.getElementById('chord-sus-btn');
 gotosong.addEventListener('click',() => {
-    if (window.location.href !=='/song'){
-        window.location.href='/song'
+    if (window.location.href !=='./song'){
+        window.location.href='./song'
     }
     else {}
 });

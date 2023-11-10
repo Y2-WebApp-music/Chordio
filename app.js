@@ -1,10 +1,14 @@
 const express = require('express');
+const mysql = require('mysql2');
+const bcrypt = require('bcrypt');
 const cookieSession = require('cookie-session');
 
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 
+
+const db = require('./routes/db'); // Import database connection
 
 // Middleware
 app.use(
@@ -23,38 +27,20 @@ app.use(express.static(__dirname + '/views'));
 
 // Import route files
 const authRoutes = require('./routes/auth');
-const logoutRoutes = require('./routes/logout');
-
 const homeRoutes = require('./routes/home');
-const songRoutes = require('./routes/song');
-
+const logoutRoutes = require('./routes/logout');
 const fetchPosts = require('./routes/fetch-post');
-const fetchChords = require('./routes/fetch-chord');
-
 const curUser = require('./routes/cur-user');
-
 const createPost = require('./routes/create-post');
-
-const chordView = require('./routes/fetch-chord-view');
 
 
 // Use route files
 app.use('/', authRoutes);
-app.use('/', logoutRoutes);
-
 app.use('/', homeRoutes);
-app.use('/', songRoutes);
-
+app.use('/', logoutRoutes);
 app.use('/', fetchPosts);
-app.use('/', fetchChords);
-
-app.use('/', createPost);
-
-app.use('/', chordView);
-
 app.use('/', curUser);
-
-
+app.use('/', createPost);
 
 
 // Testing other page

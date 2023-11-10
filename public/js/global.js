@@ -24,14 +24,14 @@ document.addEventListener("click", (event) => {
 // App Icon Click
 const appicon = document.getElementById('appicon');
 appicon.addEventListener('click',() => {
-    window.location.href='/home'
+    window.location.href='./home'
 });
 
 // Song Icon Click
 const songpage = document.getElementById('song-page-btn');
 songpage.addEventListener('click',() => {
-    if (window.location.href !=='/song'){
-        window.location.href='/song'
+    if (window.location.href !=='./song'){
+        window.location.href='./song'
     }
     else {}
 });
@@ -39,8 +39,8 @@ songpage.addEventListener('click',() => {
 // Home Icon Click
 const homepage = document.getElementById('home-page-btn');
 homepage.addEventListener('click',() => {
-    if (window.location.href !=='/home'){
-        window.location.href='/home'
+    if (window.location.href !=='./home'){
+        window.location.href='./home'
     }
     else {}
 });
@@ -48,8 +48,8 @@ homepage.addEventListener('click',() => {
 // User Icon Click
 const userpage = document.getElementById('user-page-btn');
 userpage.addEventListener('click',() => {
-    if (window.location.href !=='/userprofile'){
-        window.location.href='/userprofile'
+    if (window.location.href !=='./userprofile'){
+        window.location.href='./userprofile'
     }
     else {}
 });
@@ -64,8 +64,8 @@ const userchord = document.querySelectorAll('.userchord');
 // Add a click event listener to each element
 userchord.forEach((element) => {
     element.addEventListener('click', () => {
-        if (window.location.href !== '/userchord') {
-            window.location.href = '/userchord';
+        if (window.location.href !== './userchord') {
+            window.location.href = './userchord';
         }
     });
 });
@@ -75,8 +75,8 @@ const chordSaveElements = document.querySelectorAll('.chordsave');
 // Add a click event listener to each element
 chordSaveElements.forEach((element) => {
     element.addEventListener('click', () => {
-        if (window.location.href !== '/chordsave') {
-            window.location.href = '/chordsave';
+        if (window.location.href !== './chordsave') {
+            window.location.href = './chordsave';
         }
     });
 });
@@ -86,8 +86,8 @@ const postsave = document.querySelectorAll('.postsave');
 // Add a click event listener to each element
 postsave.forEach((element) => {
     element.addEventListener('click', () => {
-        if (window.location.href !== '/postsave') {
-            window.location.href = '/postsave';
+        if (window.location.href !== './postsave') {
+            window.location.href = './postsave';
         }
     });
 });
@@ -97,8 +97,8 @@ const settingpage = document.querySelectorAll('.settingpage');
 // Add a click event listener to each element
 settingpage.forEach((element) => {
     element.addEventListener('click', () => {
-        if (window.location.href !== '/setting') {
-            window.location.href = '/setting';
+        if (window.location.href !== './setting') {
+            window.location.href = './setting';
         }
     });
 });
@@ -108,8 +108,8 @@ const logout = document.querySelectorAll('.logout');
 // Add a click event listener to each element
 logout.forEach((element) => {
     element.addEventListener('click', () => {
-        if (window.location.href !== '/logout') {
-            window.location.href = '/logout';
+        if (window.location.href !== './logout') {
+            window.location.href = './logout';
         }
     });
 });

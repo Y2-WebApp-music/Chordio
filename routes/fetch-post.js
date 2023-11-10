@@ -4,11 +4,11 @@ const router = express.Router();
 const db = require('./db');
 
 
-router.get('/fetchpost/:id', (req, res) => {
-    if(req.params.id == 'all') {
+router.get('/post/get', (req, res) => {
+    if(req.query.who == 'all') {
         query = 'SELECT *, DATE_FORMAT(post_date, "%d %b %Y %h:%i") as postdate FROM post JOIN users USING(user_id) ORDER BY post_id DESC';
     } else {
-        query = `SELECT *, DATE_FORMAT(post_date, "%d %b %Y %h:%i") as postdate FROM post JOIN users USING(user_id) WHERE user_id=${req.params.id} ORDER BY post_id DESC`;
+        query = `SELECT *, DATE_FORMAT(post_date, "%d %b %Y %h:%i") as postdate FROM post JOIN users USING(user_id) WHERE user_id=${req.query.who} ORDER BY post_id DESC`;
     }
 
     db.query(query, (err, results) => {
@@ -32,8 +32,8 @@ router.get('/fetchpost/:id', (req, res) => {
                     img3: img3,
                     img4: img4,
                     likes: row.likes,
-                    category: row.category,
-                    tag: row.tag,
+                    category_id: row.category_id,
+                    tag_id: row.tag_id,
                     username: row.username,
                     profile_image: profile_image,
                 };

@@ -1,5 +1,5 @@
 export default class Post {
-    constructor(post_id, title, content, img1, img2, img3, img4, postdate, likes , userid, username, profile_image, category, tag) {
+    constructor(post_id, title, content, img1, img2, img3, img4, postdate, likes , userid, username, profile_image, categoryid, tagid) {
         this.post_id = post_id;
         this.title = title;
         this.content = content;
@@ -12,8 +12,8 @@ export default class Post {
         this.userid = userid;
         this.username = username;
         this.profile_image = profile_image;
-        this.category = category;
-        this.tag = tag;
+        this.categoryid = categoryid;
+        this.tagid = tagid;
     }
 
     
