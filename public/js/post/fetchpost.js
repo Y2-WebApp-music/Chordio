@@ -2,17 +2,17 @@ import Post from './post-class.js';
 
 import { getCurrentUser } from '../user-display/user-display.js';
 
-let who;
+let id;
 
 function fetchPosts(user) {
     if (typeof homeValue === 'undefined') {
-        who = user.user_id // Assign user's ID to 'who'
+        id = user.user_id // Assign user's ID to 'id'
     } else if (homeValue) {
-        who = 'all'; // Assign 'all' to 'who'
+        id = 'all'; // Assign 'all' to 'id'
     }
 
     $.ajax({
-        url: `/post/get?who=${who}`,
+        url: `/fetchpost/${id}`,
         method: 'GET',
         success: function (data) {
             displayPosts(data);
@@ -42,8 +42,8 @@ function displayPosts(posts) {
             post.user_id,
             post.username,
             post.profile_image,
-            post.category_id,
-            post.tag_id
+            post.category,
+            post.tag
         ).createPostElement();
 
         postContainer.append(postElement);
