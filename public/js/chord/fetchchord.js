@@ -6,16 +6,30 @@ let id;
 
 function fetchChords(user) {
     if (typeof homeValue === 'undefined') {
-        id = user.user_id // Assign user's ID to 'who'
+        id = user.user_id // Assign user's ID to 'id'
     } else if (homeValue) {
-        id = 'all'; // Assign 'all' to 'who'
+        id = 'all'; // Assign 'all' to 'id'
     }
 
     $.ajax({
         url: `/fetchchord/${id}`,
         method: 'GET',
         success: function (data) {
-            displayChords(data);
+            displayChords(data, '.chord-display');
+            displayChords(data, '.chord-list');
+        },
+        error: function (error) {
+            console.error('Error fetching posts:', error);
+        }
+    });
+
+    id = user.user_id;
+
+    $.ajax({
+        url: `/fetchchord/${id}`,
+        method: 'GET',
+        success: function (data) {
+            displayChords(data, '.your-chord-list');
         },
         error: function (error) {
             console.error('Error fetching posts:', error);
@@ -24,12 +38,12 @@ function fetchChords(user) {
 }
 
 // Function to display chords in the HTML
-function displayChords(chords) {
-    const chordContainer = $('.chord-display');
+function displayChords(chords, type) {
+    const chordContainer = $(type);
 
     for (const chord of chords) {
 
-        const chordElement = new Chord(
+        const c = new Chord(
             chord.chord_id,
             chord.title,
             chord.postdate,
@@ -44,13 +58,33 @@ function displayChords(chords) {
             chord.username,
             chord.type,
             chord.country
-        ).createChordElement();
+        );
 
-        chordElement.on("click", function(){
-            window.location.href='./chordview/'+chord.chord_id
-        });
+        if (type == '.chord-display') {
+            const chordElement = c.createChordElement();
 
-        chordContainer.append(chordElement);
+            chordContainer.append(chordElement);
+
+            chordElement.on("click", function(){
+                window.location.href='./chordview/'+chord.chord_id
+            });
+        } else if (type == '.your-chord-list') {
+            const chordElement = c.createMyChordElement();
+
+            chordContainer.append(chordElement);
+
+            chordElement.on("click", function(){
+                window.location.href='./chordview/'+chord.chord_id
+            });
+        } else if (type == '.chord-list') {
+            const chordElement = c.createHomeChordElement();
+
+            chordContainer.append(chordElement);
+
+            chordElement.on("click", function(){
+                window.location.href='./chordview/'+chord.chord_id
+            });
+        }
     }
 }
 

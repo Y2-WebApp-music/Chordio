@@ -1,22 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const chordContainer = document.querySelector(".chord-container");
-    const image = chordContainer.querySelector("img");
-
-    chordContainer.addEventListener("click", function() {
-        image.classList.toggle("fullscreen-image");
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const noteContainer = document.querySelector(".note-container");
-    const image = noteContainer.querySelector("img");
-
-    noteContainer.addEventListener("click", function() {
-        image.classList.toggle("fullscreen-image");
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
     const chordTypeButton = document.getElementById("chord-type");
     const noteTypeButton = document.getElementById("note-type");
     const chordContainer = document.querySelector(".chord-container");

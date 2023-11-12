@@ -7,13 +7,6 @@ usergobtn.addEventListener('click',() => {
     else {}
 });
 
-const chordview = document.getElementById('chord-1');
-chordview.addEventListener('click',() => {
-    if (window.location.href !=='./chordview'){
-        window.location.href='./chordview'
-    }
-    else {}
-});
 
 const chordcreate = document.getElementById('cr-chord');
 chordcreate.addEventListener('click',() => {
