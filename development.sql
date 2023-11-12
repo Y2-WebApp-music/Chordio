@@ -11,15 +11,6 @@ create table users (
     profile_image longblob
 );
 
-create table category (
-	category_id int not null primary key auto_increment,
-    category_name varchar(100) not null
-);
-
-create table tag (
-	tag_id int not null primary key auto_increment,
-    tag_name varchar(100) not null
-);
 
 create table post (
 	post_id int not null primary key auto_increment,
@@ -33,23 +24,18 @@ create table post (
     likes int,
     
     user_id int not null,
-    category_id int,
-    tag_id int,
+    category varchar(45),
+    tag varchar(45),
     
-    foreign key(user_id) references users(user_id),
-    foreign key(category_id) references category(category_id),
-    foreign key(tag_id) references tag(tag_id)
+    foreign key(user_id) references users(user_id)
 );
 
-create table music_type (
-	type_id int not null primary key auto_increment,
-	type_name varchar(100) not null
-);
 
 create table country (
 	country_id int not null primary key auto_increment,
 	country_name varchar(100) not null
 );
+
 
 create table chord (
 	chord_id int not null primary key auto_increment,
@@ -65,13 +51,12 @@ create table chord (
     likes int,
     
     user_id int,
-	type_id int,
-    country_id int,
+	type int,
+    country int,
     
-    foreign key(user_id) references users(user_id),
-    foreign key(type_id) references music_type(type_id),
-    foreign key(country_id) references country(country_id)
+    foreign key(user_id) references users(user_id)
 );
+
 
 create table comments (
 	comment_id int not null primary key auto_increment,
@@ -85,6 +70,7 @@ create table comments (
     foreign key(post_id) references post(post_id)
 );
 
+
 create table follower (
 	followed_id int not null,
     follower_id int not null,
@@ -94,14 +80,6 @@ create table follower (
     foreign key(follower_id) references users(user_id)
 );
 
-create table post_tag (
-	post_id int not null,
-    tag_id int not null,
-    
-	primary key(post_id, tag_id),
-    foreign key(post_id) references post(post_id),
-    foreign key(tag_id) references tag(tag_id)
-);
 
 create table save_post (
     user_id int not null,
@@ -112,6 +90,7 @@ create table save_post (
     foreign key(post_id) references post(post_id)
 );
 
+
 create table like_post (
     user_id int not null,
 	post_id int not null,
@@ -120,6 +99,7 @@ create table like_post (
     foreign key(user_id) references users(user_id),
     foreign key(post_id) references post(post_id)
 );
+
 
 create table save_chord (
     user_id int not null,
@@ -130,6 +110,7 @@ create table save_chord (
     foreign key(chord_id) references chord(chord_id)
 );
 
+
 create table like_chord (
     user_id int not null,
 	chord_id int not null,
@@ -138,6 +119,7 @@ create table like_chord (
     foreign key(user_id) references users(user_id),
     foreign key(chord_id) references chord(chord_id)
 );
+
 
 create table comment_by (
 	user_id int not null,
