@@ -14,7 +14,8 @@ router.post('/upload', upload.array('images', 4), (req, res) => {
     const imagePaths = req.files ? req.files.map((file) => file.buffer) : [];
     
     // Get text inputs
-    let { cr_post_title, cr_post_detail, Ben, Post } = req.body;
+    let { cr_post_title, cr_post_detail, categoryId, tagId } = req.body;
+
 
     const categoryMapping = {
         1: 'Theory',
@@ -30,14 +31,14 @@ router.post('/upload', upload.array('images', 4), (req, res) => {
         11: 'other'
     };
 
-    const category = categoryMapping[Ben];
+    const category = categoryMapping[categoryId];
 
     const tagMapping = {
         'post-1': 'Question',
         'post-2': 'Article',
     };
 
-    const tag = tagMapping[Post];
+    const tag = tagMapping[tagId];
 
     // Replace new lines with HTML line breaks
     cr_post_title = cr_post_title.replace(/\n/g, '<br>'); 
