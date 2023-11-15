@@ -73,6 +73,12 @@ function displayChords(chords, type) {
 
             chordContainer.append(chordElement);
 
+            chordElement.find('.delete-chord').on('click', function(){
+                window.location.href='./chordDelete/'+chord.chord_id
+                /////////////// add delete
+                return false;
+            });
+
             chordElement.on("click", function(){
                 window.location.href='./chordview/'+chord.chord_id
             });
