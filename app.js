@@ -35,7 +35,11 @@ const curUser = require('./routes/cur-user');
 
 const createPost = require('./routes/create-post');
 
+const deleteChord = require('./routes/delete-chord');
+
 const chordView = require('./routes/fetch-chord-view');
+
+
 
 
 // Use route files
@@ -49,6 +53,8 @@ app.use('/', fetchPosts);
 app.use('/', fetchChords);
 
 app.use('/', createPost);
+
+app.use('/', deleteChord);
 
 app.use('/', chordView);
 

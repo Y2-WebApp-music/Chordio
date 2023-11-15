@@ -151,4 +151,21 @@ export default class Chord {
         `)
         return chordDiv;
     }
+
+    deleteChordSubmit() {
+        const deleteDiv = $('<div>').addClass('delete-fill')
+        
+        deleteDiv.html(`
+            <div class="delete-container">
+                <div class="del-bg">
+                    <p> 🥺Do you want to delete This?🥺</p>
+                    <div class="btn-contain">
+                        <button type="submit" class="btn-no" id="notdel-btn"> No I don't want Delete it. </button>
+                        <button type="submit" class="btn-delete" id="del-btn"> Yes Delete it. </button>
+                    </div>
+                </div>
+            </div>
+        `)
+        return deleteDiv;
+    }
 }
