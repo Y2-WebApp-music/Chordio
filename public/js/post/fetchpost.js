@@ -27,9 +27,11 @@ function fetchPosts(user) {
 function displayPosts(posts) {
     const postContainer = $('.mid-container');
 
+    const popContainer = $('.pop-post-container');
+
     for (const post of posts) {
 
-        const postElement = new Post(
+        const postClass = new Post(
             post.post_id,
             post.title,
             post.content,
@@ -44,9 +46,23 @@ function displayPosts(posts) {
             post.profile_image,
             post.category,
             post.tag
-        ).createPostElement();
+        );
+
+        const popElement = postClass.createPopPostElement();
+        popContainer.append(popElement);
+        
+        popElement.find('.close-comment').on('click', function() {
+            popElement.hide();
+        });
+        popElement.hide();
+
+        const postElement = postClass.createPostElement();
 
         postContainer.append(postElement);
+
+        postElement.find('.comment-show').on('click', function() {
+            popElement.toggle();
+        });
     }
     const postend = $('<div>').addClass('end-of-post');
     postend.html(`<p>Create by : Guy and Guy</p>`)

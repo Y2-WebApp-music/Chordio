@@ -10,18 +10,26 @@ router.get('/fetchchord/:id', (req, res) => {
     
     let query;
 
-    if (chordId == null) {
-        query = 'SELECT *, DATE_FORMAT(post_date, "%d %b %Y %h:%i") as postdate FROM chord JOIN users USING(user_id) ORDER BY chord_id DESC';
+    if (userId == 'all') {
+        if (chordId) {
+            query = `SELECT *, DATE_FORMAT(post_date, "%d %b %Y %h:%i") as postdate FROM chord JOIN users USING(user_id) WHERE chord_id = ${chordId} ORDER BY likes DESC`;
+        }
+        else {
+            query = `SELECT *, DATE_FORMAT(post_date, "%d %b %Y %h:%i") as postdate FROM chord JOIN users USING(user_id) ORDER BY likes DESC`;
+        }
     }
-    else if (userId == 'all') {
-        query = 'SELECT *, DATE_FORMAT(post_date, "%d %b %Y %h:%i") as postdate FROM chord JOIN users USING(user_id) WHERE chord_id = ? ORDER BY chord_id DESC';
-    } else {
-        query = `SELECT *, DATE_FORMAT(post_date, "%d %b %Y %h:%i") as postdate FROM chord JOIN users USING(user_id) WHERE user_id=${userId} AND chord_id = ? ORDER BY chord_id DESC`;
+    else {
+        if (chordId) {
+            query = `SELECT *, DATE_FORMAT(post_date, "%d %b %Y %h:%i") as postdate FROM chord JOIN users USING(user_id) WHERE user_id=${userId} AND chord_id = ${chordId} ORDER BY likes DESC`;
+        }
+        else {
+            query = `SELECT *, DATE_FORMAT(post_date, "%d %b %Y %h:%i") as postdate FROM chord JOIN users USING(user_id) WHERE user_id=${userId} ORDER BY likes DESC`;
+        }
     }
 
-    db.query(query, [chordId], (err, results) => {
+    db.query(query, (err, results) => {
         if (err) {
-            throw err;
+
         } else {
             const data = results.map((row) => {
                 const img_chord = row.img_chord ? row.img_chord.toString('base64') : null;
