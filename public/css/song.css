@@ -612,7 +612,7 @@ nav .home-bg .song-icon {
     justify-content: center;
     align-items: center;
 }
-.btn-delete{
+.btn-delete, .btn-no{
     outline: none;
     background: none;
     padding: 0.6rem 1rem;

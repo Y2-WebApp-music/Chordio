@@ -104,7 +104,7 @@ settingpage.forEach((element) => {
 });
 
 // Get all elements with the class "userchord"
-const logout = document.querySelectorAll('.logout');
+const logout = document.querySelectorAll('.btn-logout');
 // Add a click event listener to each element
 logout.forEach((element) => {
     element.addEventListener('click', () => {

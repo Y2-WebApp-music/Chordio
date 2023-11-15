@@ -40,6 +40,7 @@ function fetchChords(user) {
 // Function to display chords in the HTML
 function displayChords(chords, type) {
     const chordContainer = $(type);
+    const body = $('body');
 
     for (const chord of chords) {
 
@@ -70,18 +71,43 @@ function displayChords(chords, type) {
             });
         } else if (type == '.your-chord-list') {
             const chordElement = c.createMyChordElement();
+            const deleteSubmit = c.deleteChordSubmit();
 
             chordContainer.append(chordElement);
+            body.append(deleteSubmit);
 
-            chordElement.find('.delete-chord').on('click', function(){
-                window.location.href='./chordDelete/'+chord.chord_id
-                /////////////// add delete
+            deleteSubmit.hide();
+
+            chordElement.find('.delete-chord').on('click', function() {
+                deleteSubmit.attr('style', 'display: flex');
+            });
+
+            deleteSubmit.find('.btn-delete').on('click', function() {
+                const chordId = chord.chord_id;
+
+                $.ajax({
+                    type: 'POST',
+                    url: `/chordDelete/${chordId}`,
+                    success: function (response) {
+                        console.log('Chord deleted successfully:', response);
+                        window.location.reload();
+                    },
+                    error: function (error) {
+                        console.error('Error deleting chord:', error);
+                    }
+                });
+
                 return false;
             });
 
-            chordElement.on("click", function(){
-                window.location.href='./chordview/'+chord.chord_id
+            deleteSubmit.find('.btn-no').on('click', function() {
+                deleteSubmit.hide();
             });
+
+            deleteSubmit.on('click', function() {
+                deleteSubmit.hide();
+            });
+            
         } else if (type == '.chord-list') {
             const chordElement = c.createHomeChordElement();
 
