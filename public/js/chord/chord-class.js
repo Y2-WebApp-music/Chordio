@@ -1,5 +1,5 @@
 export default class Chord {
-    constructor(chord_id, title, postdate, img_chord, img_note, artist , song_key, Bpm, url, img, likes, username, type, country) {
+    constructor(chord_id, title, postdate, img_chord, img_note, artist , song_key, Bpm, url, img, likes, username, type, country, isLike) {
         this.chord_id = chord_id;
         this.title = title;
         this.postdate = postdate;
@@ -14,6 +14,7 @@ export default class Chord {
         this.username = username;
         this.type = type;
         this.country = country;
+        this.isLike = isLike;
     }
 
     createChordElement() {

@@ -39,6 +39,7 @@ const createChord = require('./routes/create-chord');
 const deleteChord = require('./routes/delete-chord');
 
 const likesPost = require('./routes/like-post');
+const likesChord = require('./routes/like-chord');
 
 const savesPost = require('./routes/save-post');
 
@@ -66,6 +67,7 @@ app.use('/', createChord);
 app.use('/', deleteChord);
 
 app.use('/', likesPost);
+app.use('/', likesChord);
 
 app.use('/', savesPost);
 
@@ -78,8 +80,8 @@ app.use('/', savesPost);
 app.get('/userprofile', (req, res) => {
     res.sendFile(__dirname + '/views/userprofile.html')
 })
-app.get('/chordsave', (req, res) => {
-    res.sendFile(__dirname + '/views/chordsave.html')
+app.get('/chordlike', (req, res) => {
+    res.sendFile(__dirname + '/views/chordlike.html')
 })
 app.get('/postsave', (req, res) => {
     res.sendFile(__dirname + '/views/postsave.html')

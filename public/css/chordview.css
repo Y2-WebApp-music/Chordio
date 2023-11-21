@@ -222,6 +222,9 @@ nav .song-bg .song-icon {
     scale: 1.03;
     transition: .2s;
 }
+.like-container.active {
+    border-color: var(--color-red);
+}
 
 #like-pop-btn{
     fill: var(--color-darkwhite);
@@ -231,6 +234,9 @@ nav .song-bg .song-icon {
 .like-container:hover #like-pop-btn{
     fill: var(--color-red);
     transition: .2s;
+}
+.like-container.active #like-pop-btn{
+    fill: var(--color-red);
 }
 .like-container p{
     margin: 0 0;

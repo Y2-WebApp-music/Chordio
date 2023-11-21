@@ -15,7 +15,7 @@ router.get('/chordview/:chord_id', async (req, res) => {
         };
 
         // Fetch chord data
-        const chordData = await axios.get(`http://localhost:3000/fetchchord/all/?chord_id=${chordId}`);
+        const chordData = await axios.get(`http://localhost:3000/fetchchord/all/?chord_id=${chordId}`, config);
         const chord = chordData.data[0];
 
         if (chord.Bpm === null) {
@@ -39,7 +39,11 @@ router.get('/chordview/:chord_id', async (req, res) => {
             <link rel='stylesheet' href='/css/global.css'>
             <script defer src="/js/global.js"></script>
             <script defer src="/js/chordview.js"></script>
-        
+
+            <script>
+                // Embed chord data in a global variable
+                var chordData = ${JSON.stringify(chord)};
+            </script>
         
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         

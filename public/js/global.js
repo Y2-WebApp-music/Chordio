@@ -75,8 +75,8 @@ const chordSaveElements = document.querySelectorAll('.chordsave');
 // Add a click event listener to each element
 chordSaveElements.forEach((element) => {
     element.addEventListener('click', () => {
-        if (window.location.href !== '/chordsave') {
-            window.location.href = '/chordsave';
+        if (window.location.href !== '/chordlike') {
+            window.location.href = '/chordlike';
         }
     });
 });

@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel='stylesheet' href='./css/userchord.css'>
+    <link rel='stylesheet' href='./css/chordsave.css'>
     <link rel='stylesheet' href='./css/global.css'>
-    <script defer src="js/userchord.js"></script>
+    <script defer src="js/chordsave.js"></script>
     <script defer src="js/global.js"></script>
 
     <script defer src="js/chord/chord-class.js" type="module"></script>
     <script defer src="js/chord/fetchchord.js " type="module"></script>
 
     <script>
-        const homeValue = null; // This will insert the value from the server-side into the client-side JavaScript
+        const homeValue = 'like'; // This will insert the value from the server-side into the client-side JavaScript
     </script>
 
     <script defer src="js/user-display/user-class.js " type="module"></script>
@@ -27,7 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400;500;600;700&family=Raleway:ital,wght@0,300;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    <title>Your chord</title>
+    <title>Like Chord</title>
 </head>
 <body>
     <header>
@@ -88,22 +88,9 @@
                 <svg class="back-icon" xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
                 <p> Go to Profile</p>
             </div>
-            <div class="userprofile">
-                <img src="img/circletest.png" class="user-img" alt="">
-                <div class="user-information">
-                    <p class="user-name me"> Username</p>
-                    <p class="user-sub id"> #id-of-user</p>
-                    <p class="user-sub email"> toodsuauusua.1345@gmail.com</p>
-                </div>
-                <div class="user-status">
-                    <p class="user-gray">post : </p>
-                    <p class="user-text-status">23</p>
-                    <p class="user-gray">chords : </p>
-                    <p class="user-text-status">99</p>
-                </div>
-                <div class="action-btn" id="cr-Chord">
-                    <p>Create Chord</p>
-                </div>
+            <p class="title"> Your like Chords </p>
+            <div class="search-song prevent-select">
+                <input type="text" name="search-box" id="" class="search-box" placeholder="Search song....">
             </div>
         </div>
 <!-- ======================================

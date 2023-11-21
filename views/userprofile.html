@@ -12,14 +12,16 @@
     <script defer src="js/userprofile.js"></script>
     <script defer src="js/post-display.js"></script>
 
-    <script defer src="js/post/post-class.js" type="module"></script>
+    <script defer src="js/post/post.js" type="module"></script>
+    <script defer src="js/post/popupPost.js" type="module"></script>
+    <script defer src="js/post/regularPost.js" type="module"></script>
     <script defer src="js/post/fetchpost.js " type="module"></script>
 
     <script defer src="js/chord/chord-class.js" type="module"></script>
     <script defer src="js/chord/fetchchord.js " type="module"></script>
 
     <script>
-        const homeValue = '<%= homeValue %>'; // This will insert the value from the server-side into the client-side JavaScript
+        const homeValue = null; // This will insert the value from the server-side into the client-side JavaScript
     </script>
 
     <script defer src="js/user-display/user-class.js " type="module"></script>
@@ -282,7 +284,7 @@
 ======== Pop-Up-Comment/Post  ===========
 ======================================  -->
     <div class="pop-post-container">
-            
+        
     </div>
     
     <div class="logout-fill">
