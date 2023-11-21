@@ -30,6 +30,7 @@ const songRoutes = require('./routes/song');
 const chordRoutes = require('./routes/chord');
 
 const fetchPosts = require('./routes/fetch-post');
+const fetchComments = require('./routes/fetch-comment');
 const fetchChords = require('./routes/fetch-chord');
 const chordView = require('./routes/fetch-chord-view');
 
@@ -58,6 +59,7 @@ app.use('/', songRoutes);
 app.use('/', chordRoutes);
 
 app.use('/', fetchPosts);
+app.use('/', fetchComments);
 app.use('/', fetchChords);
 app.use('/', chordView);
 

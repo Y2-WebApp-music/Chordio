@@ -66,15 +66,19 @@ export class RegularPost extends Post {
         );
 
         // Create the popup post element
-        const popupPostElement = popupPost.createPostElement();
+        return popupPost.createPostElement()
+        .then((popupPostElement) => {
+            // Append the popup post element to the container
+            container.append(popupPostElement);
 
-        // Append the popup post element to the container
-        container.append(popupPostElement);
-
-        return popupPostElement;
+            return { popupPostElement };
+        })
+        .catch((error) => {
+            console.error(error);
+        });
     }
 
-    fetchPost() {
+    async fetchPost() {
         // Create the post element
         const postElement = this.createPostElement();
 
@@ -83,11 +87,11 @@ export class RegularPost extends Post {
         // Find the comment button within the post element
         const commentButton = postElement.find('.comment-show');
 
-        const popupPost = this.handleCommentClick();
-        popupPost.hide();
+        const { popupPostElement } = await this.handleCommentClick();
+        popupPostElement.hide();
 
         commentButton.on('click', () => {
-            popupPost.toggle();
+            popupPostElement.toggle();
         });
 
         if(this.isLike) {
@@ -98,7 +102,7 @@ export class RegularPost extends Post {
             postElement.find('.save').toggleClass('save-button active');
         }
 
-        this.toggleLike(postElement, popupPost);
-        this.toggleSave(postElement, popupPost);
+        this.toggleLike(postElement, popupPostElement);
+        this.toggleSave(postElement, popupPostElement);
     }
 }

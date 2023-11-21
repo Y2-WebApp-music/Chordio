@@ -14,7 +14,7 @@ const requireLogin = (req, res, next) => {
 
 // Route to get the current user's information
 router.get('/user/info', requireLogin, (req, res) => {
-    db.query('SELECT * FROM users WHERE user_id = ?', [req.session.user.user_id], (err, results) => {
+    db.query('SELECT u.user_id, u.username, u.email, u.reg_date, u.profile_image, COUNT(DISTINCT p.post_id) AS num_posts, COUNT(DISTINCT c.chord_id) AS num_chords FROM users u LEFT JOIN post p ON u.user_id = p.user_id LEFT JOIN chord c ON u.user_id = c.user_id WHERE u.user_id = ? GROUP BY u.user_id', [req.session.user.user_id], (err, results) => {
         if (err) {
             console.error('Error fetching posts:', err);
             res.status(500).json({ error: 'Error fetching posts' });
@@ -26,8 +26,9 @@ router.get('/user/info', requireLogin, (req, res) => {
                     username: row.username,
                     email: row.email,
                     reg_date: row.reg_date,
-                    lastlogin: row.lastlogin,
                     profile_image: profile_image,
+                    num_posts: row.num_posts,
+                    num_chords: row.num_chords,
                 };
             });
             res.json(data);

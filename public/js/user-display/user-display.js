@@ -1,13 +1,13 @@
 import User from './user-class.js';
 
-function getCurrentUser() {
+export function getCurrentUser() {
     return new Promise(function(resolve, reject) {
         $.ajax({
             url: '/user/info',
             method: 'GET',
             success: function (data) {
                 const i = data[0];
-                const user = new User(i.user_id, i.username, i.email, i.profile_image);
+                const user = new User(i.user_id, i.username, i.email, i.profile_image, i.num_posts, i.num_chords);
                 resolve(user);  
             },
             error: function (error) {
@@ -67,6 +67,22 @@ function displayUser(user) {
         });
     }
 
+    if (document.querySelector('.numpost')) {
+        const userPostNumElements = document.querySelectorAll('.numpost');
+
+        userPostNumElements.forEach(function(userPostNumElement) {
+            userPostNumElement.textContent = user.num_posts;
+        });
+    }
+
+    if (document.querySelector('.numchord')) {
+        const userChordNumElements = document.querySelectorAll('.numchord');
+
+        userChordNumElements.forEach(function(userChordNumElement) {
+            userChordNumElement.textContent = user.num_chords;
+        });
+    }
+
     if(document.querySelector('.user-input username') && document.querySelector('.user-input email')) {
         const inputUsernameElement = document.querySelector('input[class="user-input username"]'); 
         const inputUserIdElement = document.querySelector('input[class="user-input email"]');
@@ -87,5 +103,3 @@ $(document).ready(function () {
         console.error(error);
     });
 });
-
-export { getCurrentUser };
