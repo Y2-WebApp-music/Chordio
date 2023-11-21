@@ -408,6 +408,11 @@ nav .home-bg .song-icon {
 .your-chord:hover .hover-chord {
     display: grid;
 }
+.hover-chord-center {
+    width: 100%;
+    height: 100%;
+}
+
 .edit-chord{
     display: flex;
     flex-direction: column;

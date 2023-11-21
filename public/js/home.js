@@ -123,20 +123,16 @@ imageInput.addEventListener("change", function (event) {
             formData.append("images", image.file); // Use "images" as the field name
         });
       
-        fetch("/upload", {
-          method: "POST",
+        fetch("/create-post", {
+          method: "post",
           body: formData,
         })
-          .then((response) => response.text())
-          .then((data) => {
-            console.log(data); // Log the server response
-            // You can display a success message here
-            alert("Upload successful");
-          })
-          .catch((error) => {
+        .then((response) => response.text())
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((error) => {
             console.error("Error uploading images:", error);
-            // Handle the error, e.g., display an error message
-            alert("Error uploading images");
         });
     }
 
@@ -203,6 +199,7 @@ const popimageInput = document.getElementById("pop-image-input");
 const popslideshowLeftRight = document.querySelector(".pop-slideshow-left-right");
 const popprevButton = document.querySelector(".pop-prev-button");
 const popnextButton = document.querySelector(".pop-next-button");
+const poppostButtom = document.querySelector(".pop-post-btn");
 popprevButton.style.display = "none";
 popnextButton.style.display = "none";
 // Track the current slide index
@@ -284,6 +281,26 @@ popimageInput.addEventListener("change", function (event) {
         });
     }
 
+    // Function to send images to the server
+    function sendImagesToServer(images) {
+        const formData = new FormData();
+        images.forEach((image, index) => {
+            formData.append("images", image.file); // Use "images" as the field name
+        });
+      
+        fetch("/create-post", {
+          method: "post",
+          body: formData,
+        })
+        .then((response) => response.text())
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error("Error uploading images:", error);
+        });
+    }
+
     // Event listener for the "Previous" button
     popprevButton.addEventListener("click", function () {
         PopcurrentSlideIndex = (PopcurrentSlideIndex - 1 + images.length) % images.length;
@@ -294,6 +311,13 @@ popimageInput.addEventListener("change", function (event) {
     popnextButton.addEventListener("click", function () {
         PopcurrentSlideIndex = (PopcurrentSlideIndex + 1) % images.length;
         showSlide(PopcurrentSlideIndex);
+    });
+
+    // Event listener for the "Post" button
+    postButton.addEventListener("click", function () {
+        event.preventDefault();
+        currentSlideIndex = (currentSlideIndex + 1) % images.length;
+        sendImagesToServer(images);
     });
 });
 

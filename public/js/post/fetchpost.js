@@ -1,4 +1,4 @@
-import Post from './post-class.js';
+import { RegularPost } from './regularPost.js';
 
 import { getCurrentUser } from '../user-display/user-display.js';
 
@@ -23,15 +23,11 @@ function fetchPosts(user) {
     });
 }
 
+
 // Function to display posts in the HTML
 function displayPosts(posts) {
-    const postContainer = $('.mid-container');
-
-    const popContainer = $('.pop-post-container');
-
-    for (const post of posts) {
-
-        const postClass = new Post(
+    const regularPost = posts.map(post => {
+        return new RegularPost(
             post.post_id,
             post.title,
             post.content,
@@ -45,28 +41,20 @@ function displayPosts(posts) {
             post.username,
             post.profile_image,
             post.category,
-            post.tag
+            post.tag,
+            post.isLike,
+            post.isSave
         );
+    });
 
-        const popElement = postClass.createPopPostElement();
-        popContainer.append(popElement);
-        
-        popElement.find('.close-comment').on('click', function() {
-            popElement.hide();
-        });
-        popElement.hide();
+    regularPost.forEach(post => {
+        post.fetchPost();
+    });
 
-        const postElement = postClass.createPostElement();
 
-        postContainer.append(postElement);
-
-        postElement.find('.comment-show').on('click', function() {
-            popElement.toggle();
-        });
-    }
     const postend = $('<div>').addClass('end-of-post');
     postend.html(`<p>Create by : Guy and Guy</p>`)
-    postContainer.append(postend);
+    $('.mid-container').append(postend);
 }
 
 

@@ -12,7 +12,9 @@
     <script defer src="js/global.js"></script>
     <script defer src="js/post-display.js"></script>
 
-    <script defer src="js/post/post-class.js" type="module"></script>
+    <script defer src="js/post/post.js" type="module"></script>
+    <script defer src="js/post/popupPost.js" type="module"></script>
+    <script defer src="js/post/regularPost.js" type="module"></script>
     <script defer src="js/post/fetchpost.js " type="module"></script>
 
     <script defer src="js/chord/chord-class.js" type="module"></script>
@@ -172,7 +174,7 @@
 ============== Mid Zone ===============
 ======================================  -->
         <div class="mid-container">
-            <form action="/upload" method="POST" enctype="multipart/form-data" class="make-post prevent-select">
+            <form action="/create-post" method="POST" enctype="multipart/form-data" class="make-post prevent-select">
                 <div class="input-content">
                     <div class="top-create-post">
                         <img src="img/circletest.png" class="user-img" alt="">
@@ -346,7 +348,7 @@
 ======================================  -->
     <div class="create-post-pop">
         <div class="pop-make-post prevent-select">
-            <form action="/upload" method="POST" enctype="multipart/form-data" class="make-post prevent-select">
+            <form action="/create-post" method="POST" enctype="multipart/form-data" class="make-post prevent-select">
                 <div class="input-content">
                     <div class="pop-top-create-post">
                         <img src="img/circletest.png" class="user-img" alt="">
@@ -371,7 +373,7 @@
                     <label class="pop-lable-input-img" for="pop-image-input">
                         <svg xmlns="http://www.w3.org/2000/svg" class="pop-camera" height="1.4em" viewBox="0 0 576 512"><path d="M160 32c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H160zM396 138.7l96 144c4.9 7.4 5.4 16.8 1.2 24.6S480.9 320 472 320H328 280 200c-9.2 0-17.6-5.3-21.6-13.6s-2.9-18.2 2.9-25.4l64-80c4.6-5.7 11.4-9 18.7-9s14.2 3.3 18.7 9l17.3 21.6 56-84C360.5 132 368 128 376 128s15.5 4 20 10.7zM192 128a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120V344c0 75.1 60.9 136 136 136H456c13.3 0 24-10.7 24-24s-10.7-24-24-24H136c-48.6 0-88-39.4-88-88V120z"/></svg>
                     </label>
-                    <input type="file" id="pop-image-input" accept="image/*" multiple style="display: none;">
+                    <input type="file" name="images" id="pop-image-input" accept="image/*" multiple style="display: none;">
                     
                     <div class="pop-select-box" id="pop-mySelectBox">
                         <div class="pop-select-box__current" tabindex="1">

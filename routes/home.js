@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-let homeValue;
 
 // Defult page route
 router.get('/', (req, res) => {
@@ -21,5 +20,6 @@ router.get('/home', (req, res) => {
         res.redirect('/');
     }
 });
+
 
 module.exports = router;

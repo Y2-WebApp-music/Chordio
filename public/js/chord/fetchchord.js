@@ -107,6 +107,10 @@ function displayChords(chords, type) {
             deleteSubmit.on('click', function() {
                 deleteSubmit.hide();
             });
+
+            chordElement.find('.hover-chord-center').on("click", function(){
+                window.location.href='./chordview/'+chord.chord_id
+            });
             
         } else if (type == '.chord-list') {
             const chordElement = c.createHomeChordElement();

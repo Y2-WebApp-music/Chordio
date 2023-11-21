@@ -16,6 +16,7 @@ router.post('/chordDelete/:id', (req, res) => {
         }
         console.log('Chord deleted successfully');
     });
+    
     res.redirect('/song');
 });
 

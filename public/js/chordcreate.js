@@ -36,7 +36,7 @@ function ekUpload(){
     // Process all File objects
     for (var i = 0, f; f = files[i]; i++) {
       parseFile(f);
-      uploadFile(f);
+      //uploadFile(f);
     }
   }
 
@@ -66,6 +66,11 @@ function ekUpload(){
       // Thumbnail Preview
       document.getElementById('file-image').classList.remove("hidden");
       document.getElementById('file-image').src = URL.createObjectURL(file);
+
+      images.push({
+        src: URL.createObjectURL(file),
+        file: file,
+      });
     }
     else {
       document.getElementById('file-image').classList.add("hidden");
@@ -75,33 +80,6 @@ function ekUpload(){
       document.getElementById("file-upload-form").reset();
     }
   }
-
-    function uploadFile(file) {
-
-      var xhr = new XMLHttpRequest(),
-        fileInput = document.getElementById('class-roster-file');
-        fileSizeLimit = 1024; // In MB
-      if (xhr.upload) {
-        // Check if file is less than x MB
-        if (file.size <= fileSizeLimit * 1024 * 1024) {
-
-          // File received / failed
-          xhr.onreadystatechange = function(e) {
-            if (xhr.readyState == 4) {
-            }
-          };
-
-          // Start upload
-          xhr.open('POST', document.getElementById('file-upload-form').action, true);
-          xhr.setRequestHeader('X-File-Name', file.name);
-          xhr.setRequestHeader('X-File-Size', file.size);
-          xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-          xhr.send(file);
-        } else {
-          output('Please upload a smaller file (< ' + fileSizeLimit + ' MB).');
-        }
-      }
-    }
 
     // Check for the various File API support.
     if (window.File && window.FileList && window.FileReader) {
@@ -159,7 +137,7 @@ function chordUpload(){
     // Process all File objects
     for (var i = 0, f; f = files[i]; i++) {
       parseFile(f);
-      uploadFile(f);
+      //uploadFile(f);
     }
   }
 
@@ -189,6 +167,11 @@ function chordUpload(){
       // Thumbnail Preview
       document.getElementById('chord-image').classList.remove("hidden");
       document.getElementById('chord-image').src = URL.createObjectURL(file);
+
+      images.push({
+        src: URL.createObjectURL(file),
+        file: file,
+      });
     }
     else {
       document.getElementById('chord-image').classList.add("hidden");
@@ -198,33 +181,6 @@ function chordUpload(){
       document.getElementById("file-upload-chord").reset();
     }
   }
-
-    function uploadFile(file) {
-
-      var xhr = new XMLHttpRequest(),
-        fileInput = document.getElementById('class-roster-file');
-        fileSizeLimit = 1024; // In MB
-      if (xhr.upload) {
-        // Check if file is less than x MB
-        if (file.size <= fileSizeLimit * 1024 * 1024) {
-
-          // File received / failed
-          xhr.onreadystatechange = function(e) {
-            if (xhr.readyState == 4) {
-            }
-          };
-
-          // Start upload
-          xhr.open('POST', document.getElementById('file-upload-chord').action, true);
-          xhr.setRequestHeader('X-File-Name', file.name);
-          xhr.setRequestHeader('X-File-Size', file.size);
-          xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-          xhr.send(file);
-        } else {
-          output('Please upload a smaller file (< ' + fileSizeLimit + ' MB).');
-        }
-      }
-    }
 
     // Check for the various File API support.
     if (window.File && window.FileList && window.FileReader) {
@@ -280,7 +236,7 @@ function noteUpload(){
     // Process all File objects
     for (var i = 0, f; f = files[i]; i++) {
       parseFile(f);
-      uploadFile(f);
+      //uploadFile(f);
     }
   }
 
@@ -310,6 +266,11 @@ function noteUpload(){
       // Thumbnail Preview
       document.getElementById('note-image').classList.remove("hidden");
       document.getElementById('note-image').src = URL.createObjectURL(file);
+
+      images.push({
+        src: URL.createObjectURL(file),
+        file: file,
+      });
     }
     else {
       document.getElementById('note-image').classList.add("hidden");
@@ -319,33 +280,6 @@ function noteUpload(){
       document.getElementById("file-upload-note").reset();
     }
   }
-
-    function uploadFile(file) {
-
-      var xhr = new XMLHttpRequest(),
-        fileInput = document.getElementById('class-roster-file');
-        fileSizeLimit = 1024; // In MB
-      if (xhr.upload) {
-        // Check if file is less than x MB
-        if (file.size <= fileSizeLimit * 1024 * 1024) {
-
-          // File received / failed
-          xhr.onreadystatechange = function(e) {
-            if (xhr.readyState == 4) {
-            }
-          };
-
-          // Start upload
-          xhr.open('POST', document.getElementById('file-upload-note').action, true);
-          xhr.setRequestHeader('X-File-Name', file.name);
-          xhr.setRequestHeader('X-File-Size', file.size);
-          xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-          xhr.send(file);
-        } else {
-          output('Please upload a smaller file (< ' + fileSizeLimit + ' MB).');
-        }
-      }
-    }
 
     // Check for the various File API support.
     if (window.File && window.FileList && window.FileReader) {
@@ -368,4 +302,32 @@ chordView.addEventListener('click',() => {
         window.location.href='./song'
     }
     else {}
+});
+
+const images = []
+
+// Function to send images to the server
+function sendImagesToServer(images) {
+  const formData = new FormData();
+
+  images.forEach((image) => {
+      formData.append("images", image.file); // Use "images" as the field name
+  });
+
+  fetch("/create-chord", {
+    method: "POST",
+    body: formData,
+  })
+  .then((response) => {
+      console.log(response);
+  })
+  .catch((error) => {
+      console.error(error);
+  });
+}
+
+const postButton = document.querySelector(".post-btn");
+// Event listener for the "Post" button
+postButton.addEventListener("click", function () {
+  sendImagesToServer(images);
 });

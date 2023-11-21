@@ -1,10 +1,8 @@
 const express = require('express');
 const cookieSession = require('cookie-session');
-
-
 const app = express();
-app.use(express.urlencoded({ extended: true }));
 
+app.use(express.urlencoded({ extended: true }));
 
 // Middleware
 app.use(
@@ -25,19 +23,26 @@ app.use(express.static(__dirname + '/views'));
 const authRoutes = require('./routes/auth');
 const logoutRoutes = require('./routes/logout');
 
+const curUser = require('./routes/cur-user');
+
 const homeRoutes = require('./routes/home');
 const songRoutes = require('./routes/song');
+const chordRoutes = require('./routes/chord');
 
 const fetchPosts = require('./routes/fetch-post');
 const fetchChords = require('./routes/fetch-chord');
-
-const curUser = require('./routes/cur-user');
+const chordView = require('./routes/fetch-chord-view');
 
 const createPost = require('./routes/create-post');
+const createChord = require('./routes/create-chord');
 
 const deleteChord = require('./routes/delete-chord');
 
-const chordView = require('./routes/fetch-chord-view');
+const likesPost = require('./routes/like-post');
+
+const savesPost = require('./routes/save-post');
+
+
 
 
 
@@ -45,36 +50,33 @@ const chordView = require('./routes/fetch-chord-view');
 // Use route files
 app.use('/', authRoutes);
 app.use('/', logoutRoutes);
+app.use('/', curUser);
 
 app.use('/', homeRoutes);
 app.use('/', songRoutes);
+app.use('/', chordRoutes);
 
 app.use('/', fetchPosts);
 app.use('/', fetchChords);
+app.use('/', chordView);
 
 app.use('/', createPost);
+app.use('/', createChord);
 
 app.use('/', deleteChord);
 
-app.use('/', chordView);
+app.use('/', likesPost);
 
-app.use('/', curUser);
+app.use('/', savesPost);
+
+
 
 
 
 
 // Testing other page
-app.get('/song', (req, res) => {
-    res.sendFile(__dirname + '/views/song.html')
-})
 app.get('/userprofile', (req, res) => {
     res.sendFile(__dirname + '/views/userprofile.html')
-})
-app.get('/chordview', (req, res) => {
-    res.sendFile(__dirname + '/views/chordview.html')
-})
-app.get('/chordcreate', (req, res) => {
-    res.sendFile(__dirname + '/views/chordcreate.html')
 })
 app.get('/chordsave', (req, res) => {
     res.sendFile(__dirname + '/views/chordsave.html')

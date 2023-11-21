@@ -3,10 +3,10 @@ const router = express.Router();
 const path = require('path');
 
 
-// Song route
-router.get('/song', (req, res) => {
+// Create chord route
+router.get('/chordcreate', (req, res) => {
     if (req.session.user) {
-        res.sendFile(path.join(__dirname, '..', 'views', 'song.html'));
+        res.sendFile(path.join(__dirname, '..', 'views', 'chordcreate.html'));
     } else {
         res.redirect('/');
     }

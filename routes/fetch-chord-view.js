@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
-const db = require('./db');
 const axios = require('axios');
 
 
@@ -14,7 +12,7 @@ router.get('/chordview/:chord_id', async (req, res) => {
             headers: {
               Cookie: req.headers.cookie, // Include the session cookie from the request's headers
             },
-          };
+        };
 
         // Fetch chord data
         const chordData = await axios.get(`http://localhost:3000/fetchchord/all/?chord_id=${chordId}`);
@@ -182,7 +180,7 @@ router.get('/chordview/:chord_id', async (req, res) => {
         res.send(html);
     } catch (error) {
         console.error(error);
-        res.status(500).send(error); // Send an error response with a 500 status code
+        res.status(500).send(error);
     }
 });
 

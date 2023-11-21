@@ -74,64 +74,64 @@
         </div>
     </header>
 
-    <div class="container">
+    <form action="/create-chord" method="POST" enctype="multipart/form-data" class="container">
         <div class="left-container">
             <div class="text-input">
                 <div class="text"><p>Song Name</p></div>
-                <input type="text" name="SongName" id="" class="input-text" placeholder="Song name....">
+                <input type="text" name="SongName" class="input-text" placeholder="Song name....">
                 <div class="text"><p>Artist</p></div>
-                <input type="text" name="ArtistName" id="" class="input-text" placeholder="Artist name....">
+                <input type="text" name="ArtistName" class="input-text" placeholder="Artist name....">
                 <div class="key-bpm">
                     <div class="flex-in">
                         <div class="text"><p>Key</p></div>
                         <div class="select-box" id="mySelectBox">
                             <div class="select-box__current" tabindex="1">
                                 <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="0" value="1" name="Ben" checked="checked"/>
+                                    <input class="select-box__input" type="radio" id="0" value="1" name="Key" checked="checked"/>
                                     <p class="select-box__input-text">C</p>
                                 </div>
                                 <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="1" value="2" name="Ben" checked="checked"/>
+                                    <input class="select-box__input" type="radio" id="1" value="2" name="Key" checked="checked"/>
                                     <p class="select-box__input-text">C# / Db</p>
                                 </div>
                                 <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="2" value="3" name="Ben" checked="checked"/>
+                                    <input class="select-box__input" type="radio" id="2" value="3" name="Key" checked="checked"/>
                                     <p class="select-box__input-text">D</p>
                                 </div>
                                 <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="3" value="4" name="Ben" checked="checked"/>
+                                    <input class="select-box__input" type="radio" id="3" value="4" name="Key" checked="checked"/>
                                     <p class="select-box__input-text">D# / Eb</p>
                                 </div>
                                 <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="4" value="5" name="Ben" checked="checked"/>
+                                    <input class="select-box__input" type="radio" id="4" value="5" name="Key" checked="checked"/>
                                     <p class="select-box__input-text">E</p>
                                 </div>
                                 <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="5" value="6" name="Ben" checked="checked"/>
+                                    <input class="select-box__input" type="radio" id="5" value="6" name="Key" checked="checked"/>
                                     <p class="select-box__input-text">F</p>
                                 </div>
                                 <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="6" value="7" name="Ben" checked="checked"/>
+                                    <input class="select-box__input" type="radio" id="6" value="7" name="Key" checked="checked"/>
                                     <p class="select-box__input-text">F# / Gb</p>
                                 </div>
                                 <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="7" value="8" name="Ben" checked="checked"/>
+                                    <input class="select-box__input" type="radio" id="7" value="8" name="Key" checked="checked"/>
                                     <p class="select-box__input-text">G</p>
                                 </div>
                                 <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="8" value="9" name="Ben" checked="checked"/>
+                                    <input class="select-box__input" type="radio" id="8" value="9" name="Key" checked="checked"/>
                                     <p class="select-box__input-text">G# / Ab</p>
                                 </div>
                                 <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="9" value="10" name="Ben" checked="checked"/>
+                                    <input class="select-box__input" type="radio" id="9" value="10" name="Key" checked="checked"/>
                                     <p class="select-box__input-text">A</p>
                                 </div>
                                 <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="10" value="11" name="Ben" checked="checked"/>
+                                    <input class="select-box__input" type="radio" id="10" value="11" name="Key" checked="checked"/>
                                     <p class="select-box__input-text">A# / Bb</p>
                                 </div>
                                 <div class="select-box__value">
-                                    <input class="select-box__input" type="radio" id="11" value="11" name="Ben" checked="checked"/>
+                                    <input class="select-box__input" type="radio" id="11" value="12" name="Key" checked="checked"/>
                                     <p class="select-box__input-text">B</p>
                                 </div>
                                 <svg class="select-box__icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
@@ -380,8 +380,8 @@
                 <input type="text" name="YTlink" id="" class="input-text" placeholder="Youtube link....">
                 <!-- Cover Photo Upload  -->
                 <div class="text"><p>Cover photo</p></div>
-                <form id="file-upload-form" class="uploader">
-                    <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+                <div id="file-upload-form" class="uploader">
+                    <input id="file-upload" type="file" name="images" accept="image/*" />
                     <label for="file-upload" id="file-drag">
                         <img id="file-image" src="#" alt="Preview" class="hidden">
                         <div id="start">
@@ -393,8 +393,7 @@
                             <div id="messages"></div>
                         </div>
                     </label>
-                </form>
-
+                </div>
             </div>
         </div>
         <div class="main-container prevent-select">
@@ -402,8 +401,8 @@
                 <div class="pic-input">
                     <div class="chord-input">
                         <p class="name-input">Chord</p>
-                        <form id="file-upload-chord" class="upload-photo">
-                            <input id="file-chord" type="file" name="chordUpload" accept="image/*" />
+                        <div id="file-upload-chord" class="upload-photo">
+                            <input id="file-chord" type="file" name="images" accept="image/*" />
                             <label for="file-chord" id="file-drag-chord">
                                 <img id="chord-image" src="#" alt="Preview" class="hidden">
                                 <div id="start-chord">
@@ -415,15 +414,13 @@
                                     <div id="messages"></div>
                                 </div>
                             </label>
-                        </form>
-
+                        </div>
                     </div>
-
 
                     <div class="note-input">
                         <p class="name-input">Note</p>
-                        <form id="file-upload-note" class="upload-photo">
-                            <input id="file-note" type="file" name="fileUpload" accept="image/*" />
+                        <div id="file-upload-note" class="upload-photo">
+                            <input id="file-note" type="file" name="images" accept="image/*" />
                             <label for="file-note" id="file-drag-note">
                                 <img id="note-image" src="#" alt="Preview" class="hidden">
                                 <div id="start-note">
@@ -435,18 +432,18 @@
                                     <div id="messages"></div>
                                 </div>
                             </label>
-                        </form>
+                        </div>
                     </div>
 
                 </div>
                 <div class="post-area">
-                    <input type="submit" value="Post">
+                    <input type="submit" class="post-btn" value="Post">
                 </div>
             </div>
             <div class="close-area">
                 <svg class="close-btn" id="getback" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
             </div>
         </div>
-    </div>
+    </form>
 </body>
 </html>
