@@ -29,6 +29,7 @@ This repository is use for year 2 semester 1 for Web, DataBase and OOP subject
   - 👉 Modified `fetchpost.js` and `post-class.js`
   - 👉 New `public/js/chord/chord-class.js` and `fetchchord.js`
   - 👉 Modified `fetch-post.js` and New `song.js` in routes
+  - 👉 แก้ so many na pullๆ ไปเหอะ :)))
 
 
 ### In post Update Comment like this
