@@ -488,6 +488,12 @@
 .user-icon-post:hover+.post-user-text .post-username{
     text-decoration: underline;
 }
+.post-user-text > a{
+    text-decoration: none;
+}
+.post-user-text > a:hover{
+    text-decoration: underline;
+}
 .post .post-user-information .post-user-text .post-username:hover{
     text-decoration: underline;
 }

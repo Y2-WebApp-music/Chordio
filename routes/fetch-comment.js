@@ -4,7 +4,7 @@ const db = require('./db');
 
 
 router.get('/fetchcomment', (req, res) => {
-    query = `SELECT *, DATE_FORMAT(comment_date, "%d %b %Y %h:%i") as commentdate FROM comments JOIN users USING(user_id) ORDER BY commentdate DESC`;
+    query = `SELECT *, DATE_FORMAT(comment_date, "%d %b %Y %h:%i") as commentdate FROM comments JOIN users USING(user_id) ORDER BY comment_id DESC`;
 
     db.query(query, (req, results) => {
         const data = results.map(async (row) => {

@@ -7,10 +7,12 @@ export class RegularPost extends Post {
         const postDiv = $('<div>').addClass('post');
         postDiv.html(`
             <div class="post-user-information">
-                <img
-                 src="data:image/png;base64,${this.profile_image}" class="user-icon-post prevent-select">
+                <a href="/otheruserprofile/${this.userid}">
+                    <img
+                        src="data:image/png;base64,${this.profile_image}" class="user-icon-post prevent-select">
+                </a>
                 <div class="post-user-text">
-                    <p class="post-username">${this.username}</p>
+                    <a href="/otheruserprofile/${this.userid} class="post-username">${this.username}</a>
                     <p class="post-date">${this.postdate}</p>
                 </div>
             </div>

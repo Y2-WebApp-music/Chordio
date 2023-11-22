@@ -22,8 +22,9 @@ app.use(express.static(__dirname + '/views'));
 // Import route files
 const authRoutes = require('./routes/auth');
 const logoutRoutes = require('./routes/logout');
-
 const curUser = require('./routes/cur-user');
+const otherUser = require('./routes/other-user');
+const otherView = require('./routes/other-view');
 
 const homeRoutes = require('./routes/home');
 const songRoutes = require('./routes/song');
@@ -55,6 +56,8 @@ const editPass = require('./routes/edit-pass');
 app.use('/', authRoutes);
 app.use('/', logoutRoutes);
 app.use('/', curUser);
+app.use('/', otherUser);
+app.use('/', otherView);
 
 app.use('/', homeRoutes);
 app.use('/', songRoutes);

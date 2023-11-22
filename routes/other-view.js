@@ -3,9 +3,14 @@ const router = express.Router();
 const axios = require('axios');
 
 
-router.get('/chordview/:chord_id', async (req, res) => {
+router.get('/otheruserprofile/:user_id', async (req, res) => {
     try {
-        const chordId = req.params.chord_id;
+        const user_id = req.params.user_id;
+
+        if (user_id == req.session.user.user_id) {
+            res.redirect('/userprofile');
+            return;
+        }
 
         const config = {
             headers: {
@@ -14,44 +19,52 @@ router.get('/chordview/:chord_id', async (req, res) => {
         };
 
         // Fetch chord data
-        const chordData = await axios.get(`http://localhost:3000/fetchchord/all/?chord_id=${chordId}`, config);
-        const chord = chordData.data[0];
-
-        if (chord.Bpm === null) {
-            chord.Bpm = '-';
-        }
+        const userData = await axios.get(`http://localhost:3000/otheruser/${user_id}`, config);
+        const user = userData.data[0];
 
         // Fetch user data
-        const userData = await axios.get(`http://localhost:3000/user/info`, config);
-        const user = userData.data[0];
+        const curUserData = await axios.get(`http://localhost:3000/user/info`, config);
+        const curUser = curUserData.data[0];
 
         // Generate HTML response using template literals
         const html = `
+        <!DOCTYPE html>
         <html>
         <head>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-            <link rel='stylesheet' href='/css/chordview.css'>
+
+            <link rel='stylesheet' href='/css/userprofile.css'>
             <link rel='stylesheet' href='/css/global.css'>
+            <link rel='stylesheet' href='/css/post-display.css'>
             <script defer src="/js/global.js"></script>
-            <script defer src="/js/chordview.js"></script>
+            <script defer src="/js/userprofile.js"></script>
+            <script defer src="/js/post-display.js"></script>
+
+            <script defer src="/js/post/post.js" type="module"></script>
+            <script defer src="/js/post/popupPost.js" type="module"></script>
+            <script defer src="/js/post/regularPost.js" type="module"></script>
+            <script defer src="/js/post/fetchpost.js " type="module"></script>
+
+            <script defer src="/js/comment/comment.js " type="module"></script>
+            <script defer src="/js/comment/fetchcomment.js " type="module"></script>
+
+            <script defer src="/js/chord/chord-class.js" type="module"></script>
+            <script defer src="/js/chord/fetchchord.js " type="module"></script>
 
             <script>
-                // Embed chord data in a global variable
-                var chordData = ${JSON.stringify(chord)};
+                const homeValue = ${user.user_id}; // This will insert the value from the server-side into the client-side JavaScript
             </script>
-        
+
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        
+
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,500;1,700;1,900&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400;500;600;700&family=Raleway:ital,wght@0,300;1,500;1,700;1,900&display=swap" rel="stylesheet">
-            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-        
-            <title>${chord.title}</title>
+
+            <title>${user.username}</title>
         </head>
         <body>
             <header>
@@ -96,96 +109,92 @@ router.get('/chordview/:chord_id', async (req, res) => {
                             </div>
                             <div class="user-popup-btn logout-show">
                                 <svg id="logout-pop-btn" xmlns="http://www.w3.org/2000/svg" class="popup-icon" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg>
-                                <p>Logout</p>
+                                <p>Log out</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
-        
+
             <div class="container">
         <!-- ======================================
         ============== Left Zone ===============
         ======================================  -->
-                <div class="left-container">
-                    <div class="search-song prevent-select">
-                        <input type="text" name="search-box" id="" class="search-box" placeholder="Search song....">
-                    </div>
-                    <div class="title"
-                        style="background-image: linear-gradient(rgba(80, 71, 88, 0.467),#25243b), url(data:image/png;base64,${chord.img})">
-                        <div class="title-name">
-                            <p>${chord.title}</p>
+                <div class="left-container prevent-select">
+                    <div class="userprofile">
+                        <img src="data:image/png;base64,${user.profile_image}" class="other-user-img" alt="">
+                        <div class="user-information">
+                            <p class="user-name other-me">${user.username}</p>
+                            <p class="user-sub other-id">${user.user_id}</p>
+                            <p class="user-sub other-email">${user.email}</p>
                         </div>
-                        <div class="detail-down">
-                            <div class="detail-text-down-grid">
-                                <p class="detail-text-down prevent-select">Artist:</p>
-                                <p class="detail-text-down-get">${chord.artist}</p>
-                            </div>
-                            <div class="detail-text-down-grid">
-                                <p class="detail-text-down prevent-select">Key:</p>
-                                <p class="detail-text-down-get">${chord.song_key}</p>
-                            </div>
-                            <div class="detail-text-down-grid">
-                                <p class="detail-text-down prevent-select">BPM:</p>
-                                <p class="detail-text-down-get">${chord.Bpm}</p>
-                            </div>
-                            <div class="detail-text-down-grid">
-                                <p class="detail-text-down prevent-select">Type:</p>
-                                <p class="detail-text-down-get">${chord.type}</p>
-                            </div>
-                            <div class="detail-text-down-grid">
-                                <p class="detail-text-down prevent-select">nationality:</p>
-                                <p class="detail-text-down-get">${chord.country}</p>
-                            </div>
-                            <div class="detail-text-down-grid">
-                                <p class="detail-text-down prevent-select">Create by:</p>
-                                <p class="detail-text-down-get">${chord.username}</p>
-                            </div>
+                        <div class="user-status">
+                            <p class="user-gray">post : </p>
+                            <p class="user-text-status">${user.num_posts}</p>
+                            <p class="user-gray">chords : </p>
+                            <p class="user-text-status">${user.num_chords}</p>
                         </div>
-                    </div>
-                    <div class="youtube-container prevent-select">
-                        <iframe class="youtube-view"
-                            src="${chord.url}">
-                        </iframe>
-                    </div>
-                    <div class="like-container prevent-select">
-                        <svg id="like-pop-btn" xmlns="http://www.w3.org/2000/svg" class="popup-icon" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
-                        <p>Like this Chord</p>
+                        <div class="action-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="follow-btn" height="2em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"/></svg>
+                            <p>Follow</p>
+                        </div>
                     </div>
                 </div>
+
         <!-- ======================================
-        ============== Main Zone ===============
+        ============== Mid Zone ===============
         ======================================  -->
-                <div class="main-container prevent-select">
-                    <div class="song-area">
-                        <div class="choose-nc">
-                            <p class="switch-btn chose" id="chord-type"> Chord </p>
-                            <p class="switch-btn" id="note-type"> Note </p>
-                        </div>
-                        <div class="chord-container">
-                            <img src="data:image/png;base64,${chord.img_chord}" alt="">
-                        </div>
-                        <div class="note-container">
-                            <img src="data:image/png;base64,${chord.img_note}" alt="">
-                        </div>
+
+                <div class="mid-container">
+        <!-- ======================================
+        ============== Post Zone ===============
+        ======================================  -->
+                    
+                </div>
+
+        <!-- ======================================
+        ============== Right Zone ===============
+        ======================================  -->
+        <div class="right-container prevent-select">
+            <div class="your-chord-side" >
+                <p class="text-your-chord" id="gouserchord"> User Chords</p>
+                <div class="scroll-over">
+
+                    <div class="your-chord-list">
+                        
                     </div>
-                    <div class="close-area">
-                        <svg class="close-btn" id="getback" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
-                    </div>
+
                 </div>
             </div>
-            
-            <div class="logout-fill">
-                <div class="logout-container">
-                    <div class="logout-bg">
-                        <p> 🥺Do you want to Log out?🥺</p>
-                        <button type="submit" class="btn-logout">Log out</button>
-                    </div>
-                </div>
-            </div>
+        <!-- ======================================
+        ======== Pop-Up-Comment/Post  ===========
+        ======================================  -->
+        <div class="pop-post-container">
         
+        </div>
+
+        <div class="delete-fill">
+            <div class="delete-container">
+                <div class="del-bg">
+                    <p> 🥺Do you want to delete This?🥺</p>
+                    <div class="btn-contain">
+                        <button type="submit" class="btn-delete" id="notdel-btn"> No I don't want Delete it. </button>
+                        <button type="submit" class="btn-delete" id="del-btn"> Yes Delete it. </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="logout-fill">
+            <div class="logout-container">
+                <div class="logout-bg">
+                    <p> 🥺Do you want to Log out?🥺</p>
+                    <button type="submit" class="btn-logout">Log out</button>
+                </div>
+            </div>
+        </div>
         </body>
-        </html>`;
+        </html>
+        `;
 
         res.set('Content-Type', 'text/html');
         res.send(html);

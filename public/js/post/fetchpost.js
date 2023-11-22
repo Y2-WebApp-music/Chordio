@@ -14,7 +14,9 @@ function fetchPosts(user) {
         id = 'all'; // Assign 'all' to 'id'
         save = true;
     } else if (homeValue) {
-        id = 'all'; // Assign 'all' to 'id'
+        id = homeValue
+            ? homeValue
+            : 'all';
     }
 
     $.ajax({

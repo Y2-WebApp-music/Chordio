@@ -63,7 +63,7 @@ img[src="data:image/png;base64,null"] {
     border-color: var(--color-darkwhite);
     box-shadow: 0 0.05rem 0.25rem rgba(230, 230, 230, 0.25);
 }
-.user-icon, .user-img, .user-icon-post, .com-own-icon, .com-user-ico, .my-img, .com-user-icon, .comment-user-icon {
+.user-icon, .user-img, .user-icon-post, .com-own-icon, .com-user-ico, .my-img, .com-user-icon, .comment-user-icon, .other-user-img {
     border-radius: 50%;
 }
 .user-icon:hover{
