@@ -2,6 +2,8 @@ import { RegularPost } from './regularPost.js';
 
 import { getCurrentUser } from '../user-display/user-display.js';
 
+import { fetchcomments } from '../comment/fetchcomment.js';
+
 let id;
 
 function fetchPosts(user) {
@@ -86,6 +88,8 @@ function displayPosts(posts, save) {
     const postend = $('<div>').addClass('end-of-post');
     postend.html(`<p>Create by : Guy and Guy</p>`)
     $('.mid-container').append(postend);
+
+    fetchcomments();
 }
 
 
@@ -97,5 +101,5 @@ $(document).ready(function () {
     })
     .catch(function(error) {
         console.error(error);
-    });;
+    });
 });

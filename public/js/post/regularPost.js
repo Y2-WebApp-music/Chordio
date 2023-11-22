@@ -38,7 +38,7 @@ export class RegularPost extends Post {
                     <p> Save </p>
                 </div>
             </div>
-            `)
+        `)
         return postDiv;
     }
 
