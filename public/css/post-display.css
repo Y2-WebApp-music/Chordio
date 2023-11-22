@@ -937,6 +937,13 @@
     border-width: 2px;
     border-color: var(--color-darkwhite);
 }
+.post-com-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+}
 .send-com-btn{
     fill: var(--color-darkwhite);
     transition: .2s;

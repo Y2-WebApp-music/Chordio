@@ -83,11 +83,11 @@ function displayUser(user) {
         });
     }
 
-    if(document.querySelector('.user-input username') && document.querySelector('.user-input email')) {
-        const inputUsernameElement = document.querySelector('input[class="user-input username"]'); 
-        const inputUserIdElement = document.querySelector('input[class="user-input email"]');
+    if(document.querySelector('.user-input')) {
+        const inputUsernameElement = document.querySelector('.username'); 
+        const inputUserIdElement = document.querySelector('.email');
     
-        inputUsernameElement.value = "user.username"; 
+        inputUsernameElement.value = user.username;
         inputUserIdElement.value = user.email;
     }
 }

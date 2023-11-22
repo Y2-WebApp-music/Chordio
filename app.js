@@ -36,6 +36,7 @@ const chordView = require('./routes/fetch-chord-view');
 
 const createPost = require('./routes/create-post');
 const createChord = require('./routes/create-chord');
+const createComment = require('./routes/create-comment');
 
 const deleteChord = require('./routes/delete-chord');
 
@@ -44,7 +45,8 @@ const likesChord = require('./routes/like-chord');
 
 const savesPost = require('./routes/save-post');
 
-
+const editInfo = require('./routes/edit-user');
+const editPass = require('./routes/edit-pass');
 
 
 
@@ -65,6 +67,7 @@ app.use('/', chordView);
 
 app.use('/', createPost);
 app.use('/', createChord);
+app.use('/', createComment);
 
 app.use('/', deleteChord);
 
@@ -73,7 +76,8 @@ app.use('/', likesChord);
 
 app.use('/', savesPost);
 
-
+app.use('/', editInfo);
+app.use('/', editPass);
 
 
 

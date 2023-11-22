@@ -93,37 +93,26 @@ setInitialStylesForInformation();
 const imgProfile = document.getElementById("imgProfile");
 const fileInput = document.getElementById("file");
 
-    // Add an event listener to the file input to listen for changes
-    fileInput.addEventListener("change", function() {
-        const file = fileInput.files[0];
-        if (file) {
-            // Create a FileReader to read the selected file
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                // Set the src attribute of the img element to the selected file's data URL
-                imgProfile.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-    });
+// Add an event listener to the file input to listen for changes
+fileInput.addEventListener("change", function() {
+    const file = fileInput.files[0];
+    if (file) {
+        // Create a FileReader to read the selected file
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            // Set the src attribute of the img element to the selected file's data URL
+            imgProfile.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+});
 
-    // ================================================================
-// ================================================================
-// =================== Comment Button Pop-Up ======================
-// ================================================================
-// ================================================================
-document.addEventListener("DOMContentLoaded", function () {
-    // Add click event listener to all comment buttons
-    const changePassS = document.querySelectorAll(".changePass");
 
-    changePassS.forEach(changePass => {
-        changePass.addEventListener("click", function (event) {
-            const passFill = document.querySelector(".passwd-fill");
+function handleChangePass() {
+    const passFill = document.querySelector(".passwd-fill");
 
-            // Display the corresponding comment section
-            passFill.style.display = "flex";
-        });
-    });
+    // Display the corresponding comment section
+    passFill.style.display = "flex";
 
     // Add click event listener to close comment sections
     const closechangePassS = document.querySelectorAll(".close-change");
@@ -146,4 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-});
+
+    event.preventDefault();
+}
