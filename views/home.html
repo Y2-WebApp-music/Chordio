@@ -12,20 +12,21 @@
     <script defer src="js/global.js"></script>
     <script defer src="js/post-display.js"></script>
 
+    <script>
+        const homeValue = 'all'; // This will insert the value from the server-side into the client-side JavaScript
+    </script>
+
     <script defer src="js/post/post.js" type="module"></script>
     <script defer src="js/post/popupPost.js" type="module"></script>
     <script defer src="js/post/regularPost.js" type="module"></script>
     <script defer src="js/post/fetchpost.js " type="module"></script>
+    <script defer src="js/post/filter.js " type="module"></script>
 
     <script defer src="js/comment/comment.js " type="module"></script>
     <script defer src="js/comment/fetchcomment.js " type="module"></script>
 
     <script defer src="js/chord/chord-class.js" type="module"></script>
     <script defer src="js/chord/fetchchord.js " type="module"></script>
-
-    <script>
-        const homeValue = 'all'; // This will insert the value from the server-side into the client-side JavaScript
-    </script>
 
     <script defer src="js/user-display/user-class.js " type="module"></script>
     <script defer src="js/user-display/user-display.js " type="module"></script>
@@ -110,10 +111,10 @@
                 </div>
                 <a id="cat-title" > Type of post </a>
                 <div class="category ">
-                    <div class="category-btn">
+                    <div class="category-btn article">
                         <a>Article</a>
                     </div>
-                    <div class="category-btn">
+                    <div class="category-btn question">
                         <a>Question</a>
                     </div>
                 </div>
@@ -121,47 +122,47 @@
                 <div class="Tag-group ">
                     <a id="tag-title">Chose what is you interesting to...</a>
                     <div class="tag-grid">
-                        <div class="Tag-btn">
+                        <div class="Tag-btn theory">
                             <img src="img/music-note.png" class="Tagicon">
-                            <a>theory</a>
+                            <a>Theory</a>
                         </div>
-                        <div class="Tag-btn">
+                        <div class="Tag-btn se">
                             <img src="img/tuner.png" class="Tagicon">
                             <a>Sound engineer</a>
                         </div>
-                        <div class="Tag-btn">
+                        <div class="Tag-btn band">
                             <img src="img/band.png" class="Tagicon">
                             <a>Band</a>
                         </div>
-                        <div class="Tag-btn">
+                        <div class="Tag-btn guitar">
                             <img src="img/guitar.png" class="Tagicon">
                             <a>Guitar</a>
                         </div>
-                        <div class="Tag-btn">
+                        <div class="Tag-btn vocal">
                             <img src="img/microphone.png" class="Tagicon">
                             <a>Vocal</a>
                         </div>
-                        <div class="Tag-btn">
+                        <div class="Tag-btn bass">
                             <img src="img/bass-guitar.png" class="Tagicon">
                             <a>Bass</a>
                         </div>
-                        <div class="Tag-btn">
+                        <div class="Tag-btn drum">
                             <img src="img/drum.png" class="Tagicon">
                             <a>Drum</a>
                         </div>
-                        <div class="Tag-btn">
+                        <div class="Tag-btn piano">
                             <img src="img/piano.png" class="Tagicon">
                             <a>Piano</a>
                         </div>
-                        <div class="Tag-btn">
+                        <div class="Tag-btn string">
                             <img src="img/violin.png" class="Tagicon">
                             <a>String</a>
                         </div>
-                        <div class="Tag-btn">
+                        <div class="Tag-btn brass">
                             <img src="img/trumpet.png" class="Tagicon">
                             <a>Brass</a>
                         </div>
-                        <div class="Tag-btn">
+                        <div class="Tag-btn other">
                             <img src="img/option.png" class="Tagicon">
                             <a>Other</a>
                         </div>
@@ -248,7 +249,7 @@
                             </div>
                             <div class="select-box__value">
                                 <input class="select-box__input" type="radio" id="10" value="11" name="categoryId" checked="checked"/>
-                                <p class="select-box__input-text">other</p>
+                                <p class="select-box__input-text">Other</p>
                             </div>
 
                             <svg class="select-box__icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
@@ -285,7 +286,7 @@
                                 <label class="select-box__option" for="9" aria-hidden="aria-hidden">Brass</label>
                             </li>
                             <li>
-                                <label class="select-box__option" for="10" aria-hidden="aria-hidden">other</label>
+                                <label class="select-box__option" for="10" aria-hidden="aria-hidden">Other</label>
                             </li>
                         </ul>
                     </div>
@@ -422,7 +423,7 @@
                             </div>
                             <div class="pop-select-box__value">
                                 <input class="pop-select-box__input" type="radio" id="pop-10" value="11" name="categoryId" checked="checked"/>
-                                <p class="pop-select-box__input-text">other</p>
+                                <p class="pop-select-box__input-text">Other</p>
                             </div>
         
                             <svg class="pop-select-box__icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
@@ -459,7 +460,7 @@
                                 <label class="pop-select-box__option" for="pop-9" aria-hidden="aria-hidden">Brass</label>
                             </li>
                             <li>
-                                <label class="pop-select-box__option" for="pop-10" aria-hidden="aria-hidden">other</label>
+                                <label class="pop-select-box__option" for="pop-10" aria-hidden="aria-hidden">Other</label>
                             </li>
                         </ul>
                     </div>

@@ -221,9 +221,12 @@ nav .song-bg .song-icon {
     font-size: 20px;
 }
 .category-btn:hover{
-    background-color: var(--color-lightblue);
+    background-color: var(--color-blue);
     scale: 1.07;
     transition: .1s;
+}
+.category-btn.active{
+    background-color: var(--color-blue);
 }
 #tag-title {
     display: block;
@@ -259,6 +262,9 @@ nav .song-bg .song-icon {
     background-color: var(--color-darkwhite);
     scale: 1.07;
     transition: .1s;
+}
+.Tag-btn.active{
+    background-color: var(--color-darkwhite);
 }
 .Tag-btn a {
     margin: 0 0;
