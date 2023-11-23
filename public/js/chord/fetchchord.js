@@ -4,7 +4,7 @@ import { getCurrentUser } from '../user-display/user-display.js';
 
 let id;
 
-function fetchChords(user) {
+export function fetchChords(user, type, coun, search) {
     let like = false;
     if (homeValue === null) {
         id = user.user_id // Assign user's ID to 'id'
@@ -19,7 +19,7 @@ function fetchChords(user) {
         url: `/fetchchord/${id}`,
         method: 'GET',
         success: function (data) {
-            displayChords(data, '.chord-display', like);
+            displayChords(data, '.chord-display', like, type, coun, search);
             displayChords(data, '.chord-list');
         },
         error: function (error) {
@@ -41,9 +41,24 @@ function fetchChords(user) {
     });
 }
 
+function checksearch(chord, search, filter) {
+    if (search) {
+        let s = false;
+        for (const key of ['title', 'artist', 'username', 'type', 'country']) {
+            if (typeof chord[key] === 'string' && chord[key].toLowerCase().includes(search.toLowerCase())) {
+                s = true;
+            }
+        }
+
+        filter= filter && s;
+    }
+
+    return filter;
+}
+
 // Function to display chords in the HTML
-function displayChords(chords, type, like) {
-    const chordContainer = $(type);
+function displayChords(chords, con, like, type, coun, search) {
+    const chordContainer = $(con);
     const body = $('body');
 
     for (const chord of chords) {
@@ -71,27 +86,103 @@ function displayChords(chords, type, like) {
             : null;
 
         } else {
-            c = new Chord(
-                chord.chord_id,
-                chord.title,
-                chord.postdate,
-                chord.img_chord,
-                chord.img_note,
-                chord.artist,
-                chord.song_key,
-                chord.Bpm,
-                chord.url,
-                chord.img,
-                chord.likes,
-                chord.username,
-                chord.type,
-                chord.country,
-                chord.isLike
-            );
+            if (type && coun) {
+                let filter = chord.type.toLowerCase() === type &&
+                    chord.country.toLowerCase() === coun;
+
+                c = checksearch(chord, search, filter)
+                ? new Chord(
+                    chord.chord_id,
+                    chord.title,
+                    chord.postdate,
+                    chord.img_chord,
+                    chord.img_note,
+                    chord.artist,
+                    chord.song_key,
+                    chord.Bpm,
+                    chord.url,
+                    chord.img,
+                    chord.likes,
+                    chord.username,
+                    chord.type,
+                    chord.country,
+                    chord.isLike
+                )
+                : null;
+
+            } else if (type) {
+                let filter = chord.type.toLowerCase() === type
+
+                c = checksearch(chord, search, filter)
+                ? new Chord(
+                    chord.chord_id,
+                    chord.title,
+                    chord.postdate,
+                    chord.img_chord,
+                    chord.img_note,
+                    chord.artist,
+                    chord.song_key,
+                    chord.Bpm,
+                    chord.url,
+                    chord.img,
+                    chord.likes,
+                    chord.username,
+                    chord.type,
+                    chord.country,
+                    chord.isLike
+                )
+                : null;
+
+            } else if (coun) {
+                let filter = chord.country.toLowerCase() === coun;
+
+                c = checksearch(chord, search, filter)
+                ? new Chord(
+                    chord.chord_id,
+                    chord.title,
+                    chord.postdate,
+                    chord.img_chord,
+                    chord.img_note,
+                    chord.artist,
+                    chord.song_key,
+                    chord.Bpm,
+                    chord.url,
+                    chord.img,
+                    chord.likes,
+                    chord.username,
+                    chord.type,
+                    chord.country,
+                    chord.isLike
+                )
+                : null;
+
+            } else {
+                let filter = true;
+
+                c = checksearch(chord, search, filter)
+                ? new Chord(
+                    chord.chord_id,
+                    chord.title,
+                    chord.postdate,
+                    chord.img_chord,
+                    chord.img_note,
+                    chord.artist,
+                    chord.song_key,
+                    chord.Bpm,
+                    chord.url,
+                    chord.img,
+                    chord.likes,
+                    chord.username,
+                    chord.type,
+                    chord.country,
+                    chord.isLike
+                )
+                : null;
+            }
         }
 
         if(c) {
-            if (type == '.chord-display') {
+            if (con == '.chord-display') {
                 const chordElement = c.createChordElement();
     
                 chordContainer.append(chordElement);
@@ -99,7 +190,7 @@ function displayChords(chords, type, like) {
                 chordElement.on("click", function(){
                     window.location.href='./chordview/'+chord.chord_id
                 });
-            } else if (type == '.your-chord-list') {
+            } else if (con == '.your-chord-list') {
                 const chordElement = c.createMyChordElement();
                 const deleteSubmit = c.deleteChordSubmit();
     
@@ -142,7 +233,7 @@ function displayChords(chords, type, like) {
                     window.location.href='./chordview/'+chord.chord_id
                 });
                 
-            } else if (type == '.chord-list') {
+            } else if (con == '.chord-list') {
                 const chordElement = c.createHomeChordElement();
     
                 chordContainer.append(chordElement);

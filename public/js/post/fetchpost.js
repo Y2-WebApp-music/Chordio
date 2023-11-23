@@ -6,7 +6,7 @@ import { fetchcomments } from '../comment/fetchcomment.js';
 
 let id;
 
-export function fetchPosts(user, tag, cate) {
+export function fetchPosts(user, tag, cate, search) {
     let save = false;
     if (homeValue === null) {
         id = user.user_id
@@ -23,7 +23,7 @@ export function fetchPosts(user, tag, cate) {
         url: `/fetchpost/${id}`,
         method: 'GET',
         success: function (data) {
-            displayPosts(data, save, tag, cate);
+            displayPosts(data, save, tag, cate, search);
         },
         error: function (error) {
             console.error('Error fetching posts:', error);
@@ -31,15 +31,31 @@ export function fetchPosts(user, tag, cate) {
     });
 }
 
+function checksearch(post, search, filter) {
+    if (search) {
+        let s = false;
+        for (const key of ['title', 'content', 'username', 'category', 'tag']) {
+            if (typeof post[key] === 'string' && post[key].toLowerCase().includes(search.toLowerCase())) {
+                s = true;
+            }
+        }
+
+        filter = filter && s;
+    }
+
+    return filter;
+}
+
 
 // Function to display posts in the HTML
-function displayPosts(posts, save, tag, cate) {
+function displayPosts(posts, save, tag, cate, search) {
     const regularPost = posts.map(post => {
+
         if (tag && cate) {
-            const filter = post.tag.toLowerCase() === tag 
-                        && post.category.toLowerCase() === cate;
+            let filter = post.tag.toLowerCase() === tag &&
+                post.category.toLowerCase() === cate;
 
-            const filterPost = filter
+            const filterPost = checksearch(post, search, filter)
             ? new RegularPost(
                 post.post_id,
                 post.title,
@@ -61,10 +77,11 @@ function displayPosts(posts, save, tag, cate) {
             : null;
 
             return filterPost;
+
         } else if (tag) {
-            const filter = post.tag.toLowerCase() === tag;
+            let filter = post.tag.toLowerCase() === tag;
 
-            const filterPost = filter
+            const filterPost = checksearch(post, search, filter)
             ? new RegularPost(
                 post.post_id,
                 post.title,
@@ -86,10 +103,11 @@ function displayPosts(posts, save, tag, cate) {
             : null;
 
             return filterPost;
+
         } else if (cate) {
-            const filter = post.category.toLowerCase() === cate;
+            let filter = post.category.toLowerCase() === cate;
 
-            const filterPost = filter
+            const filterPost = checksearch(post, search, filter)
             ? new RegularPost(
                 post.post_id,
                 post.title,
@@ -111,10 +129,13 @@ function displayPosts(posts, save, tag, cate) {
             : null;
 
             return filterPost;
+
         }
         
         if(save) {
-            const savePost = post.isSave
+            let filter = true;
+
+            const savePost = post.isSave && checksearch(post, search, filter)
             ? new RegularPost(
                 post.post_id,
                 post.title,
@@ -136,8 +157,12 @@ function displayPosts(posts, save, tag, cate) {
             : null;
 
             return savePost;
+
         } else {
-            return new RegularPost(
+            let filter = true;
+
+            const Post = checksearch(post, search, filter)
+            ? new RegularPost(
                 post.post_id,
                 post.title,
                 post.content,
@@ -154,7 +179,10 @@ function displayPosts(posts, save, tag, cate) {
                 post.tag,
                 post.isLike,
                 post.isSave
-            );
+            )
+            : null;
+
+            return Post;
         }
     });
 

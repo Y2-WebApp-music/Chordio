@@ -178,7 +178,7 @@ nav .home-bg .song-icon {
     flex-direction: row;
     z-index: 0;
 }
-.search-box {
+.input-field {
     width: 100%;
     justify-self: center;
     align-self: start;

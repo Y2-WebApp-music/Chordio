@@ -186,6 +186,9 @@ nav .home-bg .song-icon {
     scale: 1.07;
     transition: .1s;
 }
+.type-btn.active{
+    background-color: var(--color-darkwhite);
+}
 .type-btn a {
     margin: 0 0;
     display: inline;
@@ -195,6 +198,40 @@ nav .home-bg .song-icon {
     padding-right: 0.3rem;
 }
 .type-btn img {
+    width: 70%;
+    padding: 0.3rem 0.2rem;
+    align-self: center;
+    justify-self: center;
+}
+.coun-btn{
+    display: grid;
+    grid-template-columns: 2.1rem 1fr;
+    gap: 3px;
+    border: solid;
+    border-radius: 40px;
+    border-width: 1px;
+    border-color: var(--color-darkwhite);
+    padding: 0.1rem 0.4rem;
+    margin: 3px 3px;
+    transition: .1s;
+}
+.coun-btn:hover{
+    background-color: var(--color-darkwhite);
+    scale: 1.07;
+    transition: .1s;
+}
+.coun-btn.active{
+    background-color: var(--color-darkwhite);
+}
+.coun-btn a {
+    margin: 0 0;
+    display: inline;
+    align-self: center;
+    width: max-content;
+    font-size: 0.9rem;
+    padding-right: 0.3rem;
+}
+.coun-btn img {
     width: 70%;
     padding: 0.3rem 0.2rem;
     align-self: center;
