@@ -14,60 +14,6 @@ postImagesContainers.forEach(container => {
 
 // ================================================================
 // ================================================================
-// =================== Comment Button Pop-Up ======================
-// ================================================================
-// ================================================================
-document.addEventListener("DOMContentLoaded", function () {
-    // Add click event listener to all comment buttons
-    const commentButtons = document.querySelectorAll(".comment-show");
-    
-    commentButtons.forEach(commentButton => {
-        commentButton.addEventListener("click", function (event) {
-            console.log("This view show Comment");
-            // Get the target post ID from the data attribute
-            const postID = event.currentTarget.dataset.target;
-            const commentFill = document.getElementById(postID);
-
-            // Display the corresponding comment section
-            commentFill.style.display = "flex";
-        });
-    });
-
-    // Add click event listener to close comment sections
-    const closeCommentButtons = document.querySelectorAll(".close-comment");
-    
-    closeCommentButtons.forEach(closeCommentButton => {
-        closeCommentButton.addEventListener("click", function (event) {
-            const postID = event.currentTarget.dataset.target;
-            let commentFill = document.querySelector(".comment-fill");
-
-            commentFill.style.display = "none";
-        });
-
-        closeCommentButton.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                let commentFill = document.querySelector(".comment-fill");
-        
-                commentFill.style.display = "none";
-            }
-        });
-    });
-
-    // Add click event listener to close comment sections when clicking outside
-    const commentFills = document.querySelectorAll(".comment-fill");
-    
-    commentFills.forEach(commentFill => {
-        commentFill.addEventListener("click", function (e) {
-            if (e.target === commentFill) {
-                commentFill.style.display = "none";
-            }
-        });
-    });
-});
-
-
-// ================================================================
-// ================================================================
 // ======= Fix tag and Category of Post =========
 // ================================================================
 // ================================================================
@@ -119,36 +65,3 @@ posts.forEach((post) => {
         e.stopPropagation();
     });
 });
-
-// ================================================================
-// ======= "Like" and "save" interact button =========
-// ================================================================
-const likeButtons = document.querySelectorAll(".like-button");
-
-// Add a click event listener to each like button
-likeButtons.forEach((button) => {
-    button.addEventListener("click", function(e) {
-        e.preventDefault();
-        this.classList.toggle("active");
-        this.classList.add("animated");
-        generateClones(this);
-    });
-});
-
-const saveButtons = document.querySelectorAll(".save-button");
-
-// Add a click event listener to each like button
-saveButtons.forEach((button) => {
-    button.addEventListener("click", function(e) {
-        e.preventDefault();
-        this.classList.toggle("active");
-        this.classList.add("animated");
-        generateClones(this);
-    });
-});
-
-function generateClones(button) {
-        let removeClassTimeout = setTimeout( function() {
-            button.classList.remove("animated")
-        }, 600);
-}

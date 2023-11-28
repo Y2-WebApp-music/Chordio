@@ -12,7 +12,7 @@ export function fetchChords(user, type, coun, search) {
         id = 'all'; // Assign 'all' to 'id'
         like = true;
     } else if (homeValue) {
-        id = 'all'; // Assign 'all' to 'id'
+        id = homeValue; // Assign 'all' to 'id'
     }
 
     $.ajax({

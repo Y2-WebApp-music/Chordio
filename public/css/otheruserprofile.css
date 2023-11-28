@@ -258,27 +258,24 @@ nav .song-bg .song-icon {
     font-weight: var(--font-weight-big);
     font-size: 20px;
 }
-.scroll-over{
-    overflow-y:scroll;
-    overflow-x: hidden;
-}
-.your-chord-list {
+.chord-list {
     width: 100%;
-    min-height: 90%;
-    max-height: 90%;
+    height: 90%;
     padding: 0.2rem 0.2rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: start;
     align-items: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
 }
-
-.your-chord{
-    position: relative;
+.chord{
     margin-top: 10px;
-    width: 90%;
+    width: 95%;
     min-height: 120px;
-    height: 120px;
+    height: 130px;
     background-color: var(--color-lightgray);
     display: grid;
     grid-template-columns: 20% 1fr ;
@@ -289,124 +286,27 @@ nav .song-bg .song-icon {
     border-width: 1px;
     transition: .1s;
 }
-.your-chord:hover {
+.chord:hover {
     background-color: var(--color-darkwhite);
     scale: 1.02;
     transition: .1s;
 }
-.your-chord:hover::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    backdrop-filter: blur(2px);
-    pointer-events: none;
-}
-.hover-chord{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 120px;
-    height: 120px;
-    border-radius: 10px;
-    background-color: rgba(92, 92, 92, 0.52);
-    display: none;
-    grid-template-columns: 23% 54% 23%;
-    align-items: center;
-}
-.your-chord:hover .hover-chord {
-    display: grid;
-}
-.edit-chord{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    margin-left: 10px;
-    border: none;
-    border-right: solid;
-    border-width: 1px;
-    padding: 1rem 0;
-    border-color: var(--color-text);
-}
-.edit-chord p{
-    display: block;
-    font-size: 14px;
-    font-weight: var(--font-weight-mid);
-}
-.edit-icon{
-    fill: var(--color-text);
-    padding: 0.6rem 0.6rem;
-    margin-right: 4px;
-    border-radius: 10px;
-    transition: .2s;
-}
-.edit-icon:hover{
-    fill: var(--color-lightblue);
-    background-color: rgba(56, 56, 56, 0.525);
-    height: 2em;
-    transition: .2s;
-}
-.edit-icon:hover+p {
-    display: block;
-    color: var(--color-lightblue);
-    text-align: center;
-}
-.delete-chord{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    margin-right: 10px;
-    border: none;
-    border-left: solid;
-    border-width: 1px;
-    padding: 1rem 0;
-    border-color: var(--color-text);
-}
-.delete-chord p{
-    display: block;
-    font-size: 14px;
-    font-weight: var(--font-weight-mid);
-}
-.delete-icon{
-    fill: var(--color-text);
-    padding: 0.6rem 0.6rem;
-    margin-left: 4px;
-    border-radius: 10px;
-    transition: .2s;
-}
-.delete-icon:hover{
-    fill: var(--color-red);
-    background-color: rgba(56, 56, 56, 0.425);
-    height: 2em;
-    transition: .2s;
-}
-.delete-icon:hover+p {
-    display: block;
-    color: var(--color-red);
-}
-.your-chord img{
+.chord img{
     width: 100%;
     height: 100%;
     object-fit:cover;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
-.your-chord .your-chord-imformation{
+.chord .chord-imformation{
     margin-left: 2%;
     margin-top: 1%;
-    width: 95%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-
-.your-chord-imformation .your-chord-top p{
+.chord-imformation .chord-top p{
     width: 100%;
     max-height: 80px; /* Set the maximum height to 2 lines */
     display: -webkit-box; /* For WebKit-based browsers */
@@ -417,20 +317,19 @@ nav .song-bg .song-icon {
     font-weight: var(--font-weight-mid);
     text-overflow: ellipsis;
 }
-.your-chord-down {
+.chord-down {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap :4px;
-    padding-bottom: 3%;
 }
-.your-chord-down-grid{
+.chord-down-grid{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: flex-end;
 }
-.your-chord-text-down{
+.chord-text-down{
     font-weight: var(--font-weight-mid);
     color: var(--color-textgray);
     font-size: 13px;
@@ -438,7 +337,7 @@ nav .song-bg .song-icon {
     justify-self: center;
     align-self: flex-end;
 }
-.your-chord-text-down-get {
+.chord-text-down-get {
     font-size: 17px;
     width: 90%;
     height: 1em;
@@ -450,90 +349,25 @@ nav .song-bg .song-icon {
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.create-chord {
+.goto-chord {
     margin-top: 2%;
-    width: 40%;
-    padding: 0.4rem 1rem;
-
-    text-align: center;
-    align-self: center;
+    width: max-content;
     background-color: var(--color-lightgray);
-
+    padding: 0.4rem 1rem;
     border-radius: 50px;
     border: solid;
     border-width: 3px;
     border-color: var(--color-blue);
-
-    font-size: 20px;
-    font-weight: var(--font-weight-big);
+    align-self: flex-end;
+    font-size: 0.8rem;
     transition: .1s;
 }
-.create-chord:hover {
+.goto-chord:hover {
     background-color: var(--color-blue);
     scale: 1.03;
     transition: .1s;
 }
 
-/* ======================================
-=========================================
-=========== Delete pop-up ============
-=========================================
-====================================== */
-.delete-fill{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.654);
-    /* Display --> flex */
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9;
-}
-.delete-container{
-    width: 400px;
-    height: 180px;
-    padding: 0.1rem 0.1rem;
-    background-color: var(--color-darkgray);
-    border: solid;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: var(--color-lightgray);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.95);
-}
-.del-bg {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.del-bg p{
-    font-size: 22px;
-}
-.btn-contain{
-    width: 100%;
-    margin-top: 10%;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-}
-.btn-delete{
-    outline: none;
-    background: none;
-    padding: 0.6rem 1rem;
-    border: solid;
-    border-radius: 30px;
-    border-width: 2px;
-    transition: .2s;
-}
 #notdel-btn{
     border-color: var(--color-green);
 }

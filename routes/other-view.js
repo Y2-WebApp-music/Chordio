@@ -35,7 +35,7 @@ router.get('/otheruserprofile/:user_id', async (req, res) => {
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            <link rel='stylesheet' href='/css/userprofile.css'>
+            <link rel='stylesheet' href='/css/otheruserprofile.css'>
             <link rel='stylesheet' href='/css/global.css'>
             <link rel='stylesheet' href='/css/post-display.css'>
             <script defer src="/js/global.js"></script>
@@ -158,12 +158,8 @@ router.get('/otheruserprofile/:user_id', async (req, res) => {
         <div class="right-container prevent-select">
             <div class="your-chord-side" >
                 <p class="text-your-chord" id="gouserchord"> User Chords</p>
-                <div class="scroll-over">
-
-                    <div class="your-chord-list">
+                <div class="chord-list">
                         
-                    </div>
-
                 </div>
             </div>
         <!-- ======================================
@@ -173,17 +169,6 @@ router.get('/otheruserprofile/:user_id', async (req, res) => {
         
         </div>
 
-        <div class="delete-fill">
-            <div class="delete-container">
-                <div class="del-bg">
-                    <p> 🥺Do you want to delete This?🥺</p>
-                    <div class="btn-contain">
-                        <button type="submit" class="btn-delete" id="notdel-btn"> No I don't want Delete it. </button>
-                        <button type="submit" class="btn-delete" id="del-btn"> Yes Delete it. </button>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="logout-fill">
             <div class="logout-container">
                 <div class="logout-bg">
