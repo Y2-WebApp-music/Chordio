@@ -65,6 +65,9 @@ img[src="data:image/png;base64,null"] {
 }
 .user-icon, .user-img, .user-icon-post, .com-own-icon, .com-user-ico, .my-img, .com-user-icon, .comment-user-icon, .other-user-img {
     border-radius: 50%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
 }
 .user-icon:hover{
     scale: 1.05;

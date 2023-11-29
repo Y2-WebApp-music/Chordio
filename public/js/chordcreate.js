@@ -304,9 +304,10 @@ chordView.addEventListener('click',() => {
     else {}
 });
 
-const images = []
 
 // Function to send images to the server
+const images = [];
+
 function sendImagesToServer(images) {
   const formData = new FormData();
 
