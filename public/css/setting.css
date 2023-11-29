@@ -271,7 +271,7 @@ nav .home-bg .song-icon {
 .userprofile {
     padding: 0.3rem 1rem;
     display: grid;
-    grid-template-columns: 20% 1fr;
+    grid-template-columns: 30% 1fr;
     background-color: var(--color-darkgray);
     width: 80%;
     height: 80px;
@@ -287,10 +287,13 @@ nav .home-bg .song-icon {
     transition: .1s;
 }
 .followed-user-img, .follower-user-img {
-    width: 91%;
-    margin: 3% 3%;
+    width: 100%;
     align-self: center;
     justify-self: center;
+    border-radius: 50%;
+}
+.follower-user-information, .followed-user-information {
+    margin: 10%;
 }
 .userprofile .user-information{
     margin-left: 6%;

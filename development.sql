@@ -7,10 +7,8 @@ create table users (
     password varchar(100) not null,
     email varchar(100) not null,
     reg_date datetime not null,
-    lastlogin datetime,
     profile_image longblob
 );
-
 
 create table post (
 	post_id int not null primary key auto_increment,
@@ -22,20 +20,11 @@ create table post (
     img3 longblob,
     img4 longblob,
     likes int,
-    
     user_id int not null,
     category varchar(45),
     tag varchar(45),
-    
     foreign key(user_id) references users(user_id)
 );
-
-
-create table country (
-	country_id int not null primary key auto_increment,
-	country_name varchar(100) not null
-);
-
 
 create table chord (
 	chord_id int not null primary key auto_increment,
@@ -49,34 +38,27 @@ create table chord (
     url varchar(100),
     img longblob,
     likes int,
-    
     user_id int,
-	type int,
-    country int,
-    
+	type varchar(45),
+    country varchar(45),
     foreign key(user_id) references users(user_id)
 );
-
 
 create table comments (
 	comment_id int not null primary key auto_increment,
     context varchar(100) not null,
     comment_date datetime not null,
-    
     user_id int not null,
     post_id int not null,
-    
     foreign key(user_id) references users(user_id),
     foreign key(post_id) references post(post_id)
 );
 
-
-create table follower (
-	followed_id int not null,
+create table follow (
+	following_id int not null,
     follower_id int not null,
-    
-    primary key(followed_id, follower_id),
-    foreign key(followed_id) references users(user_id),
+    primary key(following_id, follower_id),
+    foreign key(following_id) references users(user_id),
     foreign key(follower_id) references users(user_id)
 );
 
@@ -84,7 +66,6 @@ create table follower (
 create table save_post (
     user_id int not null,
 	post_id int not null,
-	
 	primary key(user_id, post_id),
     foreign key(user_id) references users(user_id),
     foreign key(post_id) references post(post_id)
@@ -94,38 +75,15 @@ create table save_post (
 create table like_post (
     user_id int not null,
 	post_id int not null,
-	
 	primary key(user_id, post_id),
     foreign key(user_id) references users(user_id),
     foreign key(post_id) references post(post_id)
 );
 
-
-create table save_chord (
-    user_id int not null,
-	chord_id int not null,
-	
-	primary key(user_id, chord_id),
-    foreign key(user_id) references users(user_id),
-    foreign key(chord_id) references chord(chord_id)
-);
-
-
 create table like_chord (
     user_id int not null,
 	chord_id int not null,
-	
 	primary key(user_id, chord_id),
     foreign key(user_id) references users(user_id),
     foreign key(chord_id) references chord(chord_id)
-);
-
-
-create table comment_by (
-	user_id int not null,
-    comment_id int not null,
-    
-    primary key(user_id, comment_id),
-    foreign key(user_id) references users(user_id),
-    foreign key(comment_id) references comments(comment_id)
 );

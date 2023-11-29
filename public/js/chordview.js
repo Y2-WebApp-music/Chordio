@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     likeButton.addEventListener('click', function() {
         chord.isLike = !chord.isLike;
-
         likeButton.classList.toggle('active');
 
         sendLikeToServer(chord.chord_id, chord.isLike);

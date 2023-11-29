@@ -303,32 +303,3 @@ chordView.addEventListener('click',() => {
     }
     else {}
 });
-
-
-// Function to send images to the server
-const images = [];
-
-function sendImagesToServer(images) {
-  const formData = new FormData();
-
-  images.forEach((image) => {
-      formData.append("images", image.file); // Use "images" as the field name
-  });
-
-  fetch("/create-chord", {
-    method: "POST",
-    body: formData,
-  })
-  .then((response) => {
-      console.log(response);
-  })
-  .catch((error) => {
-      console.error(error);
-  });
-}
-
-const postButton = document.querySelector(".post-btn");
-// Event listener for the "Post" button
-postButton.addEventListener("click", function () {
-  sendImagesToServer(images);
-});

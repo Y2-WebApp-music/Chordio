@@ -21,14 +21,11 @@ app.use(express.static(__dirname + '/views'));
 
 // Import route files
 const authRoutes = require('./routes/auth');
-const logoutRoutes = require('./routes/logout');
 const curUser = require('./routes/cur-user');
 const otherUser = require('./routes/other-user');
 const otherView = require('./routes/other-view');
 
 const homeRoutes = require('./routes/home');
-const songRoutes = require('./routes/song');
-const chordRoutes = require('./routes/chord');
 
 const fetchPosts = require('./routes/fetch-post');
 const fetchComments = require('./routes/fetch-comment');
@@ -49,19 +46,17 @@ const savesPost = require('./routes/save-post');
 const editInfo = require('./routes/edit-user');
 const editPass = require('./routes/edit-pass');
 
-
+const follower = require('./routes/fetch-follow');
+const follow = require('./routes/follow-user');
 
 
 // Use route files
 app.use('/', authRoutes);
-app.use('/', logoutRoutes);
 app.use('/', curUser);
 app.use('/', otherUser);
 app.use('/', otherView);
 
 app.use('/', homeRoutes);
-app.use('/', songRoutes);
-app.use('/', chordRoutes);
 
 app.use('/', fetchPosts);
 app.use('/', fetchComments);
@@ -82,28 +77,8 @@ app.use('/', savesPost);
 app.use('/', editInfo);
 app.use('/', editPass);
 
-
-
-
-// Testing other page
-app.get('/userprofile', (req, res) => {
-    res.sendFile(__dirname + '/views/userprofile.html')
-})
-app.get('/chordlike', (req, res) => {
-    res.sendFile(__dirname + '/views/chordlike.html')
-})
-app.get('/postsave', (req, res) => {
-    res.sendFile(__dirname + '/views/postsave.html')
-})
-app.get('/userchord', (req, res) => {
-    res.sendFile(__dirname + '/views/userchord.html')
-})
-app.get('/setting', (req, res) => {
-    res.sendFile(__dirname + '/views/setting.html')
-})
-app.get('/otheruserprofile', (req, res) => {
-    res.sendFile(__dirname + '/views/otheruserprofile.html')
-})
+app.use('/', follower);
+app.use('/', follow);
 
 
 const PORT = 3000;

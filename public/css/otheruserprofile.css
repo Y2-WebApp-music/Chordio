@@ -195,7 +195,13 @@ nav .song-bg .song-icon {
     fill: var(--color-darkwhite);
     width: 40px;
 }
-.action-btn:hover .follow-btn{
+.action-btn:hover .follow-btn{  
+    fill: var(--color-green);
+}
+.action-btn.active{
+    border-color: var(--color-green);
+}
+.follow-btn.active{
     fill: var(--color-green);
 }
 

@@ -11,7 +11,6 @@ const requireLogin = (req, res, next) => {
     next();
 };
 
-
 // Route to get the current user's information
 router.get('/user/info', requireLogin, (req, res) => {
     db.query('SELECT u.user_id, u.username, u.email, u.reg_date, u.profile_image, COUNT(DISTINCT p.post_id) AS num_posts, COUNT(DISTINCT c.chord_id) AS num_chords FROM users u LEFT JOIN post p ON u.user_id = p.user_id LEFT JOIN chord c ON u.user_id = c.user_id WHERE u.user_id = ? GROUP BY u.user_id', [req.session.user.user_id], (err, results) => {
@@ -21,6 +20,7 @@ router.get('/user/info', requireLogin, (req, res) => {
         } else {
             const data = results.map((row) => {
                 const profile_image = row.profile_image ? row.profile_image.toString('base64') : null;
+                
                 return {
                     user_id: row.user_id,
                     username: row.username,
@@ -29,10 +29,10 @@ router.get('/user/info', requireLogin, (req, res) => {
                     profile_image: profile_image,
                     num_posts: row.num_posts,
                     num_chords: row.num_chords,
-                };
+                }
             });
             res.json(data);
-        };      
+        }
     });
 });
 
