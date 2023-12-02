@@ -1,7 +1,9 @@
 import { Post } from './post.js';
 import { getCurrentUser } from '../user-display/user-display.js';
+import { fetchcomments } from '../comment/fetchcomment.js';
 
 export class PopupPost extends Post {
+
     // Function to create a popup post element
     createPostElement() {
         return new Promise((resolve, reject) => {
@@ -38,7 +40,8 @@ export class PopupPost extends Post {
                                 <div class="com-post-own">
                                     <img src="data:image/png;base64,${this.profile_image}"" class="com-own-icon prevent-select">
                                     <div class="com-own-icon-text">
-                                        <p class="com-own-username">${this.username}</p>                                    <p class="com-own-date prevent-select">${this.postdate}</p>
+                                        <p class="com-own-username">${this.username}</p>
+                                        <p class="com-own-date prevent-select">${this.postdate}</p>
                                     </div>
                                 </div>
                                 <div class="scroll-com">
@@ -57,12 +60,12 @@ export class PopupPost extends Post {
                                         </div>
                                     </div>
 
-                                    <div class="comment-post-container-${this.post_id}">
+                                    <div class="comment-post-container ${this.post_id}">
                                         
                                     </div>
                                     
                                 </div>
-                                <form action="/create-commnet/${this.post_id}" method="POST" >
+                                <form id="commentForm-${this.post_id}">
                                     <div class="com-user-input prevent-select">
                                         <img src="data:image/png;base64,${cur_user.profile_image}" class="com-user-icon">
                                         <input type="text" name="context" class="com-input" placeholder="Write something..." maxlength="120">
@@ -146,6 +149,28 @@ export class PopupPost extends Post {
                 if(this.isSave) {
                     postDiv.find('.save').toggleClass('save-button active');
                 }
+
+                const commentForm = postDiv.find(`#commentForm-${this.post_id}`);
+                const postId = this.post_id;
+
+                commentForm.on('submit', function (event) {
+                    event.preventDefault();
+
+                    const commentText = commentForm.find('input[name="context"]').val();
+                    console.log(commentText);
+
+                    // Perform the mutation by sending the comment to the server
+                    handleCommentMutation(commentText, postId)
+                        .then((result) => {
+                            console.log(result);
+
+                            $('.comment-post-container').empty();
+                            fetchcomments();
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
+                });
     
                 resolve(postDiv);
             }).catch((error) => {
@@ -153,4 +178,21 @@ export class PopupPost extends Post {
             });
         });
     }
+}
+
+// Function to handle comment mutation (replace this with your actual mutation logic)
+function handleCommentMutation(commentText, postId) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: `/create-comment/${postId}`,
+            method: 'POST',
+            data: { context: commentText },
+            success: function(response) {
+                resolve(response);
+            },
+            error: function(error) {
+                reject(error);
+            }
+        });
+    });
 }

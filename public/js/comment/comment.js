@@ -25,6 +25,6 @@ export class Comment {
 
     addComment() {
         const comDiv = this.createCommentElement();
-        $(`.comment-post-container-${this.post_id}`).append(comDiv);
+        $(`.comment-post-container.${this.post_id}`).append(comDiv);
     }
 }
