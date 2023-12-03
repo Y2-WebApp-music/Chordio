@@ -135,6 +135,50 @@ function handleChangePass() {
             }
         });
     });
+}
 
+const form = document.forms["change-pass"];
+
+form.addEventListener("submit", function(event) {
     event.preventDefault();
+
+    getValues();
+});
+
+function getValues() {
+    const formData = new FormData();
+
+    formData.append("npassword", form.npassword.value);
+    formData.append("password", form.password.value);
+    formData.append("cpassword", form.cpassword.value);
+
+    for (const key of formData.keys()) {
+        const value = formData.get(key);
+        console.log(value);
+    }
+
+    postChangePass(formData);
+    form.reset();
+}
+
+function postChangePass(formData) {
+    fetch("/edit-pass", {
+        method: "post",
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            alert(data.error);
+        } else {
+            alert(data.message);
+
+            const passFill = document.querySelector(".passwd-fill");
+            passFill.style.display = 'none';
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An unexpected error occurred');
+    });
 }

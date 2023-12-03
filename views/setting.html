@@ -125,8 +125,7 @@
                         </div>
                         <div class="user-text">
                             <div class="text"><p>password</p></div>
-                            <button class="text-pass"> 🟠🟠🟠🟠🟠🟠 </button>
-                            <button class="changePass" onclick="handleChangePass()"> Change password </button>
+                            <input class="user-input" onclick="handleChangePass()" type="password" value="••••••••">
                         </div>
                         <button class="save-button" type="submit"> Save </button>
                     </div>
@@ -154,7 +153,7 @@
             </div>
         </div>
     </div>
-    <form action="/edit-pass" method="post">
+    <form  enctype="multipart/form-data" name="change-pass">
         <div class="passwd-fill" id="passwd">
             <div class="passwd-container">
                 <div class="cur-passwd">
