@@ -84,7 +84,7 @@ export class RegularPost extends Post {
         // Create the post element
         const postElement = this.createPostElement();
 
-        $('.mid-container').append(postElement);
+        $('.post-container').append(postElement);
 
         // Find the comment button within the post element
         const commentButton = postElement.find('.comment-show');

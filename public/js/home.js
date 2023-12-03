@@ -1,3 +1,5 @@
+import { loadPost } from '../js/post/fetchpost.js';
+
 // User Icon Click
 const usergobtn = document.getElementById('user-go-btn');
 usergobtn.addEventListener('click',() => {
@@ -34,7 +36,6 @@ const imageInput = document.getElementById("image-input");
 const slideshowLeftRight = document.querySelector(".slideshow-left-right");
 const prevButton = document.querySelector(".prev-button");
 const nextButton = document.querySelector(".next-button");
-const postButton = document.querySelector(".post-btn");
 prevButton.style.display = "none";
 nextButton.style.display = "none";
 // Track the current slide index
@@ -116,26 +117,6 @@ imageInput.addEventListener("change", function (event) {
         });
     }
 
-    // Function to send images to the server
-    function sendImagesToServer(images) {
-        const formData = new FormData();
-        images.forEach((image, index) => {
-            formData.append("images", image.file); // Use "images" as the field name
-        });
-      
-        fetch("/create-post", {
-          method: "post",
-          body: formData,
-        })
-        .then((response) => response.text())
-        .then((data) => {
-            console.log(data);
-        })
-        .catch((error) => {
-            console.error("Error uploading images:", error);
-        });
-    }
-
     // Event listener for the "Previous" button
     prevButton.addEventListener("click", function () {
         currentSlideIndex = (currentSlideIndex - 1 + images.length) % images.length;
@@ -146,13 +127,6 @@ imageInput.addEventListener("change", function (event) {
     nextButton.addEventListener("click", function () {
         currentSlideIndex = (currentSlideIndex + 1) % images.length;
         showSlide(currentSlideIndex);
-    });
-
-    // Event listener for the "Post" button
-    postButton.addEventListener("click", function () {
-        event.preventDefault();
-        currentSlideIndex = (currentSlideIndex + 1) % images.length;
-        sendImagesToServer(images);
     });
 });
 
@@ -281,26 +255,6 @@ popimageInput.addEventListener("change", function (event) {
         });
     }
 
-    // Function to send images to the server
-    function sendImagesToServer(images) {
-        const formData = new FormData();
-        images.forEach((image, index) => {
-            formData.append("images", image.file); // Use "images" as the field name
-        });
-      
-        fetch("/create-post", {
-          method: "post",
-          body: formData,
-        })
-        .then((response) => response.text())
-        .then((data) => {
-            console.log(data);
-        })
-        .catch((error) => {
-            console.error("Error uploading images:", error);
-        });
-    }
-
     // Event listener for the "Previous" button
     popprevButton.addEventListener("click", function () {
         PopcurrentSlideIndex = (PopcurrentSlideIndex - 1 + images.length) % images.length;
@@ -313,29 +267,72 @@ popimageInput.addEventListener("change", function (event) {
         showSlide(PopcurrentSlideIndex);
     });
 
-    // Event listener for the "Post" button
-    postButton.addEventListener("click", function () {
-        event.preventDefault();
-        currentSlideIndex = (currentSlideIndex + 1) % images.length;
-        sendImagesToServer(images);
-    });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    var showCRpost = document.querySelector(".createpost-btn");
-    var postFill = document.querySelector(".create-post-pop");
+var showCRpost = document.querySelector(".createpost-btn");
+var postFill = document.querySelector(".create-post-pop");
 
-    showCRpost.addEventListener("click", function () {
-        postFill.style.display = "flex";
-    });
+showCRpost.addEventListener("click", function () {
+    postFill.style.display = "flex";
+});
 
-    postFill.addEventListener("click", function (e) {
-        if (e.target === postFill) {
-            postFill.style.display = "none";
-        }
-    });
-    var closePostBtn = document.querySelector(".close-pop-cr-post");
-    closePostBtn.addEventListener("click", function () {
+postFill.addEventListener("click", function (e) {
+    if (e.target === postFill) {
         postFill.style.display = "none";
-    });
+    }
 });
+var closePostBtn = document.querySelector(".close-pop-cr-post");
+closePostBtn.addEventListener("click", function () {
+    postFill.style.display = "none";
+});
+
+const form = document.forms["make-post"];
+const pform = document.forms["pop-make-post"];
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    getValues(form, imageInput);
+});
+pform.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    getValues(pform, popimageInput);
+});
+
+function getValues(f, i) {
+    const formData = new FormData();
+
+    if(i.files.length > 0) {
+        Array.from(i.files).forEach((file, index) => {
+            formData.append("images", file);
+        });
+    }
+
+    formData.append("cr_post_title", f.cr_post_title.value);
+    formData.append("cr_post_detail", f.cr_post_detail.value);
+    formData.append("categoryId", f.categoryId.value);
+    formData.append("tagId", f.tagId.value);
+
+    handlePostMutation(formData)
+
+    $('.slideshow-left-right').empty();
+    $('.pop-slideshow-left-right').empty();
+    f.reset();
+
+    $('.post-container').empty();
+    loadPost();
+    postFill.style.display = "none";
+}
+
+function handlePostMutation(formData) {
+    fetch("/create-post", {
+        method: "post",
+        body: formData,
+    })
+    .then((response) => response.text())
+    .then((data) => {})
+    .catch((error) => {
+        console.error("Error uploading images:", error);
+    });
+}

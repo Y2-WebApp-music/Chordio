@@ -195,14 +195,16 @@ function displayPosts(posts, save, tag, cate, search) {
 
     const postend = $('<div>').addClass('end-of-post');
     postend.html(`<p>Create by : Guy and Guy</p>`)
-    $('.mid-container').append(postend);
+    $('.post-container').append(postend);
 
     fetchcomments();
 }
 
 
 // Call the fetchPosts function to load posts when the page loads
-$(document).ready(function () {
+$(document).ready(loadPost());
+
+export function loadPost() {
     getCurrentUser()
     .then(function(user) {
         fetchPosts(user);
@@ -210,4 +212,4 @@ $(document).ready(function () {
     .catch(function(error) {
         console.error(error);
     });
-});
+}
