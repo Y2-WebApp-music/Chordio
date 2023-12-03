@@ -152,11 +152,6 @@ function getValues() {
     formData.append("password", form.password.value);
     formData.append("cpassword", form.cpassword.value);
 
-    for (const key of formData.keys()) {
-        const value = formData.get(key);
-        console.log(value);
-    }
-
     postChangePass(formData);
     form.reset();
 }
