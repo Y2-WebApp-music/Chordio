@@ -65,7 +65,7 @@ export class PopupPost extends Post {
                                     </div>
                                     
                                 </div>
-                                <form id="commentForm-${this.post_id}">
+                                <form id="commentForm-${this.post_id}" name="commentForm">
                                     <div class="com-user-input prevent-select">
                                         <img src="data:image/png;base64,${cur_user.profile_image}" class="com-user-icon">
                                         <input type="text" name="context" class="com-input" placeholder="Write something..." maxlength="120">
@@ -156,13 +156,14 @@ export class PopupPost extends Post {
                 commentForm.on('submit', function (event) {
                     event.preventDefault();
 
-                    const commentText = commentForm.find('input[name="context"]').val();
-                    console.log(commentText);
+                    const commentInput = commentForm.find('input[name="context"]');
+                    const commentText = commentInput.val();
 
                     // Perform the mutation by sending the comment to the server
                     handleCommentMutation(commentText, postId)
                         .then((result) => {
                             console.log(result);
+                            commentInput.val('');
 
                             $('.comment-post-container').empty();
                             fetchcomments();
