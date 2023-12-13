@@ -239,7 +239,7 @@ function displayChords(chords, con, like, type, coun, search) {
                 chordContainer.append(chordElement);
     
                 chordElement.on("click", function(){
-                    window.location.href='./chordview/'+chord.chord_id
+                    window.location.href='../chordview/'+chord.chord_id
                 });
             }
         }
