@@ -26,8 +26,8 @@ contentInput.addEventListener("input", function () {
     this.style.height = "auto"; // Reset the height to auto
     this.style.height = this.scrollHeight + "px"; // Set the height to match the scrollHeight
     // Limit to 5 lines
-    if (lines.length > 5) {
-        this.value = lines.slice(0, 5).join("\n");
+    if (lines.length > 100) {
+        this.value = lines.slice(0, 100).join("\n");
     }
 });
 
@@ -319,6 +319,7 @@ function getValues(f, i) {
     $('.slideshow-left-right').empty();
     $('.pop-slideshow-left-right').empty();
     f.reset();
+    contentInput.style.height = "auto";
 
     $('.post-container').empty();
     loadPost();
