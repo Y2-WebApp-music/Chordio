@@ -7,7 +7,7 @@ Social media web application clone along the lines of Instagram, Facebook, and T
 Using Vanila HTML, CSS and JavaScript we will able to develope our website, as well as using Node.js to handle package management.
 
 ### Languages/Frameworks
-REST API,
+NodeJS,
 HTML,
 CSS,
 JavaScript,
@@ -23,17 +23,24 @@ MySQL
 `DB_DATABASE` - the database name.
 
 ## How to Start:
+-   Clone the repository using git clone `https://github.com/Y2-WebApp-music/Chordio.git`
 
-https://nodejs.org/en/download/
+-   Download and run node js.
 
-Download and run node js.
+-   Open folder and navigate to this folder.
 
-Open folder and navigate to this folder.
+-   Start your MySQL database tool.
 
-From here open terminal and do `npm i axios bcrypt cookie-session dotenv express multer mysql2 sharp nodemon`
+-   Create new database using `development.sql` and create .env file.
 
-You might need to install a few packages
+-   You might need to install a few packages. From here open terminal and do
+```ruby
+npm i axios bcrypt cookie-session dotenv express multer mysql2 sharp nodemon
+```
 
-Then do `npm start`
+-   Then do 
+```ruby
+npm start
+```
 
-Website should launch locally in browser.
+-   Website should launch locally in browser.
