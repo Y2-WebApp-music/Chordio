@@ -7,10 +7,10 @@ Social media web application clone along the lines of Instagram, Facebook, and T
 Using Vanila HTML, CSS and JavaScript we will able to develope our website, as well as using Node.js to handle package management.
 
 ### Languages/Frameworks
-REST API
-HTML
-CSS
-JavaScript
+REST API,
+HTML,
+CSS,
+JavaScript,
 BCrypt
 
 ### Database
@@ -28,12 +28,12 @@ https://nodejs.org/en/download/
 
 Download and run node js.
 
-Open folder and navigate to client folder.
+Open folder and navigate to this folder.
 
-From here open terminal and do npm i
+From here open terminal and do `npm i axios bcrypt cookie-session dotenv express multer mysql2 sharp nodemon`
 
 You might need to install a few packages
 
-Then do npm start
+Then do `npm start`
 
 Website should launch locally in browser.
