@@ -14,24 +14,22 @@ router.post('/edit-user', upload.single('image'), async (req, res) => {
     const user = req.session.user;
     const user_id = user.user_id;
 
+    let processedImageBuffer;
+
     // Check if files were uploaded
-    const imageBuffer = req.file.buffer;
-
-    const { username, email } = req.body;
-
-    let processedImageBuffer = imageBuffer;
-
-    if (imageBuffer) {
-        // Use sharp to crop the image to a square
+    if (req.file) {
+        const imageBuffer = req.file.buffer;
         processedImageBuffer = await sharp(imageBuffer)
             .resize({ width: 300, height: 300, fit: 'cover' })
             .toBuffer();
     }
 
+    const { username, email } = req.body;
+
     let query = 'UPDATE users SET username = ?, email = ?, profile_image = ? WHERE user_id = ?';
     let data = [username, email, processedImageBuffer, user_id];
 
-    if (!imageBuffer) {
+    if (!processedImageBuffer) {
         query = 'UPDATE users SET username = ?, email = ? WHERE user_id = ?';
         data = [username, email, user_id];
     }
