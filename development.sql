@@ -14,7 +14,7 @@ create table post (
 	post_id int not null primary key auto_increment,
     title varchar(100) not null,
     post_date datetime not null,
-    content varchar(1000),
+    content varchar(10000),
     img1 longblob,
     img2 longblob,
     img3 longblob,
@@ -46,7 +46,7 @@ create table chord (
 
 create table comments (
 	comment_id int not null primary key auto_increment,
-    context varchar(100) not null,
+    context varchar(10000) not null,
     comment_date datetime not null,
     user_id int not null,
     post_id int not null,

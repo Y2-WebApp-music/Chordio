@@ -40,6 +40,11 @@ img[src="data:image/png;base64,null"] {
 ============= Pop-UP User ==============
 =========================================
 ====================================== */
+#appicon {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 .user-popup{
     visibility: visible;
     transform: translateX(100%);
